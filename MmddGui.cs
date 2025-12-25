@@ -1,4 +1,5 @@
 ﻿using BepInEx;
+using ILLGAMES.ADV.Anime;
 using UnityEngine;
 
 namespace CharaAnime
@@ -14,7 +15,7 @@ namespace CharaAnime
 
         public static List<string> AvailableVmdFiles = new List<string>();
         public static List<string> AvailableAudioFiles = new List<string>();
-
+        public static bool Cfg_ForceDisableIK = false;
         public static string SelectedMotionFile = "test.vmd";
         public static string SelectedCameraFile = "camera.vmd";
         public static string SelectedAudioFile = "audio.wav";
@@ -53,18 +54,25 @@ namespace CharaAnime
         private List<string> presetFileList = new List<string>();
 
         public static float Cfg_MorphScale = 1f;
-        public static float Cfg_PosScale = 0.085f;
+        public static Vector3 Cfg_PosScale = new Vector3(0.085f, 0.085f, 0.085f);
+        private static bool Cfg_ScaleLocked = false;
         public static float Cfg_VmdFrameRate = 30.0f;
         public static Vector3 Cfg_IKHeight = Vector3.zero;
+        public static int Cfg_RootMotionMode = 1;
+        public static int Cfg_UpperBodyMode = 0;
 
         private static float s_Cfg_CameraScale = 0.085f;
         public static float Cfg_CameraScale { get => s_Cfg_CameraScale; set => s_Cfg_CameraScale = value; }
         public static float Cfg_CameraOffsetY = 0.0f;
 
-        public static bool Cfg_EnableGrooveFix = false;
         public static bool Cfg_EnableGaze = false;
         public static float Cfg_GazeWeight = 1.0f;
         public static bool Cfg_EnableShortcuts = true;
+        public static float Cfg_LegWidthFix = 0.060f;
+        // 捩骨权重配置
+        public static float Cfg_TwistWeight_Arm = 2f;     // 腕捩权重
+        public static float Cfg_TwistWeight_Hand = 2f;     // 手捩权重
+        public static float Cfg_TwistWeight_Default = 0.0f;  // 默认捩骨权重
 
         private string[] presetBones = new string[] {
             "左親指１", "左親指２", "左親指３", "左親指０",
@@ -160,7 +168,6 @@ namespace CharaAnime
                 showMain = !showMain;
                 if (showMain)
                 {
-                    // 这里的 SyncSelections 只需要随便找一个控制器来同步骨骼预设即可 (因为骨骼预设是 static 的)
                     var anyCtrl = UnityEngine.Object.FindObjectOfType<MmddPoseController>();
                     SyncSelections(anyCtrl);
                     RefreshPresetList();
@@ -203,15 +210,30 @@ namespace CharaAnime
                 foreach (var ctrl in CharaAnimeMgr.Instance.ociPoseCtrlDic.Values)
                 {
                     if (ctrl == null) continue;
+                    // 同步 IK 开关
+                    if (ctrl.ForceDisableIK != Cfg_ForceDisableIK)
+                        ctrl.ForceDisableIK = Cfg_ForceDisableIK;
 
                     // 同步 Morph Scale (表情强度)
                     if (Math.Abs(ctrl.MorphScale - Cfg_MorphScale) > 0.001f)
                         ctrl.MorphScale = Cfg_MorphScale;
 
                     // 同步 Position Scale (位移缩放)
-                    if (Math.Abs(ctrl.positionScale - Cfg_PosScale) > 0.001f)
-                        ctrl.positionScale = Cfg_PosScale;
+                    if (ctrl != null) ctrl.positionScale = Cfg_PosScale;
 
+                    // 同步腿部间距补偿
+                    ctrl.LegWidthFix = Cfg_LegWidthFix;
+
+                    // 同步根运动模式
+                    if ((int)ctrl.rootMotionMode != Cfg_RootMotionMode)
+                    {
+                        ctrl.rootMotionMode = (MmddPoseController.RootMotionMode)Cfg_RootMotionMode;
+                    }
+
+                    if ((int)ctrl.upperBodyMode != Cfg_UpperBodyMode)
+                    {
+                        ctrl.upperBodyMode = (MmddPoseController.UpperBodyMode)Cfg_UpperBodyMode;
+                    }
                     // 同步 Frame Rate (帧率)
                     if (Math.Abs(ctrl.VmdFrameRate - Cfg_VmdFrameRate) > 0.1f)
                         ctrl.VmdFrameRate = Cfg_VmdFrameRate;
@@ -431,13 +453,147 @@ namespace CharaAnime
         private void DrawSettingsWindow(int id)
         {
             GUILayout.BeginVertical();
-            GUILayout.BeginHorizontal(); GUILayout.FlexibleSpace(); GUI.backgroundColor = Color.red; if (GUILayout.Button("X", GUILayout.Width(25), GUILayout.Height(20))) showSettings = false; GUI.backgroundColor = Color.white; GUILayout.EndHorizontal();
+            // 顶部关闭按钮
+            GUILayout.BeginHorizontal();
+            GUILayout.FlexibleSpace();
+            GUI.backgroundColor = Color.red;
+            if (GUILayout.Button("X", GUILayout.Width(25), GUILayout.Height(20))) showSettings = false;
+            GUI.backgroundColor = Color.white;
+            GUILayout.EndHorizontal();
+
             settingsScrollPos = GUILayout.BeginScrollView(settingsScrollPos);
 
             GUILayout.Label(FormatTitle("Global Settings:"));
-            GUILayout.BeginVertical("box");
-            DrawSafeSlider("Pos Scale", ref Cfg_PosScale, 0.01f, 0.25f, 0.085f);
-            DrawSafeSlider("Morph Scale", ref Cfg_MorphScale, 0.0f, 1.2f, 1.0f);
+            GUILayout.BeginVertical(GUI.skin.box);
+
+            // ========================= [Scale UI ] =========================
+            MmddPoseController controller = GameObject.FindObjectOfType<MmddPoseController>();
+
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("Pos Scale", GUILayout.Width(70));
+
+            // 1. 锁定开关
+            bool newLocked = GUILayout.Toggle(Cfg_ScaleLocked, "Link XYZ");
+            if (newLocked != Cfg_ScaleLocked) Cfg_ScaleLocked = newLocked;
+
+            // 2. 重置按钮 (R)
+            if (GUILayout.Button("R", GUILayout.Width(25)))
+            {
+                // 一键恢复到最佳测试值
+                Cfg_PosScale = new Vector3(0.085f, 0.085f, 0.085f);
+                if (controller != null) controller.positionScale = Cfg_PosScale;
+            }
+            GUILayout.EndHorizontal();
+
+            if (Cfg_ScaleLocked)
+            {
+                // --- 锁定模式 ---
+                GUILayout.BeginHorizontal();
+                GUILayout.Label("All", GUILayout.Width(25));
+                float currentVal = Cfg_PosScale.x;
+                float newVal = GUILayout.HorizontalSlider(currentVal, 0.01f, 0.2f);
+                GUILayout.Label(newVal.ToString("F3"), GUILayout.Width(45));
+                GUILayout.EndHorizontal();
+
+                if (Math.Abs(newVal - currentVal) > 0.0001f)
+                {
+                    Cfg_PosScale = new Vector3(newVal, newVal, newVal);
+                    if (controller != null) controller.positionScale = Cfg_PosScale;
+                }
+            }
+            else
+            {
+                // --- 独立模式 ---
+
+                // X轴
+                GUILayout.BeginHorizontal();
+                GUILayout.Label("X", GUILayout.Width(25));
+                Cfg_PosScale.x = GUILayout.HorizontalSlider(Cfg_PosScale.x, 0.01f, 0.2f);
+                GUILayout.Label(Cfg_PosScale.x.ToString("F3"), GUILayout.Width(45));
+                GUILayout.EndHorizontal();
+
+                // Y轴 (范围 0.25)
+                GUILayout.BeginHorizontal();
+                GUILayout.Label("Y", GUILayout.Width(25));
+                Cfg_PosScale.y = GUILayout.HorizontalSlider(Cfg_PosScale.y, 0.01f, 0.25f);
+                GUILayout.Label(Cfg_PosScale.y.ToString("F3"), GUILayout.Width(45));
+                GUILayout.EndHorizontal();
+
+                // Z轴
+                GUILayout.BeginHorizontal();
+                GUILayout.Label("Z", GUILayout.Width(25));
+                Cfg_PosScale.z = GUILayout.HorizontalSlider(Cfg_PosScale.z, 0.01f, 0.2f);
+                GUILayout.Label(Cfg_PosScale.z.ToString("F3"), GUILayout.Width(45));
+                GUILayout.EndHorizontal();
+
+                if (controller != null) controller.positionScale = Cfg_PosScale;
+            }
+
+            GUILayout.EndVertical();
+
+            GUILayout.BeginVertical(GUI.skin.box);
+            GUILayout.Label("Leg Width Fix ");
+
+            GUILayout.BeginHorizontal();
+            // 范围设为 0.0 ~ 0.2 (0.2米通常已经很宽了)
+            float newLegWidth = GUILayout.HorizontalSlider(Cfg_LegWidthFix, 0.0f, 0.2f);
+            GUILayout.Label(newLegWidth.ToString("F3"), GUILayout.Width(45));
+            GUILayout.EndHorizontal();
+
+            if (Math.Abs(newLegWidth - Cfg_LegWidthFix) > 0.0001f)
+            {
+                Cfg_LegWidthFix = newLegWidth;
+                if (controller != null) controller.LegWidthFix = Cfg_LegWidthFix;
+            }
+            GUILayout.EndVertical();
+
+            GUILayout.BeginVertical(GUI.skin.box);
+            GUILayout.Label("Root Motion ");
+
+            // ================= [修复 IL2CPP 兼容性开始] =================
+            // 原来的 GUILayout.Toolbar 在 IL2CPP 下容易报错，改用水平排列的 Toggle 模拟
+
+            GUILayout.BeginHorizontal();
+
+            // 按钮 0: Std
+            if (GUILayout.Toggle(Cfg_RootMotionMode == 0, "Std ", GUI.skin.button))
+            {
+                if (Cfg_RootMotionMode != 0)
+                {
+                    Cfg_RootMotionMode = 0;
+                    if (controller != null) controller.rootMotionMode = MmddPoseController.RootMotionMode.Standard;
+                }
+            }
+
+            // 按钮 1: Groove
+            if (GUILayout.Toggle(Cfg_RootMotionMode == 1, "Groove ", GUI.skin.button))
+            {
+                if (Cfg_RootMotionMode != 1)
+                {
+                    Cfg_RootMotionMode = 1;
+                    if (controller != null) controller.rootMotionMode = MmddPoseController.RootMotionMode.Groove;
+                }
+            }
+
+            bool isFix = (Cfg_UpperBodyMode == 1);
+            // 颜色高亮提示：开启稳定模式时变黄
+            Color oldColor = GUI.backgroundColor;
+            if (isFix) GUI.backgroundColor = Color.yellow;
+
+            if (GUILayout.Toggle(isFix, "Fix Upper", GUI.skin.button) != isFix)
+            {
+                // 切换模式：0 <-> 1
+                Cfg_UpperBodyMode = isFix ? 0 : 1;
+            }
+            GUI.backgroundColor = oldColor; // 还原颜色
+
+            GUILayout.EndHorizontal();
+
+            // 简单说明提示
+            string rootDesc = Cfg_RootMotionMode == 0 ? "Ignore Groove move" : "Use Groove move";
+            string upperDesc = Cfg_UpperBodyMode == 0 ? "Follow Hips" : "Lock Rotation";
+            GUILayout.Label($"<size=10>Root: {rootDesc} | Upper: {upperDesc}</size>");
+
             GUILayout.EndVertical();
 
             GUILayout.Space(5);
@@ -452,9 +608,10 @@ namespace CharaAnime
             GUILayout.Space(5);
             GUILayout.Label(FormatTitle("Motion Fix (Special):"));
             GUILayout.BeginVertical("box");
-            bool newGroove = GUILayout.Toggle(Cfg_EnableGrooveFix, " Enable Groove(Hip) Fix");
-            if (newGroove != Cfg_EnableGrooveFix) Cfg_EnableGrooveFix = newGroove;
-            GUILayout.Label("<color=#AAAAAA><size=10>* Fix for motions where 'Center' is locked</size></color>");
+            // 🔴 [新增] IK 手动开关 UI
+            bool newDisableIK = GUILayout.Toggle(Cfg_ForceDisableIK, " <color=orange><b>Force Disable IK (FK Mode)</b></color>");
+            if (newDisableIK != Cfg_ForceDisableIK) Cfg_ForceDisableIK = newDisableIK;
+            GUILayout.Label("<color=#AAAAAA><size=10>* Check this if feet act weird or limited in MoCap.</size></color>");
             GUILayout.EndVertical();
 
             GUILayout.Space(5);
@@ -465,6 +622,17 @@ namespace CharaAnime
             bool oldEn = GUI.enabled; GUI.enabled = Cfg_EnableGaze;
             DrawSafeSlider("Weight", ref Cfg_GazeWeight, 0f, 1f, 1.0f);
             GUI.enabled = oldEn;
+            GUILayout.EndVertical();
+
+            GUILayout.Space(5);
+            GUILayout.Label(FormatTitle("Twist Bone Weights (捩骨权重):"));
+            GUILayout.BeginVertical("box");
+            DrawSafeSlider("腕捩 Weight (Arm Twist)", ref Cfg_TwistWeight_Arm, 0.0f, 2.0f, 0.65f);
+            GUILayout.Label("<color=#AAAAAA><size=9>* Rotate the entire arm: upper arm + forearm + wrist</size></color>");
+            DrawSafeSlider("手捩 Weight (Wrist Twist)", ref Cfg_TwistWeight_Hand, 0.0f, 2.0f, 0.0f);
+            GUILayout.Label("<color=#AAAAAA><size=9>* Forearm + Hand Rotation: Forearm + Wrist (excluding Upper Arm)</size></color>");
+            DrawSafeSlider("Default Weight ", ref Cfg_TwistWeight_Default, 0.0f, 2.0f, 0.0f);
+            GUILayout.Label("<color=#AAAAAA><size=9>* Other naming conventions' default weights for twist bones.</size></color>");
             GUILayout.EndVertical();
 
             GUILayout.Space(5);

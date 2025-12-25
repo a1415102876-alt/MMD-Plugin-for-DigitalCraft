@@ -373,7 +373,7 @@ namespace CharaAnime
             foreach (var comp in go.GetComponentsInChildren<MonoBehaviour>(true))
             {
                 string name = comp.GetIl2CppType().Name;
-                if (name.Contains("IK") || name.Contains("LookAt") || name.Contains("Grounder")) comp.enabled = true;
+                if (name.Contains("IK") || name.Contains("LookAt")) comp.enabled = true;
             }
         }
 
