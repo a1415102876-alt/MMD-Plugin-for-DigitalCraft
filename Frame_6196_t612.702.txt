@@ -1,0 +1,3632 @@
+[Mmdd] Frame Snapshot
+Time      : 612.702 (frames)
+UnityTime : 118.957 (seconds)
+Frame     : 6196
+TargetObj : chaF_00
+DummyRoot : (0.0000, 0.0000, 0.0000)
+
+[Groove Debug]
+  Groove Name      : グルーブ
+  Has Position Data: True
+  LocalPosition.Y  : -0.2690
+  WorldPosition    : (-0.0774, 0.7586, -0.0216)
+  Virtual Parent   : センター, World=(-0.0774, 1.0276, -0.0216)
+
+[Bone] 右腕捩3
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左腕捩1
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左手捩1
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左手捩2
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左手捩3
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右腕捩1
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右腕捩2
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左腕捩3
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右手捩1
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左腕捩2
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右手捩3
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右手捩2
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] しっぽ３
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右髪９
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右髪ＩＫ
+  Flags        : IsIK, RightSide
+  Virtual.LocalPos   : (-0.0000, 0.0000, -0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] しっぽ２
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] しっぽ１
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 腰パーツ親
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左髪１
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左髪２
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左髪４
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左髪ＩＫ
+  Flags        : IsIK
+  Virtual.LocalPos   : (-0.0000, 0.0000, -0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左髪９
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左髪８
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左髪５
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左髪６
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左髪７
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左髪３
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 操作中心
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 1764
+  VMD.tLinear    : 0.3473
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右髪８
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右髪７
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 腕ベルトＢ_１
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 腕ベルトＢ_２
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 腕ベルトＢ_３
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] ﾈｸﾀｲ１
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] ﾈｸﾀｲ２
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] ﾈｸﾀｲ３
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] ﾈｸﾀｲ４
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] ﾈｸﾀｲ５
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] ﾈｸﾀｲ６
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] ﾈｸﾀｲＩＫ
+  Flags        : IsIK
+  Virtual.LocalPos   : (-0.0000, 0.0000, -0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右目
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右目戻
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左目
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左目戻
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 両目
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (2.28, 350.99, 0.46)
+  Virtual.WorldEuler : (2.28, 350.99, 0.46)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 583
+  VMD.NextFrame  : 614
+  VMD.tLinear    : 0.9581
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (-0.01180, -0.05479, -0.00540, 0.99841)
+  VMD.Next.RotQ  : (-0.01987, -0.07968, -0.00559, 0.99661)
+
+[Bone] 右髪１
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右髪２
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右髪３
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右髪４
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右髪５
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右髪６
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] しっぽ４
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] しっぽ５
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] しっぽ８
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] しっぽ７
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左腰ベルト２
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左腰ベルト３
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左腰ベルト４
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左腰ベルト５
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左腰ベルト６
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左腰ベルトＩＫ
+  Flags        : IsIK
+  Virtual.LocalPos   : (-0.0000, 0.0000, -0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右つま先
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0802, 0.0394, 0.0462)
+  Virtual.WorldPos   : (0.0802, 0.0394, 0.0462)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_waist01/cf_j_waist02/cf_j_thigh00_R/cf_j_leg01_R/cf_j_leg03_R/cf_j_foot_R/cf_j_toes_R
+  Real.LocalPos  : (-0.0000, 0.0000, 0.1000)
+  Real.WorldPos  : (0.2168, 0.0394, 0.1334)
+  Real.LocalEuler: (-0.00, 0.00, -0.00)
+  Real.WorldEuler: (0.00, 32.64, 358.89)
+  Real.Parent       : cf_j_foot_R, World=(0.1654, 0.0394, 0.0532)
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左つま先
+  Flags        : None
+  Virtual.LocalPos   : (-0.0802, 0.0394, 0.0462)
+  Virtual.WorldPos   : (-0.0802, 0.0394, 0.0462)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_waist01/cf_j_waist02/cf_j_thigh00_L/cf_j_leg01_L/cf_j_leg03_L/cf_j_foot_L/cf_j_toes_L
+  Real.LocalPos  : (0.0000, 0.0000, 0.1000)
+  Real.WorldPos  : (-0.3952, 0.0394, 0.0527)
+  Real.LocalEuler: (-0.00, 0.00, -0.00)
+  Real.WorldEuler: (0.00, -0.00, -0.00)
+  Real.Parent       : cf_j_foot_L, World=(-0.3952, 0.0394, -0.0425)
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右足D
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左腰ベルト１
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右ひざD
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右足先EX
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 804
+  VMD.tLinear    : 0.7621
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左足D
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左ひざD
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左足首D
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左足先EX
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 440
+  VMD.NextFrame  : 923
+  VMD.tLinear    : 0.3576
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] メガネ
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 舌１
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 舌２
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 舌３
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右足首D
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左腰羽２
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左腰羽１
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左腰羽４
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 腕ベルトＡ_２
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] しっぽ９
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] しっぽ１０
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] しっぽ１１
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] しっぽ１２
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] しっぽ１３
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] しっぽＩＫ
+  Flags        : IsIK
+  Virtual.LocalPos   : (-0.0000, 0.0000, -0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右ｽｶｰﾄ前
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右腰羽３
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右腰羽４
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右腰羽１
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右腰羽２
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右腰ベルト１
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右腰ベルト２
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右腰ベルト３
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右腰ベルト４
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右腰ベルト５
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右腰ベルト６
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右腰ベルトＩＫ
+  Flags        : IsIK, RightSide
+  Virtual.LocalPos   : (-0.0000, 0.0000, -0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左ｽｶｰﾄ前
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左腰羽３
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] しっぽ６
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左人指先
+  Flags        : Finger
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 腕ベルトＡ_１
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右小指１
+  Flags        : RightSide, Finger
+  Virtual.LocalPos   : (0.5460, 1.2812, -0.0601)
+  Virtual.WorldPos   : (0.5460, 1.2812, -0.0601)
+  Virtual.LocalEuler : (358.84, 359.66, 49.04)
+  Virtual.WorldEuler : (358.84, 359.66, 49.04)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_R/cf_j_arm00_R/cf_j_forearm01_R/cf_j_hand_R/cf_s_hand_sub_R/cf_j_little01_R
+  Real.LocalPos  : (0.0412, -0.0077, -0.0245)
+  Real.WorldPos  : (-0.0707, 1.3646, -0.0969)
+  Real.LocalEuler: (14.84, 197.65, 48.95)
+  Real.WorldEuler: (330.97, 104.76, 275.34)
+  Real.Parent       : cf_s_hand_sub_R, World=(-0.0564, 1.3260, -0.0707)
+  VMD.PrevFrame  : 611
+  VMD.NextFrame  : 623
+  VMD.tLinear    : 0.1418
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (-0.00453, 0.00211, 0.39401, 0.91909)
+  VMD.Next.RotQ  : (0.07516, 0.11034, 0.64768, 0.75012)
+
+[Bone] 右親指先
+  Flags        : RightSide, Finger
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左人指３
+  Flags        : Finger
+  Virtual.LocalPos   : (-0.6034, 1.2827, -0.0109)
+  Virtual.WorldPos   : (-0.6034, 1.2827, -0.0109)
+  Virtual.LocalEuler : (-0.00, 0.00, 10.80)
+  Virtual.WorldEuler : (-0.00, -0.00, 10.80)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_L/cf_j_arm00_L/cf_j_forearm01_L/cf_j_hand_L/cf_s_hand_sub_L/cf_j_index01_L/cf_j_index02_L/cf_j_index03_L
+  Real.LocalPos  : (0.0215, -0.0000, -0.0000)
+  Real.WorldPos  : (0.0782, 0.7326, 0.0406)
+  Real.LocalEuler: (-0.00, 0.00, 10.80)
+  Real.WorldEuler: (297.10, 166.26, 271.64)
+  Real.Parent       : cf_j_index02_L, World=(0.0703, 0.7424, 0.0583)
+  VMD.PrevFrame  : 576
+  VMD.NextFrame  : 616
+  VMD.tLinear    : 0.9176
+  VMD.Prev.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, -0.00000, -0.09410, 0.99556)
+  VMD.Next.RotQ  : (0.00000, -0.00000, -0.09410, 0.99556)
+
+[Bone] 右小指２
+  Flags        : RightSide, Finger
+  Virtual.LocalPos   : (0.5698, 1.2812, -0.0678)
+  Virtual.WorldPos   : (0.5698, 1.2812, -0.0678)
+  Virtual.LocalEuler : (-0.00, 0.00, 52.82)
+  Virtual.WorldEuler : (-0.00, 0.00, 52.82)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_R/cf_j_arm00_R/cf_j_forearm01_R/cf_j_hand_R/cf_s_hand_sub_R/cf_j_little01_R/cf_j_little02_R
+  Real.LocalPos  : (-0.0249, 0.0000, -0.0000)
+  Real.WorldPos  : (-0.0818, 1.3865, -0.0916)
+  Real.LocalEuler: (-0.00, 0.00, 52.82)
+  Real.WorldEuler: (330.97, 104.76, 328.16)
+  Real.Parent       : cf_j_little01_R, World=(-0.0707, 1.3646, -0.0969)
+  VMD.PrevFrame  : 611
+  VMD.NextFrame  : 615
+  VMD.tLinear    : 0.4255
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (-0.00000, -0.00000, 0.79256, 0.60979)
+
+[Bone] 右小指３
+  Flags        : RightSide, Finger
+  Virtual.LocalPos   : (0.5877, 1.2812, -0.0736)
+  Virtual.WorldPos   : (0.5877, 1.2812, -0.0736)
+  Virtual.LocalEuler : (0.00, 0.00, 38.10)
+  Virtual.WorldEuler : (0.00, 0.00, 38.10)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_R/cf_j_arm00_R/cf_j_forearm01_R/cf_j_hand_R/cf_s_hand_sub_R/cf_j_little01_R/cf_j_little02_R/cf_j_little03_R
+  Real.LocalPos  : (-0.0187, 0.0000, 0.0000)
+  Real.WorldPos  : (-0.0824, 1.3951, -0.0749)
+  Real.LocalEuler: (0.00, 0.00, 38.10)
+  Real.WorldEuler: (330.97, 104.76, 6.27)
+  Real.Parent       : cf_j_little02_R, World=(-0.0818, 1.3865, -0.0916)
+  VMD.PrevFrame  : 611
+  VMD.NextFrame  : 615
+  VMD.tLinear    : 0.4255
+  VMD.Prev.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, -0.00000, -0.00000, 1.00000)
+  VMD.Next.RotQ  : (-0.00000, 0.00000, 0.61312, 0.78999)
+
+[Bone] 右小指先
+  Flags        : RightSide, Finger
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右薬指１
+  Flags        : RightSide, Finger
+  Virtual.LocalPos   : (0.5536, 1.2873, -0.0486)
+  Virtual.WorldPos   : (0.5536, 1.2873, -0.0486)
+  Virtual.LocalEuler : (358.01, 352.23, 46.62)
+  Virtual.WorldEuler : (358.01, 352.23, 46.62)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_R/cf_j_arm00_R/cf_j_forearm01_R/cf_j_hand_R/cf_s_hand_sub_R/cf_j_ring01_R
+  Real.LocalPos  : (0.0487, -0.0017, -0.0131)
+  Real.WorldPos  : (-0.0844, 1.3585, -0.0979)
+  Real.LocalEuler: (5.93, 180.40, 47.55)
+  Real.WorldEuler: (326.03, 126.52, 265.61)
+  Real.Parent       : cf_s_hand_sub_R, World=(-0.0564, 1.3260, -0.0707)
+  VMD.PrevFrame  : 611
+  VMD.NextFrame  : 615
+  VMD.tLinear    : 0.4255
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (-0.05872, 0.03800, 0.31380, 0.94691)
+  VMD.Next.RotQ  : (-0.05145, 0.04738, 0.46947, 0.88017)
+
+[Bone] 右親指２
+  Flags        : RightSide, Finger
+  Virtual.LocalPos   : (0.5505, 1.2575, 0.0049)
+  Virtual.WorldPos   : (0.5505, 1.2575, 0.0049)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_R/cf_j_arm00_R/cf_j_forearm01_R/cf_j_hand_R/cf_s_hand_sub_R/cf_j_thumb01_R/cf_j_thumb02_R/cf_j_thumb03_R
+  Real.LocalPos  : (-0.0237, 0.0000, 0.0000)
+  Real.WorldPos  : (-0.1158, 1.3391, -0.0354)
+  Real.LocalEuler: (-0.00, 0.00, 0.00)
+  Real.WorldEuler: (5.19, 206.97, 182.31)
+  Real.Parent       : cf_j_thumb02_R, World=(-0.0945, 1.3381, -0.0462)
+  VMD.PrevFrame  : 611
+  VMD.NextFrame  : 615
+  VMD.tLinear    : 0.4255
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右薬指２
+  Flags        : RightSide, Finger
+  Virtual.LocalPos   : (0.5825, 1.2863, -0.0527)
+  Virtual.WorldPos   : (0.5825, 1.2863, -0.0527)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_R/cf_j_arm00_R/cf_j_forearm01_R/cf_j_hand_R/cf_s_hand_sub_R/cf_j_ring01_R/cf_j_ring02_R
+  Real.LocalPos  : (-0.0291, 0.0000, 0.0000)
+  Real.WorldPos  : (-0.0989, 1.3827, -0.0900)
+  Real.LocalEuler: (-0.00, 0.00, 0.00)
+  Real.WorldEuler: (326.03, 126.52, 265.61)
+  Real.Parent       : cf_j_ring01_R, World=(-0.0844, 1.3585, -0.0979)
+  VMD.PrevFrame  : 611
+  VMD.NextFrame  : 615
+  VMD.tLinear    : 0.4255
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右薬指先
+  Flags        : RightSide, Finger
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 首
+  Flags        : None
+  Virtual.LocalPos   : (-0.0000, 1.3258, -0.0437)
+  Virtual.WorldPos   : (-0.0000, 1.3258, -0.0437)
+  Virtual.LocalEuler : (358.76, 359.94, 1.19)
+  Virtual.WorldEuler : (358.76, 359.94, 1.19)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_neck
+  Real.LocalPos  : (-0.0000, 0.1395, -0.0293)
+  Real.WorldPos  : (-0.1691, 1.0414, -0.0575)
+  Real.LocalEuler: (358.76, 359.94, 1.19)
+  Real.WorldEuler: (347.02, 45.07, 9.30)
+  Real.Parent       : cf_j_spine03, World=(-0.1175, 0.9183, -0.0327)
+  VMD.PrevFrame  : 570
+  VMD.NextFrame  : 613
+  VMD.tLinear    : 0.9931
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.08988, 0.00000, 0.99595)
+  VMD.Next.RotQ  : (0.01083, -0.00063, -0.01036, 0.99989)
+
+[Bone] 左胸２
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左胸１
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右胸２
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右胸１
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右薬指３
+  Flags        : RightSide, Finger
+  Virtual.LocalPos   : (0.6045, 1.2855, -0.0557)
+  Virtual.WorldPos   : (0.6045, 1.2855, -0.0557)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_R/cf_j_arm00_R/cf_j_forearm01_R/cf_j_hand_R/cf_s_hand_sub_R/cf_j_ring01_R/cf_j_ring02_R/cf_j_ring03_R
+  Real.LocalPos  : (-0.0221, -0.0000, 0.0000)
+  Real.WorldPos  : (-0.1098, 1.4010, -0.0840)
+  Real.LocalEuler: (-0.00, 0.00, 0.00)
+  Real.WorldEuler: (326.03, 126.52, 265.61)
+  Real.Parent       : cf_j_ring02_R, World=(-0.0989, 1.3827, -0.0900)
+  VMD.PrevFrame  : 611
+  VMD.NextFrame  : 615
+  VMD.tLinear    : 0.4255
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右親指１
+  Flags        : RightSide, Finger
+  Virtual.LocalPos   : (0.5300, 1.2650, -0.0049)
+  Virtual.WorldPos   : (0.5300, 1.2650, -0.0049)
+  Virtual.LocalEuler : (3.89, 345.60, 334.97)
+  Virtual.WorldEuler : (3.89, 345.60, 334.97)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_R/cf_j_arm00_R/cf_j_forearm01_R/cf_j_hand_R/cf_s_hand_sub_R/cf_j_thumb01_R/cf_j_thumb02_R
+  Real.LocalPos  : (-0.0423, -0.0000, -0.0000)
+  Real.WorldPos  : (-0.0945, 1.3381, -0.0462)
+  Real.LocalEuler: (12.74, 346.27, 337.41)
+  Real.WorldEuler: (5.19, 206.97, 182.31)
+  Real.Parent       : cf_j_thumb01_R, World=(-0.0551, 1.3237, -0.0536)
+  VMD.PrevFrame  : 611
+  VMD.NextFrame  : 615
+  VMD.tLinear    : 0.4255
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.15643, -0.19167, 0.00000, 0.96891)
+  VMD.Next.RotQ  : (0.15643, -0.19167, 0.00000, 0.96891)
+
+[Bone] 右親指０
+  Flags        : RightSide, Finger
+  Virtual.LocalPos   : (0.4951, 1.2784, -0.0254)
+  Virtual.WorldPos   : (0.4951, 1.2784, -0.0254)
+  Virtual.LocalEuler : (17.25, 0.41, 356.05)
+  Virtual.WorldEuler : (17.25, 0.41, 356.05)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_R/cf_j_arm00_R/cf_j_forearm01_R/cf_j_hand_R/cf_s_hand_sub_R/cf_j_thumb01_R
+  Real.LocalPos  : (-0.0093, -0.0105, 0.0100)
+  Real.WorldPos  : (-0.0551, 1.3237, -0.0536)
+  Real.LocalEuler: (294.97, 105.66, 42.82)
+  Real.WorldEuler: (22.25, 199.20, 201.50)
+  Real.Parent       : cf_s_hand_sub_R, World=(-0.0564, 1.3260, -0.0707)
+  VMD.PrevFrame  : 569
+  VMD.NextFrame  : 676
+  VMD.tLinear    : 0.4084
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (-0.04744, 0.00870, 0.14616, 0.98808)
+  VMD.Next.RotQ  : (-0.04744, 0.00870, 0.14616, 0.98808)
+
+[Bone] 右手先
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左もみあげ２
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 前髪１
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 前髪１_２
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 前髪２
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 前髪２_２
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 前髪３
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 前髪３_２
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右肩P
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 768
+  VMD.tLinear    : 0.7978
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右もみあげ１
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右肩C
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] アホ毛２
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右ひじ補助
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] +右ひじ補助
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] アホ毛１
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右ダミー
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 上半身
+  Flags        : None
+  Virtual.LocalPos   : (-0.0000, 1.0115, 0.0000)
+  Virtual.WorldPos   : (-0.0000, 1.0115, 0.0000)
+  Virtual.LocalEuler : (2.49, 34.32, 2.30)
+  Virtual.WorldEuler : (2.49, 34.32, 2.30)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01
+  Real.LocalPos  : (-0.0000, -0.0169, 0.0000)
+  Real.WorldPos  : (-0.0811, 0.7429, -0.0218)
+  Real.LocalEuler: (354.27, 5.22, 13.08)
+  Real.WorldEuler: (2.49, 34.32, 2.30)
+  Real.Parent       : cf_j_hips, World=(-0.0774, 0.7586, -0.0216)
+  VMD.PrevFrame  : 611
+  VMD.NextFrame  : 626
+  VMD.tLinear    : 0.1135
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (-0.02693, 0.29504, -0.01320, 0.95501)
+  VMD.Next.RotQ  : (0.00846, 0.22246, 0.04386, 0.97392)
+
+[Bone] 左もみあげ１
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右もみあげ２
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右中指２
+  Flags        : RightSide, Finger
+  Virtual.LocalPos   : (0.5893, 1.2885, -0.0330)
+  Virtual.WorldPos   : (0.5893, 1.2885, -0.0330)
+  Virtual.LocalEuler : (0.00, -0.00, 349.69)
+  Virtual.WorldEuler : (0.00, -0.00, 349.69)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_R/cf_j_arm00_R/cf_j_forearm01_R/cf_j_hand_R/cf_s_hand_sub_R/cf_j_middle01_R/cf_j_middle02_R
+  Real.LocalPos  : (-0.0323, 0.0000, 0.0000)
+  Real.WorldPos  : (-0.1210, 1.3706, -0.1022)
+  Real.LocalEuler: (0.00, -0.00, 349.69)
+  Real.WorldEuler: (330.54, 131.07, 214.96)
+  Real.Parent       : cf_j_middle01_R, World=(-0.0974, 1.3504, -0.0924)
+  VMD.PrevFrame  : 611
+  VMD.NextFrame  : 615
+  VMD.tLinear    : 0.4255
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (-0.00000, 0.00000, -0.08988, 0.99595)
+  VMD.Next.RotQ  : (-0.00000, 0.00000, -0.08988, 0.99595)
+
+[Bone] 左親指先
+  Flags        : Finger
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左小指１
+  Flags        : Finger
+  Virtual.LocalPos   : (-0.5460, 1.2812, -0.0601)
+  Virtual.WorldPos   : (-0.5460, 1.2812, -0.0601)
+  Virtual.LocalEuler : (-0.00, 0.00, 10.31)
+  Virtual.WorldEuler : (-0.00, -0.00, 10.31)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_L/cf_j_arm00_L/cf_j_forearm01_L/cf_j_hand_L/cf_s_hand_sub_L/cf_j_little01_L
+  Real.LocalPos  : (-0.0412, -0.0077, -0.0245)
+  Real.WorldPos  : (0.0337, 0.7174, 0.0981)
+  Real.LocalEuler: (344.00, 342.00, 190.31)
+  Real.WorldEuler: (312.82, 124.56, 268.85)
+  Real.Parent       : cf_s_hand_sub_L, World=(0.0094, 0.7584, 0.1089)
+  VMD.PrevFrame  : 576
+  VMD.NextFrame  : 616
+  VMD.tLinear    : 0.9176
+  VMD.Prev.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, -0.08988, 0.99595)
+  VMD.Next.RotQ  : (0.00000, 0.00000, -0.08988, 0.99595)
+
+[Bone] 左小指２
+  Flags        : Finger
+  Virtual.LocalPos   : (-0.5698, 1.2812, -0.0678)
+  Virtual.WorldPos   : (-0.5698, 1.2812, -0.0678)
+  Virtual.LocalEuler : (-0.00, 0.00, 20.06)
+  Virtual.WorldEuler : (-0.00, 0.00, 20.06)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_L/cf_j_arm00_L/cf_j_forearm01_L/cf_j_hand_L/cf_s_hand_sub_L/cf_j_little01_L/cf_j_little02_L
+  Real.LocalPos  : (0.0249, 0.0000, -0.0000)
+  Real.WorldPos  : (0.0491, 0.7004, 0.0881)
+  Real.LocalEuler: (-0.00, 0.00, 20.06)
+  Real.WorldEuler: (312.82, 124.56, 288.91)
+  Real.Parent       : cf_j_little01_L, World=(0.0337, 0.7174, 0.0981)
+  VMD.PrevFrame  : 576
+  VMD.NextFrame  : 616
+  VMD.tLinear    : 0.9176
+  VMD.Prev.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, -0.17417, 0.98472)
+  VMD.Next.RotQ  : (0.00000, 0.00000, -0.17417, 0.98472)
+
+[Bone] 左小指３
+  Flags        : Finger
+  Virtual.LocalPos   : (-0.5877, 1.2812, -0.0736)
+  Virtual.WorldPos   : (-0.5877, 1.2812, -0.0736)
+  Virtual.LocalEuler : (-0.00, 0.00, 13.83)
+  Virtual.WorldEuler : (-0.00, -0.00, 13.83)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_L/cf_j_arm00_L/cf_j_forearm01_L/cf_j_hand_L/cf_s_hand_sub_L/cf_j_little01_L/cf_j_little02_L/cf_j_little03_L
+  Real.LocalPos  : (0.0187, -0.0000, -0.0000)
+  Real.WorldPos  : (0.0564, 0.6883, 0.0757)
+  Real.LocalEuler: (-0.00, 0.00, 13.83)
+  Real.WorldEuler: (312.82, 124.56, 302.74)
+  Real.Parent       : cf_j_little02_L, World=(0.0491, 0.7004, 0.0881)
+  VMD.PrevFrame  : 576
+  VMD.NextFrame  : 616
+  VMD.tLinear    : 0.9176
+  VMD.Prev.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, -0.00000, -0.12041, 0.99272)
+  VMD.Next.RotQ  : (0.00000, -0.00000, -0.12041, 0.99272)
+
+[Bone] 左小指先
+  Flags        : Finger
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左薬指１
+  Flags        : Finger
+  Virtual.LocalPos   : (-0.5535, 1.2873, -0.0486)
+  Virtual.WorldPos   : (-0.5535, 1.2873, -0.0486)
+  Virtual.LocalEuler : (351.25, 2.34, 16.09)
+  Virtual.WorldEuler : (351.25, 2.34, 16.09)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_L/cf_j_arm00_L/cf_j_forearm01_L/cf_j_hand_L/cf_s_hand_sub_L/cf_j_ring01_L
+  Real.LocalPos  : (-0.0487, -0.0017, -0.0131)
+  Real.WorldPos  : (0.0453, 0.7259, 0.0936)
+  Real.LocalEuler: (1.11, 349.84, 198.38)
+  Real.WorldEuler: (311.76, 152.58, 257.03)
+  Real.Parent       : cf_s_hand_sub_L, World=(0.0094, 0.7584, 0.1089)
+  VMD.PrevFrame  : 576
+  VMD.NextFrame  : 616
+  VMD.tLinear    : 0.9176
+  VMD.Prev.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.03115, -0.07254, -0.14105, 0.98685)
+  VMD.Next.RotQ  : (0.03115, -0.07254, -0.14105, 0.98685)
+
+[Bone] 左薬指２
+  Flags        : Finger
+  Virtual.LocalPos   : (-0.5825, 1.2863, -0.0526)
+  Virtual.WorldPos   : (-0.5825, 1.2863, -0.0526)
+  Virtual.LocalEuler : (-0.00, 0.00, 22.15)
+  Virtual.WorldEuler : (-0.00, -0.00, 22.15)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_L/cf_j_arm00_L/cf_j_forearm01_L/cf_j_hand_L/cf_s_hand_sub_L/cf_j_ring01_L/cf_j_ring02_L
+  Real.LocalPos  : (0.0291, 0.0000, 0.0000)
+  Real.WorldPos  : (0.0609, 0.7069, 0.0778)
+  Real.LocalEuler: (-0.00, 0.00, 22.15)
+  Real.WorldEuler: (311.76, 152.58, 279.18)
+  Real.Parent       : cf_j_ring01_L, World=(0.0453, 0.7259, 0.0936)
+  VMD.PrevFrame  : 576
+  VMD.NextFrame  : 616
+  VMD.tLinear    : 0.9176
+  VMD.Prev.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, -0.00000, -0.19212, 0.98137)
+  VMD.Next.RotQ  : (0.00000, -0.00000, -0.19212, 0.98137)
+
+[Bone] 左薬指３
+  Flags        : Finger
+  Virtual.LocalPos   : (-0.6045, 1.2855, -0.0556)
+  Virtual.WorldPos   : (-0.6045, 1.2855, -0.0556)
+  Virtual.LocalEuler : (-0.00, 0.00, 11.52)
+  Virtual.WorldEuler : (-0.00, -0.00, 11.52)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_L/cf_j_arm00_L/cf_j_forearm01_L/cf_j_hand_L/cf_s_hand_sub_L/cf_j_ring01_L/cf_j_ring02_L/cf_j_ring03_L
+  Real.LocalPos  : (0.0221, 0.0000, -0.0000)
+  Real.WorldPos  : (0.0653, 0.6922, 0.0616)
+  Real.LocalEuler: (-0.00, 0.00, 11.52)
+  Real.WorldEuler: (311.76, 152.58, 290.70)
+  Real.Parent       : cf_j_ring02_L, World=(0.0609, 0.7069, 0.0778)
+  VMD.PrevFrame  : 576
+  VMD.NextFrame  : 616
+  VMD.tLinear    : 0.9176
+  VMD.Prev.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, -0.00000, -0.10033, 0.99495)
+  VMD.Next.RotQ  : (0.00000, -0.00000, -0.10033, 0.99495)
+
+[Bone] 左薬指先
+  Flags        : Finger
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左中指１
+  Flags        : Finger
+  Virtual.LocalPos   : (-0.5568, 1.2902, -0.0330)
+  Virtual.WorldPos   : (-0.5568, 1.2902, -0.0330)
+  Virtual.LocalEuler : (1.77, 358.62, 15.75)
+  Virtual.WorldEuler : (1.77, 358.62, 15.75)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_L/cf_j_arm00_L/cf_j_forearm01_L/cf_j_hand_L/cf_s_hand_sub_L/cf_j_middle01_L
+  Real.LocalPos  : (-0.0520, 0.0012, 0.0025)
+  Real.WorldPos  : (0.0524, 0.7386, 0.0865)
+  Real.LocalEuler: (358.16, 1.28, 198.75)
+  Real.WorldEuler: (300.62, 159.30, 252.02)
+  Real.Parent       : cf_s_hand_sub_L, World=(0.0094, 0.7584, 0.1089)
+  VMD.PrevFrame  : 576
+  VMD.NextFrame  : 616
+  VMD.tLinear    : 0.9176
+  VMD.Prev.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (-0.01364, -0.01404, -0.13717, 0.99035)
+  VMD.Next.RotQ  : (-0.01364, -0.01404, -0.13717, 0.99035)
+
+[Bone] 左中指２
+  Flags        : Finger
+  Virtual.LocalPos   : (-0.5893, 1.2885, -0.0330)
+  Virtual.WorldPos   : (-0.5893, 1.2885, -0.0330)
+  Virtual.LocalEuler : (-0.00, 0.00, 21.73)
+  Virtual.WorldEuler : (-0.00, -0.00, 21.73)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_L/cf_j_arm00_L/cf_j_forearm01_L/cf_j_hand_L/cf_s_hand_sub_L/cf_j_middle01_L/cf_j_middle02_L
+  Real.LocalPos  : (0.0323, 0.0000, 0.0000)
+  Real.WorldPos  : (0.0712, 0.7228, 0.0651)
+  Real.LocalEuler: (-0.00, 0.00, 21.73)
+  Real.WorldEuler: (300.62, 159.30, 273.75)
+  Real.Parent       : cf_j_middle01_L, World=(0.0524, 0.7386, 0.0865)
+  VMD.PrevFrame  : 576
+  VMD.NextFrame  : 616
+  VMD.tLinear    : 0.9176
+  VMD.Prev.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, -0.00000, -0.18848, 0.98208)
+  VMD.Next.RotQ  : (0.00000, -0.00000, -0.18848, 0.98208)
+
+[Bone] 左中指３
+  Flags        : Finger
+  Virtual.LocalPos   : (-0.6117, 1.2873, -0.0330)
+  Virtual.WorldPos   : (-0.6117, 1.2873, -0.0330)
+  Virtual.LocalEuler : (-0.00, 0.00, 13.49)
+  Virtual.WorldEuler : (-0.00, -0.00, 13.49)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_L/cf_j_arm00_L/cf_j_forearm01_L/cf_j_hand_L/cf_s_hand_sub_L/cf_j_middle01_L/cf_j_middle02_L/cf_j_middle03_L
+  Real.LocalPos  : (0.0223, 0.0000, -0.0000)
+  Real.WorldPos  : (0.0766, 0.7114, 0.0466)
+  Real.LocalEuler: (-0.00, 0.00, 13.49)
+  Real.WorldEuler: (300.62, 159.30, 287.23)
+  Real.Parent       : cf_j_middle02_L, World=(0.0712, 0.7228, 0.0651)
+  VMD.PrevFrame  : 576
+  VMD.NextFrame  : 616
+  VMD.tLinear    : 0.9176
+  VMD.Prev.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, -0.00000, -0.11743, 0.99308)
+  VMD.Next.RotQ  : (0.00000, -0.00000, -0.11743, 0.99308)
+
+[Bone] 左中指先
+  Flags        : Finger
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左人指１
+  Flags        : Finger
+  Virtual.LocalPos   : (-0.5534, 1.2853, -0.0153)
+  Virtual.WorldPos   : (-0.5534, 1.2853, -0.0153)
+  Virtual.LocalEuler : (13.17, 358.77, 6.24)
+  Virtual.WorldEuler : (13.17, 358.77, 6.24)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_L/cf_j_arm00_L/cf_j_forearm01_L/cf_j_hand_L/cf_s_hand_sub_L/cf_j_index01_L
+  Real.LocalPos  : (-0.0486, -0.0036, 0.0200)
+  Real.WorldPos  : (0.0501, 0.7533, 0.0752)
+  Real.LocalEuler: (358.50, 6.13, 189.48)
+  Real.WorldEuler: (297.10, 166.26, 236.79)
+  Real.Parent       : cf_s_hand_sub_L, World=(0.0094, 0.7584, 0.1089)
+  VMD.PrevFrame  : 576
+  VMD.NextFrame  : 616
+  VMD.tLinear    : 0.9176
+  VMD.Prev.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (-0.01726, -0.04154, -0.11959, 0.99180)
+  VMD.Next.RotQ  : (-0.01726, -0.04154, -0.11959, 0.99180)
+
+[Bone] 左人指２
+  Flags        : Finger
+  Virtual.LocalPos   : (-0.5819, 1.2838, -0.0128)
+  Virtual.WorldPos   : (-0.5819, 1.2838, -0.0128)
+  Virtual.LocalEuler : (0.00, -0.00, 24.05)
+  Virtual.WorldEuler : (0.00, -0.00, 24.05)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_L/cf_j_arm00_L/cf_j_forearm01_L/cf_j_hand_L/cf_s_hand_sub_L/cf_j_index01_L/cf_j_index02_L
+  Real.LocalPos  : (0.0284, 0.0000, 0.0000)
+  Real.WorldPos  : (0.0703, 0.7424, 0.0583)
+  Real.LocalEuler: (0.00, -0.00, 24.05)
+  Real.WorldEuler: (297.10, 166.26, 260.84)
+  Real.Parent       : cf_j_index01_L, World=(0.0501, 0.7533, 0.0752)
+  VMD.PrevFrame  : 576
+  VMD.NextFrame  : 616
+  VMD.tLinear    : 0.9176
+  VMD.Prev.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (-0.00000, -0.00000, -0.20837, 0.97805)
+  VMD.Next.RotQ  : (-0.00000, -0.00000, -0.20837, 0.97805)
+
+[Bone] 左親指２
+  Flags        : Finger
+  Virtual.LocalPos   : (-0.5504, 1.2575, 0.0048)
+  Virtual.WorldPos   : (-0.5504, 1.2575, 0.0048)
+  Virtual.LocalEuler : (358.94, 341.70, 353.86)
+  Virtual.WorldEuler : (358.94, 341.70, 353.86)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_L/cf_j_arm00_L/cf_j_forearm01_L/cf_j_hand_L/cf_s_hand_sub_L/cf_j_thumb01_L/cf_j_thumb02_L/cf_j_thumb03_L
+  Real.LocalPos  : (0.0237, -0.0000, -0.0000)
+  Real.WorldPos  : (0.0372, 0.7587, 0.0479)
+  Real.LocalEuler: (358.94, 341.70, 353.86)
+  Real.WorldEuler: (7.66, 248.62, 193.08)
+  Real.Parent       : cf_j_thumb02_L, World=(0.0216, 0.7652, 0.0647)
+  VMD.PrevFrame  : 576
+  VMD.NextFrame  : 616
+  VMD.tLinear    : 0.9176
+  VMD.Prev.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (-0.12549, -0.11174, -0.00997, 0.98573)
+  VMD.Next.RotQ  : (-0.12549, -0.11174, -0.00997, 0.98573)
+
+[Bone] 右中指１
+  Flags        : RightSide, Finger
+  Virtual.LocalPos   : (0.5568, 1.2902, -0.0330)
+  Virtual.WorldPos   : (0.5568, 1.2902, -0.0330)
+  Virtual.LocalEuler : (-0.00, 0.00, 6.59)
+  Virtual.WorldEuler : (-0.00, 0.00, 6.59)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_R/cf_j_arm00_R/cf_j_forearm01_R/cf_j_hand_R/cf_s_hand_sub_R/cf_j_middle01_R
+  Real.LocalPos  : (0.0520, 0.0012, 0.0025)
+  Real.WorldPos  : (-0.0974, 1.3504, -0.0924)
+  Real.LocalEuler: (-0.00, 180.00, 9.59)
+  Real.WorldEuler: (330.54, 131.07, 225.27)
+  Real.Parent       : cf_s_hand_sub_R, World=(-0.0564, 1.3260, -0.0707)
+  VMD.PrevFrame  : 611
+  VMD.NextFrame  : 615
+  VMD.tLinear    : 0.4255
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, -0.00000, 0.05747, 0.99835)
+  VMD.Next.RotQ  : (0.00000, -0.00000, 0.05747, 0.99835)
+
+[Bone] 左親指１
+  Flags        : Finger
+  Virtual.LocalPos   : (-0.5300, 1.2650, -0.0050)
+  Virtual.WorldPos   : (-0.5300, 1.2650, -0.0050)
+  Virtual.LocalEuler : (359.41, 5.17, 10.00)
+  Virtual.WorldEuler : (359.41, 5.17, 10.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_L/cf_j_arm00_L/cf_j_forearm01_L/cf_j_hand_L/cf_s_hand_sub_L/cf_j_thumb01_L/cf_j_thumb02_L
+  Real.LocalPos  : (0.0423, 0.0000, 0.0000)
+  Real.WorldPos  : (0.0216, 0.7652, 0.0647)
+  Real.LocalEuler: (6.95, 5.78, 15.24)
+  Real.WorldEuler: (12.28, 230.60, 196.24)
+  Real.Parent       : cf_j_thumb01_L, World=(-0.0023, 0.7673, 0.0998)
+  VMD.PrevFrame  : 576
+  VMD.NextFrame  : 616
+  VMD.tLinear    : 0.9176
+  VMD.Prev.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (-0.07609, -0.06150, -0.01021, 0.99515)
+  VMD.Next.RotQ  : (-0.07609, -0.06150, -0.01021, 0.99515)
+
+[Bone] 左手先
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左ダミー
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右中指３
+  Flags        : RightSide, Finger
+  Virtual.LocalPos   : (0.6118, 1.2873, -0.0330)
+  Virtual.WorldPos   : (0.6118, 1.2873, -0.0330)
+  Virtual.LocalEuler : (0.00, -0.00, 350.20)
+  Virtual.WorldEuler : (0.00, -0.00, 350.20)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_R/cf_j_arm00_R/cf_j_forearm01_R/cf_j_hand_R/cf_s_hand_sub_R/cf_j_middle01_R/cf_j_middle02_R/cf_j_middle03_R
+  Real.LocalPos  : (-0.0223, 0.0000, -0.0000)
+  Real.WorldPos  : (-0.1379, 1.3818, -0.1119)
+  Real.LocalEuler: (0.00, -0.00, 350.20)
+  Real.WorldEuler: (330.54, 131.07, 205.16)
+  Real.Parent       : cf_j_middle02_R, World=(-0.1210, 1.3706, -0.1022)
+  VMD.PrevFrame  : 611
+  VMD.NextFrame  : 615
+  VMD.tLinear    : 0.4255
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (-0.00000, 0.00000, -0.08540, 0.99635)
+  VMD.Next.RotQ  : (-0.00000, 0.00000, -0.08540, 0.99635)
+
+[Bone] 全ての親
+  Flags        : IsCenter
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root
+  Real.LocalPos  : (0.0000, 0.0000, 0.0000)
+  Real.WorldPos  : (0.0000, 0.0000, 0.0000)
+  Real.LocalEuler: (-0.00, 0.00, 0.00)
+  Real.WorldEuler: (-0.00, 0.00, 0.00)
+  Real.Parent       : p_cf_sv_body_bone_00(Clone), World=(0.0000, 0.0000, 0.0000)
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] +左ひじ補助
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左ひじ補助
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右中指先
+  Flags        : RightSide, Finger
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左肩C
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左親指０
+  Flags        : Finger
+  Virtual.LocalPos   : (-0.4951, 1.2784, -0.0254)
+  Virtual.WorldPos   : (-0.4951, 1.2784, -0.0254)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_L/cf_j_arm00_L/cf_j_forearm01_L/cf_j_hand_L/cf_s_hand_sub_L/cf_j_thumb01_L
+  Real.LocalPos  : (0.0093, -0.0105, 0.0100)
+  Real.WorldPos  : (-0.0023, 0.7673, 0.0998)
+  Real.LocalEuler: (71.67, 118.97, 268.66)
+  Real.WorldEuler: (19.02, 236.84, 183.05)
+  Real.Parent       : cf_s_hand_sub_L, World=(0.0094, 0.7584, 0.1089)
+  VMD.PrevFrame  : 576
+  VMD.NextFrame  : 616
+  VMD.tLinear    : 0.9176
+  VMD.Prev.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, -0.00000, -0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, -0.00000, -0.00000, 1.00000)
+
+[Bone] 左肩P
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 768
+  VMD.tLinear    : 0.7978
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, -0.00000, -0.00000, 1.00000)
+
+[Bone] 右人指先
+  Flags        : RightSide, Finger
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右人指３
+  Flags        : RightSide, Finger
+  Virtual.LocalPos   : (0.6034, 1.2827, -0.0109)
+  Virtual.WorldPos   : (0.6034, 1.2827, -0.0109)
+  Virtual.LocalEuler : (357.07, 3.97, 359.90)
+  Virtual.WorldEuler : (357.07, 3.97, 359.90)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_R/cf_j_arm00_R/cf_j_forearm01_R/cf_j_hand_R/cf_s_hand_sub_R/cf_j_index01_R/cf_j_index02_R/cf_j_index03_R
+  Real.LocalPos  : (-0.0215, 0.0000, -0.0000)
+  Real.WorldPos  : (-0.1406, 1.3764, -0.0928)
+  Real.LocalEuler: (357.07, 3.97, 359.90)
+  Real.WorldEuler: (358.40, 145.48, 222.08)
+  Real.Parent       : cf_j_index02_R, World=(-0.1263, 1.3620, -0.0853)
+  VMD.PrevFrame  : 611
+  VMD.NextFrame  : 615
+  VMD.tLinear    : 0.4255
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.02556, -0.03456, 0.00000, 0.99908)
+  VMD.Next.RotQ  : (0.02556, -0.03456, 0.00000, 0.99908)
+
+[Bone] 右人指２
+  Flags        : RightSide, Finger
+  Virtual.LocalPos   : (0.5819, 1.2838, -0.0128)
+  Virtual.WorldPos   : (0.5819, 1.2838, -0.0128)
+  Virtual.LocalEuler : (355.95, 5.06, 359.82)
+  Virtual.WorldEuler : (355.95, 5.06, 359.82)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_R/cf_j_arm00_R/cf_j_forearm01_R/cf_j_hand_R/cf_s_hand_sub_R/cf_j_index01_R/cf_j_index02_R
+  Real.LocalPos  : (-0.0284, 0.0000, 0.0000)
+  Real.WorldPos  : (-0.1263, 1.3620, -0.0853)
+  Real.LocalEuler: (355.95, 5.06, 359.82)
+  Real.WorldEuler: (353.57, 146.46, 222.01)
+  Real.Parent       : cf_j_index01_R, World=(-0.1060, 1.3435, -0.0774)
+  VMD.PrevFrame  : 611
+  VMD.NextFrame  : 615
+  VMD.tLinear    : 0.4255
+  VMD.Prev.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.03535, -0.04403, 0.00000, 0.99840)
+  VMD.Next.RotQ  : (0.03535, -0.04403, 0.00000, 0.99840)
+
+[Bone] 右人指１
+  Flags        : RightSide, Finger
+  Virtual.LocalPos   : (0.5534, 1.2853, -0.0153)
+  Virtual.WorldPos   : (0.5534, 1.2853, -0.0153)
+  Virtual.LocalEuler : (349.61, 1.85, 10.19)
+  Virtual.WorldEuler : (349.61, 1.85, 10.19)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_R/cf_j_arm00_R/cf_j_forearm01_R/cf_j_hand_R/cf_s_hand_sub_R/cf_j_index01_R
+  Real.LocalPos  : (0.0486, -0.0036, 0.0200)
+  Real.WorldPos  : (-0.1060, 1.3435, -0.0774)
+  Real.LocalEuler: (337.80, 175.74, 13.01)
+  Real.WorldEuler: (347.18, 147.52, 221.83)
+  Real.Parent       : cf_s_hand_sub_R, World=(-0.0564, 1.3260, -0.0707)
+  VMD.PrevFrame  : 611
+  VMD.NextFrame  : 615
+  VMD.tLinear    : 0.4255
+  VMD.Prev.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.07250, -0.10627, 0.00000, 0.99169)
+  VMD.Next.RotQ  : (0.07250, -0.10627, 0.00000, 0.99169)
+
+[Bone] 上半身2
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0822, -0.0019)
+  Virtual.WorldPos   : (-0.0018, 1.0936, 0.0033)
+  Virtual.LocalEuler : (346.25, 11.67, 5.25)
+  Virtual.WorldEuler : (348.23, 45.31, 8.06)
+  Virtual.Parent     : 上半身, World=(0.0000, 1.0115, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02
+  Real.LocalPos  : (-0.0000, 0.0822, -0.0019)
+  Real.WorldPos  : (-0.0828, 0.8212, -0.0187)
+  Real.LocalEuler: (346.25, 11.67, 5.25)
+  Real.WorldEuler: (348.23, 45.31, 8.06)
+  Real.Parent       : cf_j_spine01, World=(-0.0811, 0.7429, -0.0218)
+  VMD.PrevFrame  : 611
+  VMD.NextFrame  : 626
+  VMD.tLinear    : 0.1135
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.11489, 0.10752, -0.05735, 0.98588)
+  VMD.Next.RotQ  : (0.05020, -0.04998, -0.06129, 0.99560)
+
+[Bone] 右足IK親
+  Flags        : IsIK, RightSide
+  Virtual.LocalPos   : (0.0802, 0.0000, -0.0490)
+  Virtual.WorldPos   : (0.0802, 0.0000, -0.0490)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 頭
+  Flags        : None
+  Virtual.LocalPos   : (-0.0000, 0.0744, 0.0000)
+  Virtual.WorldPos   : (-0.0015, 1.4002, -0.0453)
+  Virtual.LocalEuler : (350.77, 330.76, 30.70)
+  Virtual.WorldEuler : (350.28, 330.43, 32.37)
+  Virtual.Parent     : 首, World=(0.0000, 1.3258, -0.0437)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_neck/cf_j_head
+  Real.LocalPos  : (-0.0000, 0.0744, 0.0000)
+  Real.WorldPos  : (-0.1884, 1.1096, -0.0605)
+  Real.LocalEuler: (350.77, 330.76, 30.70)
+  Real.WorldEuler: (344.23, 13.65, 45.58)
+  Real.Parent       : cf_j_neck, World=(-0.1691, 1.0414, -0.0575)
+  VMD.PrevFrame  : 602
+  VMD.NextFrame  : 613
+  VMD.tLinear    : 0.9729
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (-0.05628, -0.17722, 0.00937, 0.98252)
+  VMD.Next.RotQ  : (0.14684, -0.22293, -0.24211, 0.93281)
+
+[Bone] 左つま先End
+  Flags        : IsIK
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0500)
+  Virtual.WorldPos   : (-0.0802, 0.0394, 0.0962)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : 左つま先, World=(-0.0802, 0.0394, 0.0462)
+  Real  : <no realTransform>
+  VMD  : <no frames>
+
+[Bone] センター
+  Flags        : IsCenter
+  Virtual.LocalPos   : (-0.0774, 1.0276, -0.0216)
+  Virtual.WorldPos   : (-0.0774, 1.0276, -0.0216)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : 全ての親, World=(0.0000, 0.0000, 0.0000)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips
+  Real.LocalPos  : (-0.0812, 0.7962, -0.0227)
+  Real.WorldPos  : (-0.0774, 0.7586, -0.0216)
+  Real.LocalEuler: (7.10, 28.07, 348.44)
+  Real.WorldEuler: (7.10, 28.07, 348.44)
+  Real.Parent       : cf_n_height, World=(0.0000, 0.0000, 0.0000)
+  Y-Diff (Real-Virtual): -0.2690
+  Groove Y Value      : -0.2690
+  Y-Diff / Groove Y   : 1.00
+  VMD.PrevFrame  : 599
+  VMD.NextFrame  : 613
+  VMD.tLinear    : 0.9787
+  VMD.Prev.Pos   : (0.1919, 0.0000, -0.5041)
+  VMD.Next.Pos   : (0.9119, 0.0000, 0.2559)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左足IK親
+  Flags        : IsIK
+  Virtual.LocalPos   : (-0.0802, 0.0000, -0.0490)
+  Virtual.WorldPos   : (-0.0802, 0.0000, -0.0490)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : Mmdd_Dummy_Root, World=(0.0000, 0.0000, 0.0000)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右つま先End
+  Flags        : IsIK
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0500)
+  Virtual.WorldPos   : (0.0802, 0.0394, 0.0962)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : 右つま先, World=(0.0802, 0.0394, 0.0462)
+  Real  : <no realTransform>
+  VMD  : <no frames>
+
+[Bone] グルーブ
+  Flags        : IsCenter
+  Virtual.LocalPos   : (0.0000, -0.2690, 0.0000)
+  Virtual.WorldPos   : (-0.0774, 0.7586, -0.0216)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : センター, World=(-0.0774, 1.0276, -0.0216)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips
+  Real.LocalPos  : (-0.0812, 0.7962, -0.0227)
+  Real.WorldPos  : (-0.0774, 0.7586, -0.0216)
+  Real.LocalEuler: (7.10, 28.07, 348.44)
+  Real.WorldEuler: (7.10, 28.07, 348.44)
+  Real.Parent       : cf_n_height, World=(0.0000, 0.0000, 0.0000)
+  VMD.PrevFrame  : 599
+  VMD.NextFrame  : 613
+  VMD.tLinear    : 0.9787
+  VMD.Prev.Pos   : (0.0000, -0.9100, 0.0000)
+  VMD.Next.Pos   : (0.0000, -3.2150, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左肩
+  Flags        : None
+  Virtual.LocalPos   : (-0.0102, 0.2090, -0.0361)
+  Virtual.WorldPos   : (-0.0844, 1.2874, -0.0231)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (348.23, 45.31, 8.06)
+  Virtual.Parent     : 上半身2, World=(-0.0018, 1.0936, 0.0033)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_L
+  Real.LocalPos  : (-0.0102, 0.1008, -0.0215)
+  Real.WorldPos  : (-0.1616, 1.0059, -0.0438)
+  Real.LocalEuler: (-0.00, 0.00, 0.00)
+  Real.WorldEuler: (348.23, 45.31, 8.06)
+  Real.Parent       : cf_j_spine03, World=(-0.1175, 0.9183, -0.0327)
+  VMD.PrevFrame  : 461
+  VMD.NextFrame  : 661
+  VMD.tLinear    : 0.7585
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右足ＩＫ
+  Flags        : IsIK, RightSide
+  Virtual.LocalPos   : (0.0859, 0.0000, 0.1017)
+  Virtual.WorldPos   : (0.1661, 0.0000, 0.0527)
+  Virtual.LocalEuler : (-0.00, 32.64, 358.89)
+  Virtual.WorldEuler : (-0.00, 32.64, 358.89)
+  Virtual.Parent     : 右足IK親, World=(0.0802, 0.0000, -0.0490)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 607
+  VMD.NextFrame  : 617
+  VMD.tLinear    : 0.5702
+  VMD.Prev.Pos   : (-0.3046, 0.0000, -1.1970)
+  VMD.Next.Pos   : (-0.3046, 0.0000, -1.1970)
+  VMD.Prev.RotQ  : (0.00272, 0.28097, 0.00929, 0.95967)
+  VMD.Next.RotQ  : (0.00272, 0.28097, 0.00929, 0.95967)
+
+[Bone] 右肩
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0102, 0.2090, -0.0361)
+  Virtual.WorldPos   : (-0.0706, 1.2902, -0.0379)
+  Virtual.LocalEuler : (0.57, 356.60, 19.14)
+  Virtual.WorldEuler : (349.30, 41.97, 27.86)
+  Virtual.Parent     : 上半身2, World=(-0.0018, 1.0936, 0.0033)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_R
+  Real.LocalPos  : (0.0102, 0.1008, -0.0215)
+  Real.WorldPos  : (-0.1484, 1.0085, -0.0579)
+  Real.LocalEuler: (0.57, 356.60, 19.14)
+  Real.WorldEuler: (349.30, 41.97, 27.86)
+  Real.Parent       : cf_j_spine03, World=(-0.1175, 0.9183, -0.0327)
+  VMD.PrevFrame  : 602
+  VMD.NextFrame  : 613
+  VMD.tLinear    : 0.9729
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (-0.00000, 0.00000, -0.17362, 0.98481)
+
+[Bone] 左足ＩＫ
+  Flags        : IsIK
+  Virtual.LocalPos   : (-0.3150, 0.0000, 0.0065)
+  Virtual.WorldPos   : (-0.3952, 0.0000, -0.0425)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : 左足IK親, World=(-0.0802, 0.0000, -0.0490)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 606
+  VMD.NextFrame  : 693
+  VMD.tLinear    : 0.0770
+  VMD.Prev.Pos   : (3.0003, 0.0000, -0.0764)
+  VMD.Next.Pos   : (3.0003, 0.0000, -0.0764)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右腕
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.1000, -0.0000, 0.0000)
+  Virtual.WorldPos   : (-0.0106, 1.3362, -0.1035)
+  Virtual.LocalEuler : (283.31, 241.97, 66.89)
+  Virtual.WorldEuler : (312.95, 290.58, 62.52)
+  Virtual.Parent     : 右肩, World=(-0.0706, 1.2903, -0.0379)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_R/cf_j_arm00_R
+  Real.LocalPos  : (0.1000, 0.0000, 0.0000)
+  Real.WorldPos  : (-0.0913, 1.0523, -0.1204)
+  Real.LocalEuler: (283.31, 245.32, 66.90)
+  Real.WorldEuler: (313.00, 291.71, 64.97)
+  Real.Parent       : cf_j_shoulder_R, World=(-0.1484, 1.0085, -0.0579)
+  VMD.PrevFrame  : 602
+  VMD.NextFrame  : 613
+  VMD.tLinear    : 0.9729
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.10972, -0.50354, 0.35564, 0.77970)
+  VMD.Next.RotQ  : (0.59435, -0.22203, -0.18004, 0.75169)
+
+[Bone] 左腕
+  Flags        : None
+  Virtual.LocalPos   : (-0.1000, -0.0000, 0.0000)
+  Virtual.WorldPos   : (-0.1521, 1.2737, 0.0494)
+  Virtual.LocalEuler : (357.49, 33.36, 85.00)
+  Virtual.WorldEuler : (343.26, 79.47, 85.16)
+  Virtual.Parent     : 左肩, World=(-0.0844, 1.2874, -0.0231)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_L/cf_j_arm00_L
+  Real.LocalPos  : (-0.1000, 0.0000, 0.0000)
+  Real.WorldPos  : (-0.2260, 0.9928, 0.0252)
+  Real.LocalEuler: (357.49, 30.10, 85.00)
+  Real.WorldEuler: (343.30, 76.08, 85.99)
+  Real.Parent       : cf_j_shoulder_L, World=(-0.1616, 1.0059, -0.0438)
+  VMD.PrevFrame  : 587
+  VMD.NextFrame  : 613
+  VMD.tLinear    : 0.9885
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (-0.05003, 0.18819, -0.41305, 0.88965)
+  VMD.Next.RotQ  : (-0.08713, 0.27584, -0.35880, 0.88746)
+
+[Bone] 腰
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0048, 0.0000)
+  Virtual.WorldPos   : (-0.0774, 0.7634, -0.0216)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 0.00, 0.00)
+  Virtual.Parent     : グルーブ, World=(-0.0774, 0.7586, -0.0216)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_waist01
+  Real.LocalPos  : (-0.0000, 0.0048, 0.0000)
+  Real.WorldPos  : (-0.0763, 0.7631, -0.0215)
+  Real.LocalEuler: (-0.00, -0.00, -0.00)
+  Real.WorldEuler: (7.10, 28.07, 348.44)
+  Real.Parent       : cf_j_hips, World=(-0.0774, 0.7586, -0.0216)
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左つま先ＩＫ
+  Flags        : IsIK
+  Virtual.LocalPos   : (-0.0000, 0.0000, -0.0000)
+  Virtual.WorldPos   : (-0.3952, 0.0000, -0.0425)
+  Virtual.LocalEuler : (323.87, 83.09, 346.28)
+  Virtual.WorldEuler : (323.87, 83.09, 346.28)
+  Virtual.Parent     : 左足ＩＫ, World=(-0.3952, 0.0000, -0.0425)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 606
+  VMD.NextFrame  : 695
+  VMD.tLinear    : 0.0753
+  VMD.Prev.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (-0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.30800, 0.60513, -0.11652, 0.72482)
+  VMD.Next.RotQ  : (0.27534, 0.50920, -0.15039, 0.80143)
+
+[Bone] 右つま先ＩＫ
+  Flags        : IsIK, RightSide
+  Virtual.LocalPos   : (-0.0000, 0.0000, -0.0000)
+  Virtual.WorldPos   : (0.1661, 0.0000, 0.0527)
+  Virtual.LocalEuler : (66.80, 280.90, 344.19)
+  Virtual.WorldEuler : (65.71, 313.07, 343.68)
+  Virtual.Parent     : 右足ＩＫ, World=(0.1661, 0.0000, 0.0527)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 602
+  VMD.NextFrame  : 621
+  VMD.tLinear    : 0.5633
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (-0.48998, -0.38210, -0.21746, 0.75275)
+  VMD.Next.RotQ  : (-0.49168, -0.53054, -0.28823, 0.62745)
+
+[Bone] 下半身
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0048, 0.0000)
+  Virtual.WorldPos   : (-0.0774, 0.7634, -0.0216)
+  Virtual.LocalEuler : (7.10, 28.07, 348.44)
+  Virtual.WorldEuler : (7.10, 28.07, 348.44)
+  Virtual.Parent     : グルーブ, World=(-0.0774, 0.7586, -0.0216)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_waist01
+  Real.LocalPos  : (-0.0000, 0.0048, 0.0000)
+  Real.WorldPos  : (-0.0763, 0.7631, -0.0215)
+  Real.LocalEuler: (-0.00, -0.00, -0.00)
+  Real.WorldEuler: (7.10, 28.07, 348.44)
+  Real.Parent       : cf_j_hips, World=(-0.0774, 0.7586, -0.0216)
+  Y-Diff (Real-Virtual): -0.0004
+  Groove Y Value      : -0.2690
+  Y-Diff / Groove Y   : 0.00
+  VMD.PrevFrame  : 602
+  VMD.NextFrame  : 613
+  VMD.tLinear    : 0.9729
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.06695, 0.00000, 0.99776)
+  VMD.Next.RotQ  : (-0.03548, 0.24744, 0.11286, 0.96165)
+
+[Bone] 右ひじ
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.2175, 0.0000, -0.0000)
+  Virtual.WorldPos   : (0.1569, 1.4677, -0.0592)
+  Virtual.LocalEuler : (34.47, 282.18, 10.80)
+  Virtual.WorldEuler : (32.53, 299.47, 99.97)
+  Virtual.Parent     : 右腕, World=(-0.0106, 1.3362, -0.1035)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_R/cf_j_arm00_R/cf_j_forearm01_R
+  Real.LocalPos  : (0.2175, 0.0000, 0.0000)
+  Real.WorldPos  : (0.0688, 1.1804, -0.0897)
+  Real.LocalEuler: (34.47, 274.98, 10.80)
+  Real.WorldEuler: (38.20, 303.85, 106.24)
+  Real.Parent       : cf_j_arm00_R, World=(-0.0913, 1.0523, -0.1204)
+  VMD.PrevFrame  : 602
+  VMD.NextFrame  : 613
+  VMD.tLinear    : 0.9729
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.47808, -0.79615, -0.15188, 0.33840)
+  VMD.Next.RotQ  : (0.23255, -0.58791, -0.25724, 0.73083)
+
+[Bone] 腰キャンセル右
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0842, -0.1066, -0.0276)
+  Virtual.WorldPos   : (-0.0434, 0.6465, -0.0878)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (7.10, 28.07, 348.44)
+  Virtual.Parent     : 下半身, World=(-0.0774, 0.7634, -0.0216)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_waist01/cf_j_waist02/cf_j_thigh00_R
+  Real.LocalPos  : (0.0873, -0.0448, 0.0104)
+  Real.WorldPos  : (-0.0434, 0.6465, -0.0878)
+  Real.LocalEuler: (303.25, 321.13, 44.28)
+  Real.WorldEuler: (304.03, 10.44, 19.74)
+  Real.Parent       : cf_j_waist02, World=(-0.1090, 0.7057, -0.0557)
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 腰キャンセル左
+  Flags        : None
+  Virtual.LocalPos   : (-0.0842, -0.1066, -0.0276)
+  Virtual.WorldPos   : (-0.1870, 0.6800, -0.0065)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (7.10, 28.07, 348.44)
+  Virtual.Parent     : 下半身, World=(-0.0774, 0.7634, -0.0216)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_waist01/cf_j_waist02/cf_j_thigh00_L
+  Real.LocalPos  : (-0.0894, -0.0448, 0.0104)
+  Real.WorldPos  : (-0.1870, 0.6800, -0.0065)
+  Real.LocalEuler: (326.27, 1.31, 357.58)
+  Real.WorldEuler: (334.32, 36.36, 345.02)
+  Real.Parent       : cf_j_waist02, World=(-0.1090, 0.7057, -0.0557)
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右腕捩
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (-0.0106, 1.3362, -0.1035)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (312.95, 290.58, 62.52)
+  Virtual.Parent     : 右腕, World=(-0.0106, 1.3362, -0.1035)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 602
+  VMD.NextFrame  : 613
+  VMD.tLinear    : 0.9729
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.39108, 0.29925, -0.00996, 0.87029)
+  VMD.Next.RotQ  : (0.24222, 0.18534, -0.00617, 0.95233)
+
+[Bone] 左腕捩
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (-0.1521, 1.2737, 0.0494)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (343.26, 79.47, 85.16)
+  Virtual.Parent     : 左腕, World=(-0.1521, 1.2737, 0.0494)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 472
+  VMD.NextFrame  : 661
+  VMD.tLinear    : 0.7445
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00055, -0.00042, 0.00002, 1.00000)
+  VMD.Next.RotQ  : (0.00055, -0.00042, 0.00002, 1.00000)
+
+[Bone] 左ひじ
+  Flags        : None
+  Virtual.LocalPos   : (-0.2175, 0.0000, 0.0000)
+  Virtual.WorldPos   : (-0.0941, 1.0662, 0.0788)
+  Virtual.LocalEuler : (10.00, 55.11, 358.85)
+  Virtual.WorldEuler : (293.22, 117.19, 50.60)
+  Virtual.Parent     : 左腕, World=(-0.1521, 1.2737, 0.0494)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_L/cf_j_arm00_L/cf_j_forearm01_L
+  Real.LocalPos  : (-0.2175, -0.0000, -0.0000)
+  Real.WorldPos  : (-0.1718, 0.7948, 0.0536)
+  Real.LocalEuler: (10.00, 62.09, 358.85)
+  Real.WorldEuler: (287.75, 126.21, 38.17)
+  Real.Parent       : cf_j_arm00_L, World=(-0.2260, 0.9928, 0.0252)
+  VMD.PrevFrame  : 587
+  VMD.NextFrame  : 613
+  VMD.tLinear    : 0.9885
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.29023, 0.49311, 0.03950, 0.81917)
+  VMD.Next.RotQ  : (0.22811, 0.40637, 0.04926, 0.88341)
+
+[Bone] 左手首
+  Flags        : None
+  Virtual.LocalPos   : (-0.2025, -0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0926, 1.0045, 0.1275)
+  Virtual.LocalEuler : (18.75, 11.98, 46.86)
+  Virtual.WorldEuler : (303.83, 159.28, 57.97)
+  Virtual.Parent     : 左ひじ, World=(-0.0941, 1.0662, 0.0788)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_L/cf_j_arm00_L/cf_j_forearm01_L/cf_j_hand_L
+  Real.LocalPos  : (-0.2025, 0.0000, 0.0000)
+  Real.WorldPos  : (0.0094, 0.7584, 0.1089)
+  Real.LocalEuler: (18.75, 8.26, 46.86)
+  Real.WorldEuler: (302.75, 160.60, 52.14)
+  Real.Parent       : cf_j_forearm01_L, World=(-0.1718, 0.7948, 0.0536)
+  VMD.PrevFrame  : 587
+  VMD.NextFrame  : 613
+  VMD.tLinear    : 0.9885
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, -0.00000, -0.39861, 0.91712)
+  VMD.Next.RotQ  : (-0.04988, 0.08069, -0.41046, 0.90693)
+
+[Bone] 右手捩
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (0.1569, 1.4677, -0.0592)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (32.53, 299.47, 99.97)
+  Virtual.Parent     : 右ひじ, World=(0.1569, 1.4677, -0.0592)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (-0.00000, -0.00000, -0.00000, 1.00000)
+  VMD.Next.RotQ  : (-0.00000, -0.00000, -0.00000, 1.00000)
+
+[Bone] 左手捩
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (-0.0941, 1.0662, 0.0788)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (293.22, 117.19, 50.60)
+  Virtual.Parent     : 左ひじ, World=(-0.0941, 1.0662, 0.0788)
+  Real  : <no realTransform>
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, -0.00000, -0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, -0.00000, -0.00000, 1.00000)
+
+[Bone] 右足
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (-0.0434, 0.6465, -0.0878)
+  Virtual.LocalEuler : (303.87, 321.87, 43.39)
+  Virtual.WorldEuler : (304.76, 10.65, 19.30)
+  Virtual.Parent     : 腰キャンセル右, World=(-0.0434, 0.6465, -0.0878)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_waist01/cf_j_waist02/cf_j_thigh00_R
+  Real.LocalPos  : (0.0873, -0.0448, 0.0104)
+  Real.WorldPos  : (-0.0434, 0.6465, -0.0878)
+  Real.LocalEuler: (303.25, 321.13, 44.28)
+  Real.WorldEuler: (304.03, 10.44, 19.74)
+  Real.Parent       : cf_j_waist02, World=(-0.1090, 0.7057, -0.0557)
+  VMD.PrevFrame  : 606
+  VMD.NextFrame  : 613
+  VMD.tLinear    : 0.9574
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00609, 0.06473, 0.05464, 0.99639)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右手首
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.2025, -0.0000, 0.0000)
+  Virtual.WorldPos   : (0.0463, 1.6359, -0.0369)
+  Virtual.LocalEuler : (8.42, 2.62, 34.51)
+  Virtual.WorldEuler : (28.20, 308.36, 138.80)
+  Virtual.Parent     : 右ひじ, World=(0.1569, 1.4677, -0.0592)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_spine01/cf_j_spine02/cf_j_spine03/cf_j_shoulder_R/cf_j_arm00_R/cf_j_forearm01_R/cf_j_hand_R
+  Real.LocalPos  : (0.2025, 0.0000, 0.0000)
+  Real.WorldPos  : (-0.0564, 1.3260, -0.0707)
+  Real.LocalEuler: (8.42, 6.46, 34.51)
+  Real.WorldEuler: (29.46, 311.07, 144.32)
+  Real.Parent       : cf_j_forearm01_R, World=(0.0688, 1.1804, -0.0897)
+  VMD.PrevFrame  : 602
+  VMD.NextFrame  : 613
+  VMD.tLinear    : 0.9729
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (-0.00000, 0.00000, -0.26673, 0.96377)
+  VMD.Next.RotQ  : (-0.00000, 0.00000, -0.30506, 0.95233)
+
+[Bone] 左足
+  Flags        : None
+  Virtual.LocalPos   : (0.0000, 0.0000, 0.0000)
+  Virtual.WorldPos   : (-0.1870, 0.6800, -0.0065)
+  Virtual.LocalEuler : (327.16, 1.30, 357.61)
+  Virtual.WorldEuler : (335.19, 36.13, 345.13)
+  Virtual.Parent     : 腰キャンセル左, World=(-0.1870, 0.6800, -0.0065)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_waist01/cf_j_waist02/cf_j_thigh00_L
+  Real.LocalPos  : (-0.0894, -0.0448, 0.0104)
+  Real.WorldPos  : (-0.1870, 0.6800, -0.0065)
+  Real.LocalEuler: (326.27, 1.31, 357.58)
+  Real.WorldEuler: (334.32, 36.36, 345.02)
+  Real.Parent       : cf_j_waist02, World=(-0.1090, 0.7057, -0.0557)
+  Y-Diff (Real-Virtual): 0.0000
+  Groove Y Value      : -0.2690
+  Y-Diff / Groove Y   : -0.00
+  VMD.PrevFrame  : 602
+  VMD.NextFrame  : 613
+  VMD.tLinear    : 0.9729
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.06747, -0.25322, -0.12462, 0.95697)
+
+[Bone] 左ひざ
+  Flags        : None
+  Virtual.LocalPos   : (-0.0000, -0.4513, 0.0000)
+  Virtual.WorldPos   : (-0.1726, 0.2841, 0.2096)
+  Virtual.LocalEuler : (74.01, 0.00, 0.00)
+  Virtual.WorldEuler : (46.69, 15.06, 340.15)
+  Virtual.Parent     : 左足, World=(-0.1870, 0.6800, -0.0065)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_waist01/cf_j_waist02/cf_j_thigh00_L/cf_j_leg01_L
+  Real.LocalPos  : (0.0001, -0.4736, -0.0074)
+  Real.WorldPos  : (-0.1726, 0.2841, 0.2096)
+  Real.LocalEuler: (79.81, 0.13, 0.11)
+  Real.WorldEuler: (51.28, 12.40, 338.14)
+  Real.Parent       : cf_j_thigh00_L, World=(-0.1870, 0.6800, -0.0065)
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右ひざ
+  Flags        : RightSide
+  Virtual.LocalPos   : (-0.0000, -0.4513, 0.0000)
+  Virtual.WorldPos   : (0.1678, 0.4036, 0.2285)
+  Virtual.LocalEuler : (77.78, 0.00, 0.00)
+  Virtual.WorldEuler : (20.61, 30.84, 11.61)
+  Virtual.Parent     : 右足, World=(-0.0434, 0.6465, -0.0878)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_waist01/cf_j_waist02/cf_j_thigh00_R/cf_j_leg01_R
+  Real.LocalPos  : (-0.0022, -0.4736, -0.0060)
+  Real.WorldPos  : (0.1678, 0.4036, 0.2285)
+  Real.LocalEuler: (83.21, 357.51, 357.61)
+  Real.WorldEuler: (25.22, 31.88, 12.00)
+  Real.Parent       : cf_j_thigh00_R, World=(-0.0434, 0.6465, -0.0878)
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左足首
+  Flags        : None
+  Virtual.LocalPos   : (-0.0000, -0.4403, 0.0000)
+  Virtual.WorldPos   : (-0.3952, -0.0000, -0.0425)
+  Virtual.LocalEuler : (325.06, 323.90, 38.09)
+  Virtual.WorldEuler : (0.00, -0.00, 0.00)
+  Virtual.Parent     : 左ひざ, World=(-0.1726, 0.2841, 0.2096)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_waist01/cf_j_waist02/cf_j_thigh00_L/cf_j_leg01_L/cf_j_leg03_L
+  Real.LocalPos  : (-0.0201, -0.4103, -0.0278)
+  Real.WorldPos  : (-0.3952, 0.0822, -0.0425)
+  Real.LocalEuler: (321.14, 321.67, 41.80)
+  Real.WorldEuler: (0.00, -0.00, -0.00)
+  Real.Parent       : cf_j_leg01_L, World=(-0.1726, 0.2841, 0.2096)
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 右足首
+  Flags        : RightSide
+  Virtual.LocalPos   : (0.0000, -0.4403, -0.0000)
+  Virtual.WorldPos   : (0.1661, 0.0000, 0.0527)
+  Virtual.LocalEuler : (340.22, 6.20, 345.87)
+  Virtual.WorldEuler : (-0.00, 32.64, 358.89)
+  Virtual.Parent     : 右ひざ, World=(0.1678, 0.4036, 0.2285)
+  Real.Path      : CommonSpace/chaF_00/BodyTop/p_cf_sv_body_bone_00(Clone)/cf_j_root/cf_n_height/cf_j_hips/cf_j_waist01/cf_j_waist02/cf_j_thigh00_R/cf_j_leg01_R/cf_j_leg03_R
+  Real.LocalPos  : (0.0164, -0.3841, 0.0011)
+  Real.WorldPos  : (0.1661, 0.0822, 0.0527)
+  Real.LocalEuler: (335.54, 6.41, 345.34)
+  Real.WorldEuler: (-0.00, 32.64, 358.89)
+  Real.Parent       : cf_j_leg01_R, World=(0.1678, 0.4036, 0.2285)
+  VMD.PrevFrame  : 0
+  VMD.NextFrame  : 0
+  VMD.tLinear    : 0.0000
+  VMD.Prev.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Next.Pos   : (0.0000, 0.0000, 0.0000)
+  VMD.Prev.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+  VMD.Next.RotQ  : (0.00000, 0.00000, 0.00000, 1.00000)
+
+[Bone] 左足底End
+  Flags        : IsIK
+  Virtual.LocalPos   : (-0.0000, -0.0341, 0.0314)
+  Virtual.WorldPos   : (-0.3952, -0.0341, -0.0111)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (0.00, -0.00, 0.00)
+  Virtual.Parent     : 左足首, World=(-0.3952, 0.0000, -0.0425)
+  Real  : <no realTransform>
+  VMD  : <no frames>
+
+[Bone] 右足底End
+  Flags        : IsIK
+  Virtual.LocalPos   : (-0.0000, -0.0342, 0.0314)
+  Virtual.WorldPos   : (0.1825, -0.0341, 0.0795)
+  Virtual.LocalEuler : (-0.00, 0.00, 0.00)
+  Virtual.WorldEuler : (-0.00, 32.64, 358.89)
+  Virtual.Parent     : 右足首, World=(0.1661, 0.0000, 0.0527)
+  Real  : <no realTransform>
+  VMD  : <no frames>
+

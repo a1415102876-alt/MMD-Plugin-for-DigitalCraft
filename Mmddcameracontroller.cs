@@ -16,7 +16,6 @@ namespace CharaAnime
         public float OffsetY = 0.0f;
         public Transform FollowTarget;
 
-
         /// 摄像机是否处于由脚本接管的播放状态
         public bool IsPlaying = false;
 
@@ -258,22 +257,28 @@ namespace CharaAnime
             Vector3 finalPos;
             Quaternion finalRot;
 
-            // --- 目标跟随逻辑 ---
+            // --- 实时跟随 FollowTarget ---
             if (FollowTarget != null)
             {
-                // 获取目标世界坐标
+                // 实时获取目标位置和朝向
                 Vector3 targetWorldPos = FollowTarget.position;
+                
+                // 计算 Y 轴朝向（只取水平旋转）
+                Vector3 forward = FollowTarget.forward;
+                forward.y = 0f;
+                Quaternion targetYaw = Quaternion.identity;
+                if (forward.sqrMagnitude > 0.001f)
+                {
+                    targetYaw = Quaternion.LookRotation(forward.normalized, Vector3.up);
+                }
 
-                // 仅跟随 Y 轴旋转
-                Quaternion targetYaw = Quaternion.Euler(0f, FollowTarget.eulerAngles.y, 0f);
-
-                // 1. 计算看向的目标点 
+                // 1. 计算看向的目标点（基于目标位置 + VMD偏移）
                 Vector3 worldLookAtPoint = targetWorldPos + (targetYaw * vmdOffset);
 
-                // 2. 计算最终旋转 (Target Yaw + VMD Rotation)
+                // 2. 计算最终旋转 (目标朝向 + VMD Rotation)
                 finalRot = targetYaw * vmdRotation;
 
-                // 3. 应用距离 ，沿最终朝向后退
+                // 3. 应用距离，沿最终朝向后退
                 Vector3 distOffset = finalRot * new Vector3(0f, 0f, finalDistanceVMD);
 
                 finalPos = worldLookAtPoint + distOffset;
@@ -330,10 +335,15 @@ namespace CharaAnime
         private float GetBezierRate(byte[] curve, int offset, float t)
         {
             if (curve == null || curve.Length < 24) return t;
-            float p1x = curve[offset] / 127f;
-            float p1y = curve[offset + 1] / 127f;
-            float p2x = curve[offset + 2] / 127f;
-            float p2y = curve[offset + 3] / 127f;
+            
+            // VMD 摄像机曲线的字节顺序是 (x1, x2, y1, y2)，不是 (x1, y1, x2, y2)！
+            // 这与骨骼曲线的格式不同
+            float p1x = curve[offset] / 127f;      // 第一个控制点 X
+            float p2x = curve[offset + 1] / 127f;  // 第二个控制点 X
+            float p1y = curve[offset + 2] / 127f;  // 第一个控制点 Y
+            float p2y = curve[offset + 3] / 127f;  // 第二个控制点 Y
+            
+            // 检查是否为线性插值（控制点在对角线上）
             if (p1x == p1y && p2x == p2y) return t;
 
             // 牛顿迭代法求解 x(t) = time 对应的 t 值

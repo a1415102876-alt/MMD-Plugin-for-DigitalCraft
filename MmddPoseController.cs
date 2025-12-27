@@ -1652,10 +1652,16 @@ namespace CharaAnime
                 // 位置绑定到 cf_j_thigh00_L（用于初始位置）
                 if (MmdToUnityMap.TryGetValue(cancelName, out string unityName))
                 {
+                    // 🟢 [修复] 使用targetObject（当前角色对象）作为根，避免使用root属性遍历到其他角色的骨骼
                     // 从真实骨骼映射中获取 cf_j_thigh00_L（用于位置绑定）
                     var realBoneMap = new Dictionary<string, Transform>();
-                    MapBonesRecursive(waist.realTransform?.root ?? waist.transform.root, realBoneMap);
-                    realBoneMap.TryGetValue(unityName, out positionBone);
+                    Transform rootTransform = targetObject != null ? targetObject.transform : 
+                                             (dummyRoot != null ? dummyRoot.transform.parent : null);
+                    if (rootTransform != null)
+                    {
+                        MapBonesRecursive(rootTransform, realBoneMap);
+                        realBoneMap.TryGetValue(unityName, out positionBone);
+                    }
                 }
                 
                 // 设置腰キャンセル的位置（如果还没有设置，或者需要更新）
