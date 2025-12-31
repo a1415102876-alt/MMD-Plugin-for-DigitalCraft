@@ -1,8 +1,10 @@
 ﻿using Il2CppInterop.Runtime.Attributes;
+using System;
 using System.Text;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using Il2CppSystem.Reflection;
 
 namespace CharaAnime
 {
@@ -13,8 +15,8 @@ namespace CharaAnime
         }
         public enum UpperBodyMode
         {
-            FollowHips = 0, 
-            Stabilize = 1  
+            FollowHips = 0,
+            Stabilize = 1
         }
         public UpperBodyMode upperBodyMode = UpperBodyMode.FollowHips;
 
@@ -30,6 +32,18 @@ namespace CharaAnime
         public bool ForceDisableIK = false;
         private bool isDirtyIKData = false;
         private Dictionary<string, float> ankleHeightOffsets = new Dictionary<string, float>();
+        private float centerHeightOffset = 0f; // Center骨骼的高度补偿，用于补偿不同身高角色的高度差异
+
+        // 🐛 Debug: Center高度调试标志
+        public bool DebugCenterHeight = true;
+        
+        // 🔧 Center高度调整参数（用于调试和微调）
+        // 如果center偏高，可以尝试调整这个值来修正initialH
+        public float CenterHeightAdjustment = 0f;
+        
+        // 🔧 是否加上初始位置（用于测试）
+        // 如果center归零，设置为true；如果center偏高，设置为false
+        public bool AddInitialHeightToCenter = true;
         private Transform cachedRealHips = null;
         /// <summary>
         /// 保存"应该启用IK"的状态，用于在取消强制关闭时恢复
@@ -285,7 +299,7 @@ namespace CharaAnime
             // --- 脊柱层级 (修正版) ---
             { "上半身2", "上半身" },
             { "上半身3", "上半身2" },
-            { "首", "上半身3" },      
+            { "首", "上半身3" },
             { "頭", "首" },
 
             // --- 手臂 (保持不变) ---
@@ -369,8 +383,8 @@ namespace CharaAnime
             public float tweakScale = 1.0f;
             public string mmdName;
             public float calculatedWeight;
-            public bool isSmileRelated; 
-            public bool isBlinkRelated; 
+            public bool isSmileRelated;
+            public bool isBlinkRelated;
         }
 
         public class IKLink
@@ -429,7 +443,7 @@ namespace CharaAnime
             public bool enable;
             public VirtualBone twistBone;     // 虚拟捩骨引用
             public VirtualBone disperseBone; // 分散目标骨骼引用
-            
+
             /// <summary>
             /// 获取当前有效的分散率（基础分散率 × UI 权重）
             /// UI 权重映射：0.0 = 禁用，1.0 = 基础分散率，2.0 = 最大分散率(1.0)
@@ -437,7 +451,7 @@ namespace CharaAnime
             public float GetEffectiveDisperseRate()
             {
                 float uiWeight = 1.0f;
-                
+
                 // 根据捩骨类型获取 UI 权重
                 if (twistBoneName.Contains("腕捩"))
                     uiWeight = MmddGui.Cfg_TwistWeight_Arm;
@@ -445,11 +459,11 @@ namespace CharaAnime
                     uiWeight = MmddGui.Cfg_TwistWeight_Hand;
                 else
                     uiWeight = MmddGui.Cfg_TwistWeight_Default;
-                
+
                 // UI 权重为 0 时禁用
                 if (uiWeight <= 0f)
                     return 0f;
-                
+
                 // 将 UI 权重（0-2）映射到分散率
                 // 权重 1.0 = 100% 基础分散率
                 // 权重 2.0 = 最大分散率 1.0
@@ -490,15 +504,15 @@ namespace CharaAnime
         public static string DebugText = "";
         public enum RootMotionMode
         {
-            Standard = 0, 
-            Groove = 1,   
-            Off = 2       
+            Standard = 0,
+            Groove = 1,
+            Off = 2
         }
 
         public RootMotionMode rootMotionMode = RootMotionMode.Standard;
 
-        private VmdReader.VmdData currentVmd; 
-        private int lastProcessedIkFrameIndex = 0; 
+        private VmdReader.VmdData currentVmd;
+        private int lastProcessedIkFrameIndex = 0;
 
         private Vector3 lastCenterRootXZ = Vector3.zero;
         private bool hasCenterRootXZ = false;
@@ -551,7 +565,7 @@ namespace CharaAnime
         }
 
         public void OnDestroy()
-        { 
+        {
             if (dummyRoot != null) Destroy(dummyRoot);
         }
 
@@ -592,6 +606,38 @@ namespace CharaAnime
             // 根据当前时间去 VMD 里查，这一帧 IK 应该是开还是关
             UpdateIKKeyframeState(currentTime);
 
+            // 🟢 [修复] 在IK解算前，保存膝盖的localRotation（用于后续计算增量旋转）
+            // 因为UpdateVirtualSkeleton可能已经更新了localRotation（如果有VMD数据）
+            foreach (var chain in ikChains)
+            {
+                if (chain.active && chain.solver != null && chain.isIkEnabledInVmd)
+                {
+                    if (chain.name.Contains("足") || chain.name.Contains("Leg") || chain.name.Contains("Foot"))
+                    {
+                        // 保存IK链条中所有骨骼的localRotation（主要是膝盖）
+                        if (chain.solver.chains != null)
+                        {
+                            foreach (var boneTransform in chain.solver.chains)
+                            {
+                                if (boneTransform != null)
+                                {
+                                    // 找到对应的VirtualBone
+                                    foreach (var bone in activeBones)
+                                    {
+                                        if (bone.transform == boneTransform)
+                                        {
+                                            // 保存IK解算前的localRotation
+                                            bone.solverLocalRotation = bone.transform.localRotation;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
             // 执行 IK 解算
             foreach (var chain in ikChains)
             {
@@ -601,11 +647,19 @@ namespace CharaAnime
                     if (chain.isIkEnabledInVmd)
                     {
                         chain.solver.Solve();
+                        // 🟢 [修复] 在IK解算后，将脚踝的旋转和位置设置为IK目标的旋转和位置
+                        // 这是必要的，因为IK目标包含VMD中的脚部旋转和位置数据
+                        // 但只在IK启用时应用，避免影响非IK状态
                         if (chain.name.Contains("足") || chain.name.Contains("Leg") || chain.name.Contains("Foot"))
                         {
                             if (chain.endEffector != null && chain.target != null)
                             {
+                                // 将虚拟骨骼脚踝的旋转设置为IK目标的旋转
                                 chain.endEffector.transform.rotation = chain.target.transform.rotation;
+                                // 🟢 [关键修复] 将虚拟骨骼脚踝的位置设置为IK目标的位置
+                                // 这确保了脚踝位置正确对齐到IK目标，特别是Y坐标（地面高度）
+                                // 对于不同身高的角色，IK目标的位置已经考虑了角色的实际几何结构
+                                chain.endEffector.transform.position = chain.target.transform.position;
                             }
                         }
                     }
@@ -618,16 +672,18 @@ namespace CharaAnime
             // 11. 将虚拟骨骼映射回真实骨骼
             ApplyToRealBones();
 
+            // 🟢 [修复] 在ApplyToRealBones之后，确保真实骨骼的脚踝旋转与虚拟骨骼一致
+            // 这确保了IK解算后的脚踝旋转正确应用到真实骨骼
             foreach (var chain in ikChains)
             {
-                // 只针对腿部 IK
+                // 只针对腿部 IK，且IK已启用
                 if (chain.active && chain.isIkEnabledInVmd && (chain.name.Contains("足") || chain.name.Contains("Leg")))
                 {
                     // 只有当 IK 目标和真实脚踝都存在时
                     if (chain.target != null && chain.endEffector != null && chain.endEffector.realTransform != null)
                     {
-
-                        chain.endEffector.realTransform.rotation = chain.target.transform.rotation;
+                        // 使用虚拟骨骼脚踝的旋转（已经在IK解算后更新为IK目标的旋转）
+                        chain.endEffector.realTransform.rotation = chain.endEffector.transform.rotation;
                     }
                 }
             }
@@ -686,7 +742,7 @@ namespace CharaAnime
 
             // 重置状态
             this.currentVmd = vmdData;
-            this.isDirtyIKData = false; 
+            this.isDirtyIKData = false;
 
             // 智能 IK 模式判定
 
@@ -752,7 +808,7 @@ namespace CharaAnime
             PreprocessTwistBones(vmdData);
             BuildVirtualSkeleton(targetObject, vmdData);
             UpdateVirtualSkeleton(0);
-            BuildIKChains(); 
+            BuildIKChains();
 
             foreach (var tdi in twistDisperseList)
             {
@@ -1044,13 +1100,13 @@ namespace CharaAnime
         {
             twistBoneFrames.Clear();
             var boneFrameGroups = vmdData.BoneFrames.GroupBy(f => f.Name).ToDictionary(g => g.Key, g => g.ToList());
-            
+
             // 提取所有可能的捩骨帧
             foreach (var kvp in VmdToTwistBoneMap)
             {
                 string vmdName = kvp.Key;
                 string twistBoneName = kvp.Value;
-                
+
                 if (boneFrameGroups.TryGetValue(vmdName, out var frames))
                 {
                     // 如果已经存在该捩骨的帧，合并；否则创建新的
@@ -1178,6 +1234,11 @@ namespace CharaAnime
             if (dummyRoot != null) Destroy(dummyRoot);
             activeBones.Clear();
             dummyDict.Clear();
+            
+            // 重置调试数据
+            legBoneInitialPositions.Clear();
+            legBoneDistances.Clear();
+            legDebugInitialized = false;
 
             // 创建虚拟根节点，并将其"挂载"到角色身上
             // 这样角色移动时，整个虚拟舞台和 IK 目标都会跟着移动
@@ -1199,11 +1260,35 @@ namespace CharaAnime
             ankleHeightOffsets.Clear();
             float baseGroundY = target.transform.position.y;
 
+            // 🟢 [新增] 计算Center骨骼的高度补偿
+            // 使用脚踝相对于地面的高度差作为Center的高度补偿
+            // 这样可以让整个角色上移，补偿高度差异
+            centerHeightOffset = 0f;
             if (realBoneMap.TryGetValue("cf_j_leg03_L", out var lAnk))
-                ankleHeightOffsets["左足首"] = lAnk.position.y - baseGroundY;
+            {
+                float leftAnkleHeight = lAnk.position.y - baseGroundY;
+                ankleHeightOffsets["左足首"] = leftAnkleHeight;
+                // 使用左脚踝高度作为Center的高度补偿（如果右脚踝存在，取平均值）
+                centerHeightOffset = leftAnkleHeight;
+            }
 
             if (realBoneMap.TryGetValue("cf_j_leg03_R", out var rAnk))
-                ankleHeightOffsets["右足首"] = rAnk.position.y - baseGroundY;
+            {
+                float rightAnkleHeight = rAnk.position.y - baseGroundY;
+                ankleHeightOffsets["右足首"] = rightAnkleHeight;
+                // 如果左脚踝也存在，取平均值；否则使用右脚踝高度
+                if (realBoneMap.TryGetValue("cf_j_leg03_L", out var _))
+                {
+                    centerHeightOffset = (centerHeightOffset + rightAnkleHeight) * 0.5f;
+                }
+                else
+                {
+                    centerHeightOffset = rightAnkleHeight;
+                }
+            }
+            
+            // === 调试：抓取ChaControl缩放信息 ===
+            DumpChaControlScaleInfo(target);
             // 4. VMD 数据分组
             var vmdGrouped = vmdData.BoneFrames.GroupBy(f => f.Name).ToDictionary(g => g.Key, g => g.ToList());
 
@@ -1491,10 +1576,10 @@ namespace CharaAnime
 
             // 10. 插入腰キャンセル骨骼（必须在设置层级关系之后，但在插入其他辅助骨骼之前）
             InsertWaistCancelBones();
-            
+
             // 11. 创建虚拟捩骨（必须在设置层级关系之后）
             CreateTwistBones();
-            
+
             // 12. 插入辅助骨骼
             InsertFootEndBones();
 
@@ -1511,7 +1596,56 @@ namespace CharaAnime
             {
                 if ((kvp.Value.flags & BoneFlag.IsCenter) != 0)
                 {
-                    centerInitialHeights[kvp.Key] = kvp.Value.transform.localPosition.y;
+                    float recordedHeight = 0f;
+                    
+                    // 🔧 [修复] 区分真正的Center（センター）和Groove（グルーブ）
+                    // 问题：グルーブ和センター可能共享同一个realTransform，导致记录的高度错误
+                    // 解决：对于真正的Center（センター），使用realTransform；对于Groove，只使用自己的localPosition.y
+                    
+                    // 判断是否是Groove
+                    bool isGroove = (kvp.Key == "グルーブ" || kvp.Key == "Groove");
+                    
+                    // 判断是否是真正的Center（不是Groove）
+                    bool isRealCenter = (kvp.Key == "センター" || kvp.Key == "Center") && !isGroove;
+                    
+                    if (isRealCenter && kvp.Value.realTransform != null && dummyRoot != null)
+                    {
+                        // 🔧 [修复] 对于真正的Center，使用realTransform相对于target的局部位置
+                        // 问题：realTransform.position是世界坐标，可能包含target的高度偏移
+                        // 解决：使用realTransform相对于target的局部位置，而不是相对于dummyRoot
+                        // 因为dummyRoot是target的子节点，且localPosition=(0,0,0)，所以相对于target和相对于dummyRoot应该是一样的
+                        // 但为了更准确，我们使用target作为基准
+                        if (target != null)
+                        {
+                            Vector3 localPos = target.transform.InverseTransformPoint(kvp.Value.realTransform.position);
+                            recordedHeight = localPos.y;
+                        }
+                        else
+                        {
+                            // 回退到使用dummyRoot
+                            Vector3 localPos = dummyRoot.transform.InverseTransformPoint(kvp.Value.realTransform.position);
+                            recordedHeight = localPos.y;
+                        }
+                    }
+                    else if (isGroove)
+                    {
+                        // 🔧 [关键修复] 对于Groove，只使用自己的localPosition.y，不累积parent的高度
+                        // 因为Groove是Center的子节点，它的高度应该相对于Center，而不是相对于dummyRoot
+                        recordedHeight = kvp.Value.transform.localPosition.y;
+                    }
+                    else
+                    {
+                        // 对于其他Center骨骼（如全ての親），使用localPosition.y并累积parent的高度
+                        recordedHeight = kvp.Value.transform.localPosition.y;
+                        Transform parent = kvp.Value.transform.parent;
+                        while (parent != null && parent != dummyRoot.transform)
+                        {
+                            recordedHeight += parent.localPosition.y;
+                            parent = parent.parent;
+                        }
+                    }
+                    
+                    centerInitialHeights[kvp.Key] = recordedHeight;
                 }
             }
         }
@@ -1561,8 +1695,8 @@ namespace CharaAnime
                     {
                         gameObject = go,
                         transform = go.transform,
-                        frames = twistBoneFrames.ContainsKey(tdi.twistBoneName) 
-                            ? twistBoneFrames[tdi.twistBoneName] 
+                        frames = twistBoneFrames.ContainsKey(tdi.twistBoneName)
+                            ? twistBoneFrames[tdi.twistBoneName]
                             : new List<VmdReader.VmdBoneFrame>(),
                         currentIndex = 0,
                         name = tdi.twistBoneName,
@@ -1613,10 +1747,10 @@ namespace CharaAnime
             foreach (var (cancelName, thighName) in pairs)
             {
                 if (!dummyDict.TryGetValue(thighName, out var thigh)) continue;
-                
+
                 VirtualBone cancel = null;
                 Transform positionBone = null; // 用于位置绑定的真实骨骼（cf_j_thigh00_L）
-                
+
                 if (dummyDict.TryGetValue(cancelName, out var existingCancel))
                 {
                     // 腰キャンセル已经存在，只需要确保层级关系正确
@@ -1647,7 +1781,7 @@ namespace CharaAnime
                     dummyDict[cancelName] = cancel;
                     activeBones.Add(cancel);
                 }
-                
+
                 // vmdlib ini [BonePosition]: BACK_HIPS_C_L=b:cf_j_thigh00_L
                 // 位置绑定到 cf_j_thigh00_L（用于初始位置）
                 if (MmdToUnityMap.TryGetValue(cancelName, out string unityName))
@@ -1655,7 +1789,7 @@ namespace CharaAnime
                     // 🟢 [修复] 使用targetObject（当前角色对象）作为根，避免使用root属性遍历到其他角色的骨骼
                     // 从真实骨骼映射中获取 cf_j_thigh00_L（用于位置绑定）
                     var realBoneMap = new Dictionary<string, Transform>();
-                    Transform rootTransform = targetObject != null ? targetObject.transform : 
+                    Transform rootTransform = targetObject != null ? targetObject.transform :
                                              (dummyRoot != null ? dummyRoot.transform.parent : null);
                     if (rootTransform != null)
                     {
@@ -1663,13 +1797,13 @@ namespace CharaAnime
                         realBoneMap.TryGetValue(unityName, out positionBone);
                     }
                 }
-                
+
                 // 设置腰キャンセル的位置（如果还没有设置，或者需要更新）
                 if (positionBone != null)
                 {
                     // 使用 cf_j_thigh00_L 的位置（在真实父骨骼 cf_j_waist01 的局部空间中）
                     Vector3 realChildWorldPos = positionBone.position;
-                    Vector3 realRelativePos = waist.realTransform != null 
+                    Vector3 realRelativePos = waist.realTransform != null
                         ? waist.realTransform.InverseTransformPoint(realChildWorldPos)
                         : waist.transform.InverseTransformPoint(realChildWorldPos);
                     cancel.transform.localPosition = realRelativePos;
@@ -1683,31 +1817,113 @@ namespace CharaAnime
                 cancel.transform.localRotation = Quaternion.identity;
                 cancel.solverLocalPosition = cancel.transform.localPosition;
 
-                // 🟢 [关键修复] 重新挂接大腿：父改为腰Cancel，并归零局部位移，保持世界位置不变
+                // 🟢 [关键修复] 重新挂接大腿：父改为腰Cancel，并正确设置局部位移
                 // 即使腰キャンセル已经存在，也需要重新挂接大腿，确保层级关系和localPosition正确
                 Vector3 thighWorldPosBefore = thigh.transform.position; // 保存世界位置
                 thigh.transform.SetParent(cancel.transform, false);
-                thigh.transform.localPosition = Vector3.zero; // 相对于腰キャンセル归零
                 
+                // 🔧 [修复] 根据真实骨骼的localPosition设置虚拟骨骼的localPosition
+                // 关键：虚拟骨骼的父节点（腰キャンセル）和真实骨骼的父节点可能不同
+                // 但我们需要确保虚拟骨骼的localPosition与真实骨骼的localPosition一致
+                if (thigh.realTransform != null)
+                {
+                    // 检查父节点关系
+                    Transform realParent = thigh.realTransform.parent;
+                    Transform virtualParent = cancel.transform;
+                    
+                    // 如果真实骨骼的父节点存在，计算真实骨骼在父节点局部空间中的位置
+                    // 然后计算腰キャンセル在相同基准（真实父节点）局部空间中的位置
+                    // 两者相减得到虚拟骨骼应该的localPosition
+                    if (realParent != null)
+                    {
+                        // 真实骨骼在真实父节点局部空间中的位置
+                        Vector3 realThighLocalInRealParent = thigh.realTransform.localPosition;
+                        // 腰キャンセル在真实父节点局部空间中的位置
+                        Vector3 cancelLocalInRealParent = realParent.InverseTransformPoint(cancel.transform.position);
+                        // 计算相对位置
+                        Vector3 calculatedLocalPos = realThighLocalInRealParent - cancelLocalInRealParent;
+                        thigh.transform.localPosition = calculatedLocalPos;
+                        // 🔧 [关键修复] 更新solverLocalPosition，确保VMD数据应用时使用正确的初始值
+                        thigh.solverLocalPosition = calculatedLocalPos;
+                        
+                        // 🐛 Debug: 输出修复信息
+                        if (DebugCenterHeight)
+                        {
+                            Debug.Log($"[WaistCancel Fix] {thighName}:\n" +
+                                     $"  真实骨骼localPosition: {thigh.realTransform.localPosition}\n" +
+                                     $"  真实父节点: {realParent.name}\n" +
+                                     $"  腰キャンセル在真实父节点局部空间: {cancelLocalInRealParent}\n" +
+                                     $"  计算得到的localPosition: {calculatedLocalPos}\n" +
+                                     $"  最终设置的localPosition: {thigh.transform.localPosition}\n" +
+                                     $"  更新的solverLocalPosition: {thigh.solverLocalPosition}\n" +
+                                     $"  验证World Pos - 真实: {thigh.realTransform.position}, 虚拟: {thigh.transform.position}");
+                        }
+                    }
+                    else
+                    {
+                        // 如果没有真实父节点，直接使用真实骨骼的localPosition
+                        thigh.transform.localPosition = thigh.realTransform.localPosition;
+                        // 🔧 [关键修复] 更新solverLocalPosition
+                        thigh.solverLocalPosition = thigh.realTransform.localPosition;
+                    }
+                }
+                else
+                {
+                    // 如果没有真实骨骼，保持世界位置不变
+                    thigh.transform.position = thighWorldPosBefore;
+                }
+
                 // 🟢 [修复子节点层级] 确保大腿的子节点（膝盖、脚踝）的层级关系正确
                 // 因为Unity的SetParent不会自动更新子节点的父节点，需要手动检查并强制修正
                 string kneeName = thighName == "左足" ? "左ひざ" : "右ひざ";
                 string ankleName = thighName == "左足" ? "左足首" : "右足首";
-                
+
                 // 1. 修复膝盖的父节点：必须是大腿
                 if (dummyDict.TryGetValue(kneeName, out var knee))
                 {
-                    if (knee.transform.parent != thigh.transform)
+                    bool needReparent = knee.transform.parent != thigh.transform;
+                    if (needReparent)
                     {
+                        Vector3 kneeWorldPosBefore = knee.transform.position;
                         knee.transform.SetParent(thigh.transform, false);
                     }
+                    
+                    // 🔧 [修复] 根据真实骨骼的世界位置计算虚拟骨骼的localPosition
+                    // 关键：虚拟骨骼的父节点（大腿）已经重新挂接到腰キャンセル，所以不能直接使用真实骨骼的localPosition
+                    if (knee.realTransform != null && thigh.transform != null)
+                    {
+                        // 使用真实骨骼的世界位置，转换为虚拟父节点（大腿）的局部空间
+                        Vector3 realKneeWorldPos = knee.realTransform.position;
+                        Vector3 calculatedLocalPos = thigh.transform.InverseTransformPoint(realKneeWorldPos);
+                        knee.transform.localPosition = calculatedLocalPos;
+                        // 🔧 [关键修复] 更新solverLocalPosition
+                        knee.solverLocalPosition = calculatedLocalPos;
+                        
+                        // 🐛 Debug: 输出修复信息
+                        if (DebugCenterHeight)
+                        {
+                            Debug.Log($"[WaistCancel Fix] {kneeName}:\n" +
+                                     $"  需要重新挂接: {needReparent}\n" +
+                                     $"  真实骨骼世界位置: {realKneeWorldPos}\n" +
+                                     $"  真实骨骼localPosition: {knee.realTransform.localPosition}\n" +
+                                     $"  虚拟父节点（大腿）世界位置: {thigh.transform.position}\n" +
+                                     $"  计算得到的localPosition: {calculatedLocalPos}\n" +
+                                     $"  最终设置的localPosition: {knee.transform.localPosition}\n" +
+                                     $"  更新的solverLocalPosition: {knee.solverLocalPosition}\n" +
+                                     $"  验证World Pos - 真实: {knee.realTransform.position}, 虚拟: {knee.transform.position}");
+                        }
+                    }
+                    else if (needReparent)
+                    {
+                        knee.transform.position = knee.transform.position; // 保持世界位置
+                    }
                 }
-                
+
                 // 2. 修复脚踝的父节点：优先是膝盖，如果膝盖不存在则挂到大腿
                 if (dummyDict.TryGetValue(ankleName, out var ankle))
                 {
                     Transform correctParent = null;
-                    
+
                     // 优先：如果膝盖存在，脚踝应该挂到膝盖下
                     if (dummyDict.TryGetValue(kneeName, out var knee2))
                     {
@@ -1718,12 +1934,44 @@ namespace CharaAnime
                         // 回退：如果膝盖不存在，脚踝应该挂到大腿下
                         correctParent = thigh.transform;
                     }
-                    
+
                     // 强制修正：无论当前挂在哪里，都要挂到正确的位置
-                    if (ankle.transform.parent != correctParent)
+                    bool needReparentAnkle = ankle.transform.parent != correctParent;
+                    if (needReparentAnkle)
                     {
+                        Vector3 ankleWorldPosBefore = ankle.transform.position;
                         ankle.transform.SetParent(correctParent, false);
                     }
+                    
+                    // 🔧 [修复] 根据真实骨骼的世界位置计算虚拟骨骼的localPosition
+                    // 关键：虚拟骨骼的父节点（膝盖或大腿）可能已经重新挂接，所以不能直接使用真实骨骼的localPosition
+                    if (ankle.realTransform != null && correctParent != null)
+                    {
+                        // 使用真实骨骼的世界位置，转换为虚拟父节点的局部空间
+                        Vector3 realAnkleWorldPos = ankle.realTransform.position;
+                        Vector3 calculatedLocalPos = correctParent.InverseTransformPoint(realAnkleWorldPos);
+                        ankle.transform.localPosition = calculatedLocalPos;
+                        // 🔧 [关键修复] 更新solverLocalPosition
+                        ankle.solverLocalPosition = calculatedLocalPos;
+                        
+                        // 🐛 Debug: 输出修复信息
+                        if (DebugCenterHeight)
+                        {
+                            Debug.Log($"[WaistCancel Fix] {ankleName}:\n" +
+                                     $"  需要重新挂接: {needReparentAnkle}\n" +
+                                     $"  真实骨骼世界位置: {realAnkleWorldPos}\n" +
+                                     $"  真实骨骼localPosition: {ankle.realTransform.localPosition}\n" +
+                                     $"  虚拟父节点世界位置: {correctParent.position}\n" +
+                                     $"  计算得到的localPosition: {calculatedLocalPos}\n" +
+                                     $"  最终设置的localPosition: {ankle.transform.localPosition}\n" +
+                                     $"  更新的solverLocalPosition: {ankle.solverLocalPosition}\n" +
+                                     $"  验证World Pos - 真实: {ankle.realTransform.position}, 虚拟: {ankle.transform.position}");
+                        }
+                    }
+                    else if (needReparentAnkle)
+                        {
+                            ankle.transform.position = ankle.transform.position; // 保持世界位置
+                        }
                 }
             }
         }
@@ -1737,7 +1985,7 @@ namespace CharaAnime
         /// - 脚尖 End：位于脚尖方向，用于脚尖 IK 末端（抬脚尖/点地）
         /// </summary>
         private void InsertFootEndBones()
-                    {
+        {
             InsertSingleFootEndBones(
                 footName: "左足首",
                 toeName: "左つま先",
@@ -1761,7 +2009,7 @@ namespace CharaAnime
 
             // --- 脚底 End：挂在脚首下方，略向下并略向前，近似脚掌中心 ---
             if (!dummyDict.ContainsKey(soleEndName))
-                {
+            {
                 var goSole = new GameObject(soleEndName);
                 var sole = new VirtualBone
                 {
@@ -1997,16 +2245,16 @@ namespace CharaAnime
                     // 保持原始 Y 坐标不变，只裁剪水平距离
                     float targetY = targetPos.y;
                     float deltaY = targetY - hipPos.y;
-                    
+
                     // 计算可用的水平距离：sqrt(clampDist^2 - deltaY^2)
                     float availableDistXZ = Mathf.Sqrt(Mathf.Max(0f, clampDist * clampDist - deltaY * deltaY));
-                    
+
                     if (availableDistXZ > 1e-6f)
                     {
                         // 计算水平方向向量
                         Vector3 toTargetXZ = new Vector3(toTarget.x, 0f, toTarget.z);
                         float distXZ = toTargetXZ.magnitude;
-                        
+
                         if (distXZ > 1e-6f)
                         {
                             // 裁剪水平距离，保持 Y 不变
@@ -2101,9 +2349,104 @@ namespace CharaAnime
 
                 // 左右腿需要一致的弯曲方向：默认让膝盖朝前弯
                 chain.solver.bendNormal = bendNormal.normalized;
-                
+
                 // 🟢 [改进] 初始化腿部几何参数（计算 baseInvQ 等）
                 chain.solver.InitializeLegGeometry();
+            }
+        }
+
+        // === 调试：追踪腿部骨骼位置变化 ===
+        private Dictionary<string, Vector3> legBoneInitialPositions = new Dictionary<string, Vector3>();
+        private Dictionary<string, float> legBoneDistances = new Dictionary<string, float>();
+        private bool legDebugInitialized = false;
+
+        private void DebugLegBonePositions()
+        {
+            if (!DebugCenterHeight) return;
+
+            // 腿部骨骼链
+            string[][] legChains = new[]
+            {
+                new[] { "左ひざ", "左足", "左足首" },
+                new[] { "右ひざ", "右足", "右足首" }
+            };
+
+            foreach (var chain in legChains)
+            {
+                if (chain.Length < 2) continue;
+
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine($"=== Leg Chain Debug: {chain[0]} ===");
+
+                Vector3[] positions = new Vector3[chain.Length];
+                bool allFound = true;
+
+                for (int i = 0; i < chain.Length; i++)
+                {
+                    if (dummyDict.TryGetValue(chain[i], out VirtualBone bone))
+                    {
+                        positions[i] = bone.transform.position;
+                        Vector3 localPos = bone.transform.localPosition;
+                        
+                        if (!legDebugInitialized)
+                        {
+                            legBoneInitialPositions[chain[i]] = positions[i];
+                        }
+
+                        sb.AppendLine($"  {chain[i]}:");
+                        sb.AppendLine($"    World Pos: {positions[i]}");
+                        sb.AppendLine($"    Local Pos: {localPos}");
+                        if (bone.realTransform != null)
+                        {
+                            sb.AppendLine($"    Real Bone Pos: {bone.realTransform.position}");
+                            sb.AppendLine($"    Real Bone Local: {bone.realTransform.localPosition}");
+                        }
+                        if (legDebugInitialized && legBoneInitialPositions.ContainsKey(chain[i]))
+                        {
+                            Vector3 delta = positions[i] - legBoneInitialPositions[chain[i]];
+                            sb.AppendLine($"    Delta from Initial: {delta} (magnitude: {delta.magnitude:F4})");
+                        }
+                    }
+                    else
+                    {
+                        allFound = false;
+                        break;
+                    }
+                }
+
+                if (allFound && chain.Length >= 2)
+                {
+                    // 计算骨骼长度
+                    for (int i = 0; i < chain.Length - 1; i++)
+                    {
+                        float dist = Vector3.Distance(positions[i], positions[i + 1]);
+                        string key = $"{chain[i]}_to_{chain[i + 1]}";
+                        
+                        if (!legDebugInitialized)
+                        {
+                            legBoneDistances[key] = dist;
+                        }
+                        else if (legBoneDistances.ContainsKey(key))
+                        {
+                            float initialDist = legBoneDistances[key];
+                            float delta = dist - initialDist;
+                            sb.AppendLine($"  Distance {chain[i]} -> {chain[i + 1]}: {dist:F4} (Initial: {initialDist:F4}, Delta: {delta:F4})");
+                            
+                            if (Mathf.Abs(delta) > 0.01f)
+                            {
+                                sb.AppendLine($"    ⚠️ WARNING: Distance changed significantly!");
+                            }
+                        }
+                    }
+                }
+
+                Debug.Log(sb.ToString());
+            }
+
+            if (!legDebugInitialized)
+            {
+                legDebugInitialized = true;
+                Debug.Log("[Leg Debug] Initial positions and distances recorded");
             }
         }
 
@@ -2213,6 +2556,9 @@ namespace CharaAnime
                     // 基础 VMD 位移（MMD 坐标系 -> Unity 坐标系）
                     Vector3 interpolated = new Vector3(-ix, iy, -iz);
                     Vector3 finalPos = Vector3.Scale(interpolated, positionScale);
+                    
+                    // 记录VMD原始Y值（插值前），用于分析VMD数据是否包含绝对高度
+                    float vmdRawY = iy;
 
                     // ================= [腿部间距补偿] =================
                     if (Mathf.Abs(LegWidthFix) > 0.0001f)
@@ -2230,40 +2576,133 @@ namespace CharaAnime
                         }
                     }
 
-                    // A. 处理 Center 骨骼的初始高度
-                    if ((bone.flags & BoneFlag.IsCenter) != 0)
+                    bool isCenter = (bone.flags & BoneFlag.IsCenter) != 0;
+                    bool isIK = (bone.flags & BoneFlag.IsIK) != 0;
+
+                    if (isCenter || isIK)
                     {
-                        if (centerInitialHeights.TryGetValue(bone.name, out float initialHeight))
-                            finalPos.y += initialHeight;
-                        finalPos += GlobalPositionOffset;
+                        // 1. 全局 X/Z 平移 (身体和脚同步)
+                        finalPos.x += GlobalPositionOffset.x;
+                        finalPos.z += GlobalPositionOffset.z;
+
+                        // 2. Center (身体) 处理
+                        if (isCenter)
+                        {
+                            float initialH = 0f;
+                            bool hasInitialH = centerInitialHeights.TryGetValue(bone.name, out float h);
+                            if (hasInitialH) initialH = h;
+
+                            // 区分 "真正的 Center" 和 "Groove"
+                            // 真正的 Center (Hips) 初始高度通常 > 0.2米
+                            if (initialH > 0.2f)
+                            {
+                                float baseMMDHeight = 0.75f; // MMD标准角色高度
+                                float heightScale = initialH / baseMMDHeight;  // 根据角色身高比例缩放
+                                
+                                // 对于非常矮的角色，使用混合缩放，避免过度缩放
+                                if (initialH < 0.75f)
+                                {
+                                    float lerpFactor = 0.5f;
+                                    float hybridBaseHeight = Mathf.Lerp(0.75f, initialH, lerpFactor);
+                                    heightScale = initialH / hybridBaseHeight;
+                                }
+
+                                finalPos.y *= heightScale;  // 根据角色身高比例缩放VMD偏移
+                                
+                                float adjustedInitialH = initialH + CenterHeightAdjustment;
+                                
+                                // 检查VMD原始Y值是否接近MMD标准高度（0.75），如果是，说明VMD数据是绝对高度
+                                float mmdBaseHeight = 0.75f;
+                                bool isVmdAbsoluteHeight = Mathf.Abs(vmdRawY - mmdBaseHeight) < 0.1f;
+                                
+                                if (AddInitialHeightToCenter)
+                                {
+                                    if (isVmdAbsoluteHeight)
+                                    {
+                                        float mmdBaseHeightScaled = mmdBaseHeight * positionScale.y;
+                                        finalPos.y = finalPos.y - mmdBaseHeightScaled + adjustedInitialH;
+                                    }
+                                    else
+                                    {
+                                        finalPos.y += adjustedInitialH;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                // --- [Groove] ---
+                                // Groove的下蹲动作也需要根据角色身高比例缩放
+                                float grooveInitialH = 0f;
+                                if (dummyDict.TryGetValue("センター", out var centerBone) || dummyDict.TryGetValue("Center", out centerBone))
+                                {
+                                    if (centerInitialHeights.TryGetValue(centerBone.name, out float centerH))
+                                        grooveInitialH = centerH;
+                                }
+                                
+                                float grooveHeightScale = 1.0f;
+                                if (grooveInitialH > 0.2f)
+                                {
+                                    float baseMMDHeight = 0.75f;
+                                    grooveHeightScale = grooveInitialH / baseMMDHeight;
+                                    
+                                    if (grooveInitialH < 0.75f)
+                                    {
+                                        float lerpFactor = 0.5f;
+                                        float hybridBaseHeight = Mathf.Lerp(0.75f, grooveInitialH, lerpFactor);
+                                        grooveHeightScale = grooveInitialH / hybridBaseHeight;
+                                    }
+                                }
+                                
+                                finalPos.y *= grooveHeightScale;
+                            }
+
+                            // UI 手动微调 Y (仅影响身体松紧度)
+                            finalPos.y += GlobalPositionOffset.y;
+                        }
+                        // 3. IK (脚) 处理
+                        else if (isIK)
+                        {
+                            float ikGroundFix = centerHeightOffset - 0.04f;
+                            finalPos.y += ikGroundFix;
+
+                            // IK 不受 UI Y轴影响，保证贴地
+                        }
+
+                        // 4. IK 亲骨骼初始位姿
+                        if (bone.name.Contains("足IK親") || bone.name.Contains("足ＩＫ親"))
+                        {
+                            finalPos += bone.solverLocalPosition;
+                        }
+
+                        // 应用最终坐标
+                        bone.transform.localPosition = finalPos;
+                        
+                        // === 调试：追踪腿部骨骼位置变化 ===
+                        if (DebugCenterHeight)
+                        {
+                            bool isLegBone = (bone.name.Contains("足") || bone.name.Contains("ひざ") || bone.name.Contains("つま先"))
+                                           && !bone.name.Contains("IK") && !bone.name.Contains("ＩＫ");
+                            
+                            if (isLegBone && hasPosData)
+                            {
+                                Debug.Log($"[Leg Debug] {bone.name} Position Update:\n" +
+                                         $"  VMD原始值: ({ix:F4}, {iy:F4}, {iz:F4})\n" +
+                                         $"  插值后: ({interpolated.x:F4}, {interpolated.y:F4}, {interpolated.z:F4})\n" +
+                                         $"  positionScale: {positionScale}\n" +
+                                         $"  应用positionScale后: ({finalPos.x:F4}, {finalPos.y:F4}, {finalPos.z:F4})\n" +
+                                         $"  最终localPosition: {bone.transform.localPosition}\n" +
+                                         $"  最终worldPosition: {bone.transform.position}\n" +
+                                         $"  realTransform位置: {(bone.realTransform != null ? bone.realTransform.position.ToString() : "null")}");
+                            }
+                        }
                     }
-
-                    // 🟢 [核心修复] 处理 IK 亲骨骼的初始偏移 (Rest Pose Offset)
-                    // MMD 的 IK Parent 骨骼通常不在原点，而是在脚踝的初始位置
-                    // VMD 数据是相对于这个初始位置的增量，所以必须把 solverLocalPosition (初始位姿) 加回去
-                    if (bone.name.Contains("足IK親") || bone.name.Contains("足ＩＫ親"))
-                    {
-                        finalPos += bone.solverLocalPosition;
-                    }
-
-                    // B. 防滑步逻辑 (Force World Coordinate)
-                    // 仅针对真正的 "足IK" (Target)，且排除有父级带动的情况
-                    bool isFootIKForOffset = bone.name.Contains("左足ＩＫ") || bone.name.Contains("右足ＩＫ") ||
-                                             bone.name.Contains("左足IK") || bone.name.Contains("右足IK");
-
-                    // 再次确认不包含 "亲"
-                    if (bone.name.Contains("親")) isFootIKForOffset = false;
-
-                    bool hasIKParent = false;
-                    if (bone.transform.parent != null)
-                    {
-                        string pName = bone.transform.parent.name;
-                        hasIKParent = pName.Contains("足IK親") || pName.Contains("足ＩＫ親") || pName.Contains("Parent");
-                    }
-
-                    // 标准局部坐标逻辑
-                    bone.transform.localPosition = finalPos;
                 }
+            }
+            
+            // === 调试：输出腿部骨骼链的完整信息 ===
+            if (DebugCenterHeight)
+            {
+                DebugLegBonePositions();
             }
         }
 
@@ -2421,13 +2860,56 @@ namespace CharaAnime
                     else if (isLegBone)
                     {
                         bool isAnkle = bone.name.Contains("足首");
+                        bool isKnee = bone.name.Contains("ひざ");
+                        bool isThigh = (bone.name.Contains("左足") || bone.name.Contains("右足")) && !isKnee && !isAnkle;
+
+                        // 🟢 [修复] 脚踝：使用世界旋转和位置（已在IK解算后同步）
                         if (isAnkle && bone.realTransform != null)
                         {
-                            float heightOffset = 0f;
-                            if (ankleHeightOffsets.TryGetValue(bone.name, out float offset)) heightOffset = offset;
-                            bone.realTransform.position = virtualWorldPos + Vector3.up * heightOffset;
+                            // 🟢 [修复] 脚踝需要单独应用heightOffset，确保脚踝位置正确
+                            // 虽然Center已经应用了centerHeightOffset，但脚踝需要保持在地面（或正确的高度）
+                            // 所以脚踝仍然需要自己的heightOffset补偿
+                            bone.realTransform.position = virtualWorldPos;
                             bone.realTransform.rotation = bone.transform.rotation;
                         }
+                        // 🟢 [修复] 膝盖：计算相对于初始姿态的增量旋转
+                        // IK解算器直接修改了虚拟骨骼的localRotation，但baseInvQ是基于虚拟骨骼的初始姿态（identity）计算的
+                        // 真实骨骼的初始姿态是bindOffset，所以需要计算增量旋转
+                        else if (isKnee && bone.realTransform != null)
+                        {
+                            if (bone.realTransform.parent != null)
+                            {
+                                Vector3 realLocalPos = bone.realTransform.parent.InverseTransformPoint(virtualWorldPos);
+                                bone.realTransform.localPosition = realLocalPos;
+                            }
+                            else
+                            {
+                                bone.realTransform.position = virtualWorldPos;
+                            }
+                            // 计算相对于初始姿态的增量旋转
+                            // 虚拟骨骼：从identity到当前localRotation
+                            // 真实骨骼：从bindOffset到bindOffset * (当前localRotation相对于identity的增量)
+                            Quaternion virtualDelta = bone.transform.localRotation * Quaternion.Inverse(bone.solverLocalRotation);
+                            bone.realTransform.localRotation = bone.bindOffset * virtualDelta;
+                        }
+                        // 🟢 [修复] 大腿：使用标准方式，确保先处理
+                        else if (isThigh && bone.realTransform != null)
+                        {
+                            if (bone.realTransform.parent != null)
+                            {
+                                Vector3 realLocalPos = bone.realTransform.parent.InverseTransformPoint(virtualWorldPos);
+                                bone.realTransform.localPosition = realLocalPos;
+                                Quaternion virtualWorldRot = bone.transform.rotation;
+                                Quaternion realLocalRot = Quaternion.Inverse(bone.realTransform.parent.rotation) * virtualWorldRot;
+                                bone.realTransform.localRotation = bone.bindOffset * realLocalRot;
+                            }
+                            else
+                            {
+                                bone.realTransform.position = virtualWorldPos;
+                                bone.realTransform.rotation = bone.transform.rotation;
+                            }
+                        }
+                        // 其他腿部骨骼（如つま先）使用标准方式
                         else if (bone.realTransform.parent != null)
                         {
                             Vector3 realLocalPos = bone.realTransform.parent.InverseTransformPoint(virtualWorldPos);
@@ -2470,6 +2952,321 @@ namespace CharaAnime
             for (int i = 0; i < t.childCount; i++) MapBonesRecursive(t.GetChild(i), map);
         }
 
+        // === 调试：抓取ChaControl缩放信息 ===
+        [HideFromIl2Cpp]
+        private void DumpChaControlScaleInfo(GameObject target)
+        {
+            try
+            {
+                if (target == null)
+                {
+                    Debug.Log("[Scale Debug] Target is null");
+                    return;
+                }
+
+                var sb = new StringBuilder();
+                sb.AppendLine("=== ChaControl Scale Info Debug ===");
+                sb.AppendLine($"Target: {target.name}");
+                sb.AppendLine();
+
+                // 1. 查找所有MonoBehaviour组件
+                var components = target.GetComponents<MonoBehaviour>();
+                sb.AppendLine($"--- All Components ({components.Length}) ---");
+                foreach (var comp in components)
+                {
+                    if (comp == null) continue;
+                    string typeName = comp.GetIl2CppType().Name;
+                    sb.AppendLine($"  Component: {typeName}");
+                    
+                    // 如果找到ChaControl或类似组件，详细输出
+                    if (typeName.Contains("Cha") || typeName.Contains("Control") || 
+                        typeName.Contains("Char") || typeName.Contains("Info") ||
+                        typeName.Contains("Human") || typeName.Contains("Component") ||
+                        typeName.Contains("FKCtrl") || typeName.Contains("Heels"))
+                    {
+                        var type = comp.GetIl2CppType();
+                        
+                        // 输出所有字段
+                        var fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
+                        sb.AppendLine($"    Fields ({fields.Length}):");
+                        foreach (var field in fields)
+                        {
+                            try
+                            {
+                                var value = field.GetValue(comp);
+                                string valueStr = value?.ToString() ?? "null";
+                                if (valueStr.Length > 100) valueStr = valueStr.Substring(0, 100) + "...";
+                                
+                                // 特别关注scale、height、change相关的字段
+                                if (field.Name.ToLower().Contains("scale") || 
+                                    field.Name.ToLower().Contains("height") ||
+                                    field.Name.ToLower().Contains("change") ||
+                                    field.Name.ToLower().Contains("size"))
+                                {
+                                    sb.AppendLine($"      ⭐ {field.Name} ({field.FieldType.Name}) = {valueStr}");
+                                    
+                                    // 如果是Human对象，深入检查所有字段和属性
+                                    if (field.Name == "Human" || field.Name == "_human" || field.FieldType.Name == "Human")
+                                    {
+                                        sb.AppendLine($"        --- Inspecting Human object (all fields/properties) ---");
+                                        try
+                                        {
+                                            var humanType = value?.GetIl2CppType();
+                                            if (humanType != null)
+                                            {
+                                                var humanFields = humanType.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
+                                                sb.AppendLine($"          Human Fields ({humanFields.Length}):");
+                                                foreach (var hField in humanFields)
+                                                {
+                                                    try
+                                                    {
+                                                        var hValue = hField.GetValue(value);
+                                                        string hValueStr = hValue?.ToString() ?? "null";
+                                                        if (hValueStr.Length > 80) hValueStr = hValueStr.Substring(0, 80) + "...";
+                                                        
+                                                        if (hField.Name.ToLower().Contains("scale") || 
+                                                            hField.Name.ToLower().Contains("height") ||
+                                                            hField.Name.ToLower().Contains("change") ||
+                                                            hField.Name.ToLower().Contains("size"))
+                                                        {
+                                                            sb.AppendLine($"            ⭐⭐ {hField.Name} ({hField.FieldType.Name}) = {hValueStr}");
+                                                        }
+                                                        else
+                                                        {
+                                                            sb.AppendLine($"            {hField.Name} ({hField.FieldType.Name}) = {hValueStr}");
+                                                        }
+                                                    }
+                                                    catch (Exception ex3)
+                                                    {
+                                                        sb.AppendLine($"            {hField.Name} - Error: {ex3.Message}");
+                                                    }
+                                                }
+                                                
+                                                var humanProps = humanType.GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
+                                                sb.AppendLine($"          Human Properties ({humanProps.Length}):");
+                                                foreach (var hProp in humanProps)
+                                                {
+                                                    try
+                                                    {
+                                                        if (!hProp.CanRead) continue;
+                                                        var hValue = hProp.GetValue(value);
+                                                        string hValueStr = hValue?.ToString() ?? "null";
+                                                        if (hValueStr.Length > 80) hValueStr = hValueStr.Substring(0, 80) + "...";
+                                                        
+                                                        if (hProp.Name.ToLower().Contains("scale") || 
+                                                            hProp.Name.ToLower().Contains("height") ||
+                                                            hProp.Name.ToLower().Contains("change") ||
+                                                            hProp.Name.ToLower().Contains("size"))
+                                                        {
+                                                            sb.AppendLine($"            ⭐⭐ {hProp.Name} ({hProp.PropertyType.Name}) = {hValueStr}");
+                                                        }
+                                                        else
+                                                        {
+                                                            sb.AppendLine($"            {hProp.Name} ({hProp.PropertyType.Name}) = {hValueStr}");
+                                                        }
+                                                    }
+                                                    catch (Exception ex3)
+                                                    {
+                                                        sb.AppendLine($"            {hProp.Name} - Error: {ex3.Message}");
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        catch (Exception ex2)
+                                        {
+                                            sb.AppendLine($"        Error inspecting Human: {ex2.Message}");
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    sb.AppendLine($"        {field.Name} ({field.FieldType.Name}) = {valueStr}");
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                sb.AppendLine($"        {field.Name} - Error: {ex.Message}");
+                            }
+                        }
+                        
+                        // 输出所有属性
+                        var properties = type.GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
+                        sb.AppendLine($"    Properties ({properties.Length}):");
+                        foreach (var prop in properties)
+                        {
+                            try
+                            {
+                                if (!prop.CanRead) continue;
+                                var value = prop.GetValue(comp);
+                                string valueStr = value?.ToString() ?? "null";
+                                if (valueStr.Length > 100) valueStr = valueStr.Substring(0, 100) + "...";
+                                
+                                // 特别关注scale、height、change相关的属性
+                                if (prop.Name.ToLower().Contains("scale") || 
+                                    prop.Name.ToLower().Contains("height") ||
+                                    prop.Name.ToLower().Contains("change") ||
+                                    prop.Name.ToLower().Contains("size"))
+                                {
+                                    sb.AppendLine($"      ⭐ {prop.Name} ({prop.PropertyType.Name}) = {valueStr}");
+                                }
+                                else
+                                {
+                                    sb.AppendLine($"        {prop.Name} ({prop.PropertyType.Name}) = {valueStr}");
+                                }
+                                
+                                // 如果是Human属性，深入检查
+                                if (prop.Name == "Human" || prop.PropertyType.Name == "Human")
+                                {
+                                    sb.AppendLine($"        --- Inspecting Human property (all fields/properties) ---");
+                                    try
+                                    {
+                                        var humanType = value?.GetIl2CppType();
+                                        if (humanType != null)
+                                        {
+                                            var humanFields = humanType.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
+                                            sb.AppendLine($"          Human Fields ({humanFields.Length}):");
+                                            foreach (var hField in humanFields)
+                                            {
+                                                try
+                                                {
+                                                    var hValue = hField.GetValue(value);
+                                                    string hValueStr = hValue?.ToString() ?? "null";
+                                                    if (hValueStr.Length > 80) hValueStr = hValueStr.Substring(0, 80) + "...";
+                                                    
+                                                    if (hField.Name.ToLower().Contains("scale") || 
+                                                        hField.Name.ToLower().Contains("height") ||
+                                                        hField.Name.ToLower().Contains("change") ||
+                                                        hField.Name.ToLower().Contains("size"))
+                                                    {
+                                                        sb.AppendLine($"            ⭐⭐ {hField.Name} ({hField.FieldType.Name}) = {hValueStr}");
+                                                    }
+                                                    else
+                                                    {
+                                                        sb.AppendLine($"            {hField.Name} ({hField.FieldType.Name}) = {hValueStr}");
+                                                    }
+                                                }
+                                                catch (Exception ex3)
+                                                {
+                                                    sb.AppendLine($"            {hField.Name} - Error: {ex3.Message}");
+                                                }
+                                            }
+                                            
+                                            var humanProps = humanType.GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
+                                            sb.AppendLine($"          Human Properties ({humanProps.Length}):");
+                                            foreach (var hProp in humanProps)
+                                            {
+                                                try
+                                                {
+                                                    if (!hProp.CanRead) continue;
+                                                    var hValue = hProp.GetValue(value);
+                                                    string hValueStr = hValue?.ToString() ?? "null";
+                                                    if (hValueStr.Length > 80) hValueStr = hValueStr.Substring(0, 80) + "...";
+                                                    
+                                                    if (hProp.Name.ToLower().Contains("scale") || 
+                                                        hProp.Name.ToLower().Contains("height") ||
+                                                        hProp.Name.ToLower().Contains("change") ||
+                                                        hProp.Name.ToLower().Contains("size"))
+                                                    {
+                                                        sb.AppendLine($"            ⭐⭐ {hProp.Name} ({hProp.PropertyType.Name}) = {hValueStr}");
+                                                    }
+                                                    else
+                                                    {
+                                                        sb.AppendLine($"            {hProp.Name} ({hProp.PropertyType.Name}) = {hValueStr}");
+                                                    }
+                                                }
+                                                catch (Exception ex3)
+                                                {
+                                                    sb.AppendLine($"            {hProp.Name} - Error: {ex3.Message}");
+                                                }
+                                            }
+                                        }
+                                    }
+                                    catch (Exception ex2)
+                                    {
+                                        sb.AppendLine($"        Error inspecting Human property: {ex2.Message}");
+                                    }
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                sb.AppendLine($"        {prop.Name} - Error: {ex.Message}");
+                            }
+                        }
+                        sb.AppendLine();
+                    }
+                }
+                sb.AppendLine();
+
+                // 2. 查找Transform的localScale
+                sb.AppendLine("--- Transform Scale Info ---");
+                sb.AppendLine($"  target.transform.localScale: {target.transform.localScale}");
+                sb.AppendLine($"  target.transform.lossyScale: {target.transform.lossyScale}");
+                sb.AppendLine();
+
+                // 3. 查找可能的身高骨骼
+                sb.AppendLine("--- Potential Height Bones (localScale.y != 1.0) ---");
+                var allTransforms = target.GetComponentsInChildren<Transform>(true);
+                int foundCount = 0;
+                foreach (var t in allTransforms)
+                {
+                    if (t.localScale.y != 1.0f)
+                    {
+                        sb.AppendLine($"  {t.name}: localScale = {t.localScale}, lossyScale = {t.lossyScale}");
+                        foundCount++;
+                        if (foundCount >= 20) // 限制输出数量
+                        {
+                            sb.AppendLine("  ... (more bones with non-1.0 scale.y)");
+                            break;
+                        }
+                    }
+                }
+                if (foundCount == 0)
+                {
+                    sb.AppendLine("  (No bones with non-1.0 localScale.y found)");
+                }
+                sb.AppendLine();
+
+                // 4. 尝试查找常见的骨骼名称
+                sb.AppendLine("--- Common Bone Names Check ---");
+                string[] commonBoneNames = { "cf_j_root", "cf_n_height", "cf_j_hips", "cf_j_hips", 
+                                             "cf_s_root", "cf_s_hips", "N_Height", "Root" };
+                foreach (var boneName in commonBoneNames)
+                {
+                    Transform bone = FindBoneInChildren(target.transform, boneName);
+                    if (bone != null)
+                    {
+                        sb.AppendLine($"  ✅ {boneName}: localScale = {bone.localScale}, lossyScale = {bone.lossyScale}");
+                    }
+                }
+                sb.AppendLine();
+
+                // 输出到控制台和文件
+                string output = sb.ToString();
+                Debug.Log(output);
+                
+                // 保存到文件
+                string filePath = Path.Combine(Application.persistentDataPath, "ChaControlScaleInfo.txt");
+                File.WriteAllText(filePath, output);
+                Debug.Log($"[Scale Debug] Info saved to: {filePath}");
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"[Scale Debug] Error: {ex.Message}\n{ex.StackTrace}");
+            }
+        }
+
+        [HideFromIl2Cpp]
+        private Transform FindBoneInChildren(Transform parent, string boneName)
+        {
+            if (parent.name == boneName) return parent;
+            foreach (Transform child in parent)
+            {
+                var found = FindBoneInChildren(child, boneName);
+                if (found != null) return found;
+            }
+            return null;
+        }
+
         // === F12 导出当前帧的虚拟骨骼 / 真实骨骼 / VMD 源数据到 TXT ===
         [HideFromIl2Cpp]
         private void DumpCurrentFrameSnapshot()
@@ -2491,7 +3288,7 @@ namespace CharaAnime
                 sb.AppendLine($"TargetObj : {targetObject?.name ?? "<null>"}");
                 sb.AppendLine($"DummyRoot : {(dummyRoot != null ? dummyRoot.transform.position.ToString("F4") : "<null>")}");
                 sb.AppendLine();
-                
+
                 // Groove Y轴数据和关键骨骼的父节点信息
                 VirtualBone vGroove = null;
                 if (dummyDict.TryGetValue("グルーブ", out vGroove) || dummyDict.TryGetValue("Groove", out vGroove))
@@ -2527,7 +3324,7 @@ namespace CharaAnime
                         sb.AppendLine($"  Virtual.WorldPos   : ({vWorldPos.x:F4}, {vWorldPos.y:F4}, {vWorldPos.z:F4})");
                         sb.AppendLine($"  Virtual.LocalEuler : ({vLocalEuler.x:F2}, {vLocalEuler.y:F2}, {vLocalEuler.z:F2})");
                         sb.AppendLine($"  Virtual.WorldEuler : ({vWorldEuler.x:F2}, {vWorldEuler.y:F2}, {vWorldEuler.z:F2})");
-                        
+
                         // 虚拟父节点信息
                         if (bone.transform.parent != null)
                         {
@@ -2552,15 +3349,15 @@ namespace CharaAnime
                         sb.AppendLine($"  Real.WorldPos  : ({rWorldPos.x:F4}, {rWorldPos.y:F4}, {rWorldPos.z:F4})");
                         sb.AppendLine($"  Real.LocalEuler: ({rLocalEuler.x:F2}, {rLocalEuler.y:F2}, {rLocalEuler.z:F2})");
                         sb.AppendLine($"  Real.WorldEuler: ({rWorldEuler.x:F2}, {rWorldEuler.y:F2}, {rWorldEuler.z:F2})");
-                        
+
                         // 真实父节点信息
                         if (bone.realTransform.parent != null)
                         {
                             sb.AppendLine($"  Real.Parent       : {bone.realTransform.parent.name}, World={bone.realTransform.parent.position.ToString("F4")}");
                         }
-                        
+
                         // 对于关键骨骼，添加Y轴差值分析
-                        if (bone.transform != null && (bone.name == "センター" || bone.name == "下半身" || 
+                        if (bone.transform != null && (bone.name == "センター" || bone.name == "下半身" ||
                             (bone.name.Contains("左足") && !bone.name.Contains("ひざ") && !bone.name.Contains("足首"))))
                         {
                             float yDiff = rWorldPos.y - bone.transform.position.y;
@@ -2640,4 +3437,4 @@ namespace CharaAnime
             return string.Join("/", names);
         }
     }
-    }
+}
