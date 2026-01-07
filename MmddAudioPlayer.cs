@@ -62,6 +62,8 @@ namespace CharaAnime
             source.Stop();
             isPaused = false;
 
+            Console.WriteLine($"[Audio] Manual Loading: {filePath}");
+
             try
             {
                 byte[] fileBytes = File.ReadAllBytes(filePath);
@@ -106,9 +108,12 @@ namespace CharaAnime
                 source.clip = clip;
                 source.time = 0f; // 确保从头开始
                 source.Play();
+
+                Console.WriteLine($"[Audio] SUCCESS! Length: {clip.length:F2}s");
             }
             catch (Exception e)
             {
+                Console.WriteLine($"[Audio] Manual Load Failed: {e.Message}");
             }
         }
 

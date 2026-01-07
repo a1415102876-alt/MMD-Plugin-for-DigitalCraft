@@ -124,11 +124,13 @@ namespace CharaAnime
                     // 按修改时间降序排序 (最新的在第一个)，取第一个
                     var newestFile = files.OrderByDescending(f => f.LastWriteTime).First();
 
+                    Console.WriteLine($"[MmddGui] Auto-loading latest preset: {newestFile.Name}");
                     LoadPreset(newestFile.FullName);
                 }
             }
             catch (Exception e)
             {
+                Console.WriteLine($"[MmddGui] Failed to auto-load preset: {e.Message}");
             }
         }
 
@@ -553,9 +555,7 @@ namespace CharaAnime
             GUILayout.BeginVertical(GUI.skin.box);
             GUILayout.Label("Root Motion ");
 
-            // ================= [修复 IL2CPP 兼容性开始] =================
-            // 原来的 GUILayout.Toolbar 在 IL2CPP 下容易报错，改用水平排列的 Toggle 模拟
-
+            // 使用水平排列的 Toggle 模拟工具栏（IL2CPP 兼容）
             GUILayout.BeginHorizontal();
 
             // 按钮 0: Std

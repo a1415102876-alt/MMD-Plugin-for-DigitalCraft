@@ -140,6 +140,7 @@ namespace CharaAnime
             }
             catch (Exception e)
             {
+                Console.WriteLine($"[CharaAnimeMgr Update Error]: {e}");
             }
         }
 
@@ -241,7 +242,6 @@ namespace CharaAnime
                 VmdReader.VmdData motionVmdData = GetOrLoadVmd(motionFileName, VMD_DIR, vmdDataCache);
                 if (motionVmdData == null) continue;
 
-                // 🟢 [修复核心] 增加 None 的判断，确保不传错文件
                 VmdReader.VmdData morphVmdData = null;
                 if (!string.IsNullOrEmpty(morphFileName) && morphFileName != "None")
                 {
@@ -270,6 +270,7 @@ namespace CharaAnime
                 }
             }
 
+            Console.WriteLine($"[CharaAnimeMgr] Playing! Applied unique motions to {count} characters.");
 
             VmdReader.VmdData cameraVmdData = null;
             if (MmddGui.SelectedCameraFile != MmddGui.SelectedMotionFile)
@@ -296,6 +297,7 @@ namespace CharaAnime
                 camCtrl.VmdFrameRate = MmddGui.Cfg_VmdFrameRate;
                 camCtrl.FollowTarget = (mainCharacter != null) ? mainCharacter.transform : null;
                 camCtrl.Play(cameraVmdData);
+                Console.WriteLine($"[Mmdd] Camera Applied. Target: {(mainCharacter != null ? mainCharacter.name : "None")}");
             }
 
             string globalWavPath = Path.Combine(VMD_DIR, MmddGui.SelectedAudioFile);
@@ -343,6 +345,7 @@ namespace CharaAnime
             pauseTime = 0f;
             masterTime = 0f;
             MaxFrame = 0f;
+            Console.WriteLine("[CharaAnimeMgr] Stopped and Reset.");
             if (camCtrl != null) camCtrl.RestoreControl();
         }
 

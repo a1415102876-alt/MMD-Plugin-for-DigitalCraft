@@ -8,9 +8,9 @@ namespace CharaAnime_IL2CPP
     [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
     public class Plugin : BasePlugin
     {
-        public const string PluginGUID = "com.yourname.charaanime";
-        public const string PluginName = "CharaAnime_IL2CPP";
-        public const string PluginVersion = "1.0.2";
+        public const string PluginGUID = "com.Sawadaz.Swdz_MMD_Plugin";
+        public const string PluginName = "Swdz_MMD_Plugin";
+        public const string PluginVersion = "1.2.0";
 
         public static Plugin Instance;
 
