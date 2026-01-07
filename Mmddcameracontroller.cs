@@ -62,7 +62,6 @@ namespace CharaAnime
             }
             catch (Exception e)
             {
-                Console.WriteLine($"[MmddCamera] Install exception: {e.Message}");
                 return null;
             }
         }
@@ -71,7 +70,6 @@ namespace CharaAnime
         {
             if (vmdData == null || vmdData.CameraFrames.Count == 0)
             {
-                Debug.LogWarning("[MmddCamera] No camera frames found.");
                 return;
             }
 

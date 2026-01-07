@@ -47,7 +47,6 @@ namespace CharaAnime
 
                     // 2. Bone Frames
                     int boneCount = br.ReadInt32();
-                    Console.WriteLine($"[VMD] Bone frames: {boneCount}");
 
                     // 【优化】指定 List 容量，避免多次扩容复制
                     data.BoneFrames = new List<VmdBoneFrame>(boneCount);
@@ -72,7 +71,6 @@ namespace CharaAnime
                     if (br.BaseStream.Position < br.BaseStream.Length)
                     {
                         int morphCount = br.ReadInt32();
-                        Console.WriteLine($"[VMD] Morph frames: {morphCount}");
                         // 【优化】指定容量
                         data.MorphFrames = new List<VmdMorphFrame>(morphCount);
 
@@ -90,7 +88,6 @@ namespace CharaAnime
                     if (br.BaseStream.Position < br.BaseStream.Length)
                     {
                         int camCount = br.ReadInt32();
-                        Console.WriteLine($"[VMD] Camera frames: {camCount}");
                         // 【优化】指定容量
                         data.CameraFrames = new List<VmdCameraFrame>(camCount);
 
@@ -146,7 +143,6 @@ namespace CharaAnime
                     if (br.BaseStream.Position < br.BaseStream.Length)
                     {
                         int ikCount = br.ReadInt32();
-                        Console.WriteLine($"[VMD] IK frames: {ikCount}");
                         // 【优化】指定容量
                         data.IkFrames = new List<VmdIkFrame>(ikCount);
 
@@ -167,14 +163,11 @@ namespace CharaAnime
                             data.IkFrames.Add(frame);
                         }
                     }
-
-                    Console.WriteLine($"[VMD] Parsed OK. Pos: {br.BaseStream.Position}/{br.BaseStream.Length}");
                 }
                 return data;
             }
             catch (Exception e)
             {
-                Console.WriteLine($"[VMD] Load Error: {e.Message}");
                 return data; // 返回已解析的部分数据
             }
         }

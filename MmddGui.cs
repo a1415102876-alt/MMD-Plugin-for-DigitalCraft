@@ -58,6 +58,7 @@ namespace CharaAnime
         private static bool Cfg_ScaleLocked = false;
         public static float Cfg_VmdFrameRate = 30.0f;
         public static Vector3 Cfg_IKHeight = Vector3.zero;
+        public static float Cfg_KneeBend = 0.009f;  // Center height adjustment for knee bending
         public static int Cfg_RootMotionMode = 1;
         public static int Cfg_UpperBodyMode = 0;
 
@@ -123,13 +124,11 @@ namespace CharaAnime
                     // 按修改时间降序排序 (最新的在第一个)，取第一个
                     var newestFile = files.OrderByDescending(f => f.LastWriteTime).First();
 
-                    Console.WriteLine($"[MmddGui] Auto-loading latest preset: {newestFile.Name}");
                     LoadPreset(newestFile.FullName);
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine($"[MmddGui] Failed to auto-load preset: {e.Message}");
             }
         }
 
@@ -204,6 +203,10 @@ namespace CharaAnime
             // 4. 同步全局 IK 高度 (Static)
             if (MmddPoseController.GlobalPositionOffset != Cfg_IKHeight) MmddPoseController.GlobalPositionOffset = Cfg_IKHeight;
             if (MmddPoseController.GlobalPositionOffset != Vector3.zero && Cfg_IKHeight == Vector3.zero) Cfg_IKHeight = MmddPoseController.GlobalPositionOffset;
+
+            // 同步 Knee Bend 参数
+            if (Math.Abs(MmddPoseController.GlobalKneeBend - Cfg_KneeBend) > 0.0001f)
+                MmddPoseController.GlobalKneeBend = Cfg_KneeBend;
 
             if (CharaAnimeMgr.Instance != null && CharaAnimeMgr.Instance.ociPoseCtrlDic != null)
             {
@@ -601,8 +604,17 @@ namespace CharaAnime
             GUILayout.BeginVertical("box");
             DrawPosRow("X (L/R)", ref Cfg_IKHeight.x, -2.0f, 2.0f);
             DrawPosRow("Y (Height)", ref Cfg_IKHeight.y, -1.0f, 1.0f);
+            GUILayout.Label("<color=#AAAAAA><size=9>* Affects both Center and IK (body and feet move together)</size></color>");
             DrawPosRow("Z (Fwd/Back)", ref Cfg_IKHeight.z, -2.0f, 2.0f);
             if (GUILayout.Button("Reset All Position", GUILayout.Height(20))) Cfg_IKHeight = Vector3.zero;
+            GUILayout.EndVertical();
+
+            GUILayout.Space(5);
+            GUILayout.Label(FormatTitle("Knee Bend Adjustment:"));
+            GUILayout.BeginVertical("box");
+            DrawPosRow("Knee Bend", ref Cfg_KneeBend, -0.5f, 0.5f);
+            GUILayout.Label("<color=#AAAAAA><size=9>* Adjusts Center height only (affects knee bending)</size></color>");
+            if (GUILayout.Button("Reset Knee Bend", GUILayout.Height(20))) Cfg_KneeBend = 0.009f;
             GUILayout.EndVertical();
 
             GUILayout.Space(5);

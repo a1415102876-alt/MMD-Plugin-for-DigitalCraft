@@ -22,7 +22,6 @@ namespace CharaAnime
         {
             if (!File.Exists(filePath))
             {
-                Console.WriteLine($"[VPD] File not found: {filePath}");
                 return null;
             }
 
@@ -35,7 +34,6 @@ namespace CharaAnime
             }
             catch (Exception e)
             {
-                Console.WriteLine($"[VPD] Warning: Failed to register encoding provider. {e.Message}");
             }
 
             Encoding enc;
@@ -45,7 +43,6 @@ namespace CharaAnime
             }
             catch
             {
-                Console.WriteLine("[VPD] Shift-JIS not supported, falling back to UTF-8.");
                 enc = Encoding.UTF8;
             }
 
@@ -53,7 +50,6 @@ namespace CharaAnime
 
             if (lines.Length == 0 || !lines[0].StartsWith("Vocaloid Pose Data"))
             {
-                Console.WriteLine("[VPD] Invalid header.");
                 return null;
             }
 
@@ -104,7 +100,6 @@ namespace CharaAnime
                 }
             }
 
-            Console.WriteLine($"[VPD] Loaded {data.Bones.Count} bones from {data.FileName}");
             return data;
         }
     }
