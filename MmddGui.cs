@@ -124,11 +124,13 @@ namespace CharaAnime
                     // 按修改时间降序排序 (最新的在第一个)，取第一个
                     var newestFile = files.OrderByDescending(f => f.LastWriteTime).First();
 
+                    Console.WriteLine($"[MmddGui] Auto-loading latest preset: {newestFile.Name}");
                     LoadPreset(newestFile.FullName);
                 }
             }
             catch (Exception e)
             {
+                Console.WriteLine($"[MmddGui] Failed to auto-load preset: {e.Message}");
             }
         }
 

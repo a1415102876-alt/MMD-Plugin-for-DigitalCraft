@@ -2,52 +2,48 @@
 
 namespace CharaAnime
 {
+    /// <summary>
+    /// MMD 摄像机控制器，负责播放 VMD 摄像机动画并应用到 Unity 摄像机
+    /// </summary>
     public class MmddCameraController : MonoBehaviour
     {
         public MmddCameraController(IntPtr ptr) : base(ptr)
         {
         }
 
-        // -------------------------------------------------------------------------
-        // 1. 配置与状态变量
-        // -------------------------------------------------------------------------
+        // =========================================================================
+        // 配置与状态
+        // =========================================================================
+        
         public float VmdFrameRate = 60.0f;
-
         public float OffsetY = 0.0f;
         public Transform FollowTarget;
-
-        /// 摄像机是否处于由脚本接管的播放状态
+        
+        /// <summary>摄像机是否处于播放状态</summary>
         public bool IsPlaying = false;
-
-
-        /// 是否使用外部管理器的时间（True）或内部自增时间（False）
-
+        
+        /// <summary>是否使用外部管理器的时间</summary>
         public bool UseExternalTime = true;
-
-        // 标记需强制刷新（配合 GUI 调整参数使用）
+        
+        /// <summary>标记需要强制刷新（GUI 参数调整时使用）</summary>
         public bool isOffsetDirty = false;
 
-        // 内部运行时数据
         private Camera targetCamera;
-
         private List<VmdReader.VmdCameraFrame> frames;
         private float currentTime = 0f;
         private int currentIndex = 0;
         private float maxTime = 0f;
-
-        // 被禁用的原生脚本缓存（用于停止播放时恢复）
         private List<MonoBehaviour> disabledNativeScripts = new List<MonoBehaviour>();
 
-        // 当前帧计算出的 MMD 原始参数缓存
+        // 当前帧插值结果缓存
         private Vector3 valPos = Vector3.zero;
-
         private Vector3 valRot = Vector3.zero;
         private float valDist = 0f;
         private float valFov = 45f;
 
-        // -------------------------------------------------------------------------
-        // 2. 生命周期与安装
-        // -------------------------------------------------------------------------
+        // =========================================================================
+        // 生命周期与安装
+        // =========================================================================
 
         public static MmddCameraController Install(GameObject container)
         {
@@ -62,6 +58,7 @@ namespace CharaAnime
             }
             catch (Exception e)
             {
+                Console.WriteLine($"[MmddCamera] Install exception: {e.Message}");
                 return null;
             }
         }
@@ -70,23 +67,20 @@ namespace CharaAnime
         {
             if (vmdData == null || vmdData.CameraFrames.Count == 0)
             {
+                Debug.LogWarning("[MmddCamera] No camera frames found.");
                 return;
             }
 
             disabledNativeScripts.Clear();
-
-            // 确保关键帧按时间顺序排列
             frames = vmdData.CameraFrames.OrderBy(f => f.FrameNo).ToList();
             maxTime = frames.Last().FrameNo;
 
             if (targetCamera == null) targetCamera = Camera.main;
 
-            // 初始化状态
             currentTime = 0f;
             currentIndex = 0;
             IsPlaying = true;
 
-            // 立即应用第一帧
             EvaluateAtTime(0f);
             ApplyToCamera();
         }
@@ -100,7 +94,6 @@ namespace CharaAnime
         {
             IsPlaying = false;
 
-            // 恢复被禁用的原生摄像机脚本
             if (disabledNativeScripts.Count > 0)
             {
                 foreach (var script in disabledNativeScripts)
@@ -111,7 +104,6 @@ namespace CharaAnime
             }
             else
             {
-                // 兜底恢复：尝试寻找常见的 CameraControl 脚本
                 if (targetCamera != null)
                 {
                     var camCtrl = targetCamera.GetComponent("CameraControl") as MonoBehaviour;
@@ -120,7 +112,7 @@ namespace CharaAnime
             }
         }
 
-        /// 手动设置时间（用于进度条拖动或外部同步）
+        /// <summary>手动设置播放时间（用于进度条拖动或外部同步）</summary>
         public void SetTime(float time)
         {
             if (frames == null || frames.Count == 0) return;
@@ -133,7 +125,6 @@ namespace CharaAnime
         {
             if (frames == null || targetCamera == null || !IsPlaying) return;
 
-            // 1. 响应强制刷新请求（如参数变动）
             if (isOffsetDirty)
             {
                 EvaluateAtTime(currentTime);
@@ -141,19 +132,15 @@ namespace CharaAnime
                 isOffsetDirty = false;
             }
 
-            // 2. 外部时间模式（由 Manager 控制进度）
             if (UseExternalTime)
             {
-                // 持续应用以覆盖原生脚本的 LateUpdate
                 ApplyToCamera();
                 return;
             }
 
-            // 3. 内部自增时间模式
             VmdFrameRate = MmddGui.Cfg_VmdFrameRate;
             currentTime += Time.deltaTime * VmdFrameRate;
 
-            // 循环处理
             if (currentTime > maxTime)
             {
                 currentTime %= maxTime;
@@ -164,22 +151,22 @@ namespace CharaAnime
             ApplyToCamera();
         }
 
-        // -------------------------------------------------------------------------
-        // 3.计算逻辑
-        // -------------------------------------------------------------------------
+        // =========================================================================
+        // 计算逻辑
+        // =========================================================================
 
-        /// 计算当前时间点的 VMD 参数（贝塞尔插值）
+        /// <summary>计算指定时间点的 VMD 参数（使用贝塞尔曲线插值）</summary>
         private void EvaluateAtTime(float time)
         {
             if (frames.Count == 0) return;
 
-            // 检测时间回溯（如进度条回拖），重置索引
+            // 检测时间回溯，重置索引
             if (currentIndex >= frames.Count || time < frames[currentIndex].FrameNo)
             {
                 currentIndex = 0;
             }
 
-            // 寻找当前时间所在的关键帧区间
+            // 定位当前时间所在的关键帧区间
             while (currentIndex < frames.Count - 1 && time >= frames[currentIndex + 1].FrameNo)
             {
                 currentIndex++;
@@ -188,13 +175,12 @@ namespace CharaAnime
             var prev = frames[currentIndex];
             var next = (currentIndex < frames.Count - 1) ? frames[currentIndex + 1] : prev;
 
-            // 计算时间进度 t (0~1)
             float t = 0f;
             float duration = next.FrameNo - prev.FrameNo;
             if (duration > 0.0001f) t = (time - prev.FrameNo) / duration;
             t = Mathf.Clamp01(t);
 
-            // 获取各属性的贝塞尔曲线插值比率
+            // 计算各属性的贝塞尔插值比率
             float t_x = GetBezierRate(prev.Curve, 0, t);
             float t_y = GetBezierRate(prev.Curve, 4, t);
             float t_z = GetBezierRate(prev.Curve, 8, t);
@@ -202,7 +188,7 @@ namespace CharaAnime
             float t_d = GetBezierRate(prev.Curve, 16, t);
             float t_f = GetBezierRate(prev.Curve, 20, t);
 
-            // 计算插值结果并缓存
+            // 位置插值
             valPos.x = Mathf.Lerp(prev.Position.x, next.Position.x, t_x);
             valPos.y = Mathf.Lerp(prev.Position.y, next.Position.y, t_y);
             valPos.z = Mathf.Lerp(prev.Position.z, next.Position.z, t_z);
@@ -216,7 +202,7 @@ namespace CharaAnime
             valFov = Mathf.Lerp(prev.Fov, next.Fov, t_f);
         }
 
-        /// 将计算好的 VMD 参数转换为 Unity 坐标并应用给摄像机
+        /// <summary>将 VMD 参数转换为 Unity 坐标系并应用到摄像机</summary>
         private void ApplyToCamera()
         {
             if (targetCamera == null)
@@ -231,37 +217,30 @@ namespace CharaAnime
             float finalDistanceVMD;
             float finalFovVMD;
 
-            // --- 处理 FOV 兼容模式 ---
+            // FOV 兼容模式处理
             if (MmddGui.Cfg_EnableFovMod)
             {
-                // Kimochi's FOV Mod 模式：利用 Distance 通道存储 FOV 数据
                 finalFovVMD = Mathf.Clamp(Mathf.Abs(valDist), 1f, 179f);
-                finalDistanceVMD = 0f; // 强制距离归零（贴脸模式）
+                finalDistanceVMD = 0f;
             }
             else
             {
-                // 标准模式
                 finalFovVMD = valFov;
-                // VMD 距离为负值，直接缩放保留负号，配合后续旋转实现后退
                 finalDistanceVMD = valDist * scale;
             }
 
-            // --- 坐标系转换
-            // 位置：X, Z 取反
+            // MMD 到 Unity 坐标系转换：X/Z 取反，Y 旋转 180 度
             Vector3 vmdOffset = new Vector3(-valPos.x, valPos.y, -valPos.z) * scale;
-            // 旋转：X, Z 取反，Y 取反并旋转 180 度以对齐相机后方
             Quaternion vmdRotation = Quaternion.Euler(-valRot.x, -valRot.y + 180f, -valRot.z);
 
             Vector3 finalPos;
             Quaternion finalRot;
 
-            // --- 实时跟随 FollowTarget ---
+            // 跟随目标模式
             if (FollowTarget != null)
             {
-                // 实时获取目标位置和朝向
                 Vector3 targetWorldPos = FollowTarget.position;
                 
-                // 计算 Y 轴朝向（只取水平旋转）
                 Vector3 forward = FollowTarget.forward;
                 forward.y = 0f;
                 Quaternion targetYaw = Quaternion.identity;
@@ -270,29 +249,21 @@ namespace CharaAnime
                     targetYaw = Quaternion.LookRotation(forward.normalized, Vector3.up);
                 }
 
-                // 1. 计算看向的目标点（基于目标位置 + VMD偏移）
                 Vector3 worldLookAtPoint = targetWorldPos + (targetYaw * vmdOffset);
-
-                // 2. 计算最终旋转 (目标朝向 + VMD Rotation)
                 finalRot = targetYaw * vmdRotation;
-
-                // 3. 应用距离，沿最终朝向后退
                 Vector3 distOffset = finalRot * new Vector3(0f, 0f, finalDistanceVMD);
-
                 finalPos = worldLookAtPoint + distOffset;
             }
             else
             {
-                // 无目标模式（绝对坐标）
                 finalRot = vmdRotation;
                 Vector3 distOffset = finalRot * new Vector3(0f, 0f, finalDistanceVMD);
                 finalPos = vmdOffset + distOffset;
             }
 
-            // 应用额外的高度偏移
             finalPos.y += currentOffsetY;
 
-            // --- 冲突脚本禁用逻辑 
+            // 禁用冲突的原生脚本（每 10 帧检查一次）
             if (Time.frameCount % 10 == 0)
             {
                 foreach (var comp in targetCamera.gameObject.GetComponents<MonoBehaviour>())
@@ -306,7 +277,6 @@ namespace CharaAnime
                     if (name.Contains("Mmdd")) continue;
                     if (disabledNativeScripts.Contains(comp)) continue;
 
-                    // 禁用常见的抢夺相机控制权的脚本
                     if (name.Contains("CameraControl") || name.Contains("LookAt") ||
                         name.Contains("Amplify") || name.Contains("Universal") ||
                         name.Contains("CameraStack") || name.Contains("Orbit"))
@@ -320,31 +290,28 @@ namespace CharaAnime
                 }
             }
 
-            // 应用最终变换
             targetCamera.transform.position = finalPos;
             targetCamera.transform.rotation = finalRot;
             targetCamera.fieldOfView = finalFovVMD;
         }
 
-        // -------------------------------------------------------------------------
-        // 4. 数学工具 (贝塞尔插值)
-        // -------------------------------------------------------------------------
+        // =========================================================================
+        // 数学工具
+        // =========================================================================
 
+        /// <summary>计算贝塞尔曲线插值比率（VMD 摄像机曲线格式：x1, x2, y1, y2）</summary>
         private float GetBezierRate(byte[] curve, int offset, float t)
         {
             if (curve == null || curve.Length < 24) return t;
             
-            // VMD 摄像机曲线的字节顺序是 (x1, x2, y1, y2)，不是 (x1, y1, x2, y2)！
-            // 这与骨骼曲线的格式不同
-            float p1x = curve[offset] / 127f;      // 第一个控制点 X
-            float p2x = curve[offset + 1] / 127f;  // 第二个控制点 X
-            float p1y = curve[offset + 2] / 127f;  // 第一个控制点 Y
-            float p2y = curve[offset + 3] / 127f;  // 第二个控制点 Y
+            float p1x = curve[offset] / 127f;
+            float p2x = curve[offset + 1] / 127f;
+            float p1y = curve[offset + 2] / 127f;
+            float p2y = curve[offset + 3] / 127f;
             
-            // 检查是否为线性插值（控制点在对角线上）
             if (p1x == p1y && p2x == p2y) return t;
 
-            // 牛顿迭代法求解 x(t) = time 对应的 t 值
+            // 牛顿迭代法求解
             float t_value = t;
             for (int i = 0; i < 8; i++)
             {
