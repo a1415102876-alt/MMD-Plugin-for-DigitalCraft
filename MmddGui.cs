@@ -95,6 +95,43 @@ namespace CharaAnime
             return container.AddComponent<MmddGui>();
         }
 
+        /// <summary>
+        /// 打开原生文件对话框（使用参考里的 SimpleFileBrowser），
+        /// 从任意位置选择文件，并复制到插件的 VMD 目录下。
+        /// 返回复制后的文件名（仅文件名，不含路径），失败返回 null。
+        /// </summary>
+        private static string ShowFilePickerAndImportToVmdDir(string title, string filter)
+        {
+            try
+            {
+                // SimpleFileBrowser 的 filter 采用 WinAPI 格式：
+                // "描述\0*.ext;*.ext2\0描述2\0*.*\0\0"
+                string initialDir = Directory.Exists(VMD_DIR) ? VMD_DIR : "";
+                string srcPath = SimpleFileBrowser.OpenFile(title, filter, initialDir);
+                if (string.IsNullOrEmpty(srcPath)) return null;
+
+                string fileName = Path.GetFileName(srcPath);
+
+                // 确保插件目录存在
+                if (!Directory.Exists(VMD_DIR)) Directory.CreateDirectory(VMD_DIR);
+
+                string dstPath = Path.Combine(VMD_DIR, fileName);
+
+                // 如果不是同一位置，就复制一份到插件目录；同名则覆盖
+                if (!string.Equals(srcPath, dstPath, StringComparison.OrdinalIgnoreCase))
+                {
+                    File.Copy(srcPath, dstPath, true);
+                }
+
+                return fileName;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"[MmddGui] File picker failed: {e}");
+                return null;
+            }
+        }
+
         private void Awake()
         {
             drawMainDelegate = (GUI.WindowFunction)(Action<int>)DrawMainWindow;
@@ -398,6 +435,24 @@ namespace CharaAnime
             GUILayout.Label(FormatTitle("Motion VMD"));
             string currentMotion = string.IsNullOrEmpty(selectedCharInGui) ? SelectedMotionFile : (CharaAnimeMgr.Instance != null && CharaAnimeMgr.Instance.CharacterVmdAssignments.TryGetValue(selectedCharInGui, out string mv) ? mv : "(Global)");
             GUILayout.Label($"Current: {currentMotion}");
+            // 通过系统资源管理器选择动作 VMD
+            if (GUILayout.Button("📂 Browse Motion (Explorer)..."))
+            {
+                // SimpleFileBrowser 过滤器格式，参考 VideoPlate 中的用法
+                string picked = ShowFilePickerAndImportToVmdDir(
+                    "Select Motion VMD",
+                    "VMD File\0*.vmd\0All Files\0*.*\0\0"
+                );
+                if (!string.IsNullOrEmpty(picked))
+                {
+                    if (string.IsNullOrEmpty(selectedCharInGui))
+                        SelectedMotionFile = picked;
+                    else if (CharaAnimeMgr.Instance != null)
+                        CharaAnimeMgr.Instance.CharacterVmdAssignments[selectedCharInGui] = picked;
+
+                    RefreshFileLists();
+                }
+            }
             if (!string.IsNullOrEmpty(selectedCharInGui) && CharaAnimeMgr.Instance != null) if (GUILayout.Button("Reset Motion to Global")) CharaAnimeMgr.Instance.CharacterVmdAssignments.Remove(selectedCharInGui);
 
             loadScrollPositionMotion = GUILayout.BeginScrollView(loadScrollPositionMotion, GUILayout.Height(100));
@@ -415,6 +470,23 @@ namespace CharaAnime
             GUILayout.Label(FormatTitle("Morph VMD"));
             string currentMorph = string.IsNullOrEmpty(selectedCharInGui) ? SelectedMorphFile : (CharaAnimeMgr.Instance != null && CharaAnimeMgr.Instance.CharacterMorphAssignments.TryGetValue(selectedCharInGui, out string mm) ? mm : "(Global)");
             GUILayout.Label($"Current: {currentMorph}");
+            // 通过系统资源管理器选择表情 VMD（放在列表上方，和 Motion 区域一致）
+            if (GUILayout.Button("📂 Browse Morph (Explorer)..."))
+            {
+                string pickedMorph = ShowFilePickerAndImportToVmdDir(
+                    "Select Morph VMD",
+                    "VMD File\0*.vmd\0All Files\0*.*\0\0"
+                );
+                if (!string.IsNullOrEmpty(pickedMorph))
+                {
+                    if (string.IsNullOrEmpty(selectedCharInGui))
+                        SelectedMorphFile = pickedMorph;
+                    else if (CharaAnimeMgr.Instance != null)
+                        CharaAnimeMgr.Instance.CharacterMorphAssignments[selectedCharInGui] = pickedMorph;
+
+                    RefreshFileLists();
+                }
+            }
             if (!string.IsNullOrEmpty(selectedCharInGui) && CharaAnimeMgr.Instance != null) if (GUILayout.Button("Reset Morph to Global")) CharaAnimeMgr.Instance.CharacterMorphAssignments.Remove(selectedCharInGui);
 
             loadScrollPositionMorph = GUILayout.BeginScrollView(loadScrollPositionMorph, GUILayout.Height(100));
@@ -435,10 +507,45 @@ namespace CharaAnime
             GUILayout.Space(5);
             GUILayout.Label("Global Camera & Audio:");
             GUILayout.BeginHorizontal();
-            GUILayout.BeginVertical("box", GUILayout.Width(200)); GUILayout.Label($"Cam: {SelectedCameraFile}"); loadScrollPositionCamera = GUILayout.BeginScrollView(loadScrollPositionCamera, GUILayout.Height(100)); foreach (var f in AvailableVmdFiles) { if (GUILayout.Button(f)) SelectedCameraFile = f; }
-            GUILayout.EndScrollView(); GUILayout.EndVertical();
-            GUILayout.BeginVertical("box", GUILayout.Width(200)); GUILayout.Label($"Audio: {SelectedAudioFile}"); loadScrollPositionAudio = GUILayout.BeginScrollView(loadScrollPositionAudio, GUILayout.Height(100)); foreach (var f in AvailableAudioFiles) { if (GUILayout.Button(f)) SelectedAudioFile = f; }
-            GUILayout.EndScrollView(); GUILayout.EndVertical();
+            // 摄像机 VMD
+            GUILayout.BeginVertical("box", GUILayout.Width(200));
+            GUILayout.Label($"Cam: {SelectedCameraFile}");
+            if (GUILayout.Button("📂 Browse Camera (Explorer)...", GUILayout.Height(25)))
+            {
+                string pickedCam = ShowFilePickerAndImportToVmdDir(
+                    "Select Camera VMD",
+                    "VMD File\0*.vmd\0All Files\0*.*\0\0"
+                );
+                if (!string.IsNullOrEmpty(pickedCam))
+                {
+                    SelectedCameraFile = pickedCam;
+                    RefreshFileLists();
+                }
+            }
+            loadScrollPositionCamera = GUILayout.BeginScrollView(loadScrollPositionCamera, GUILayout.Height(100));
+            foreach (var f in AvailableVmdFiles) { if (GUILayout.Button(f)) SelectedCameraFile = f; }
+            GUILayout.EndScrollView();
+            GUILayout.EndVertical();
+
+            // 音频
+            GUILayout.BeginVertical("box", GUILayout.Width(200));
+            GUILayout.Label($"Audio: {SelectedAudioFile}");
+            if (GUILayout.Button("📂 Browse Audio (Explorer)...", GUILayout.Height(25)))
+            {
+                string pickedAudio = ShowFilePickerAndImportToVmdDir(
+                    "Select Audio",
+                    "Audio\0*.wav;*.mp3\0All Files\0*.*\0\0"
+                );
+                if (!string.IsNullOrEmpty(pickedAudio))
+                {
+                    SelectedAudioFile = pickedAudio;
+                    RefreshFileLists();
+                }
+            }
+            loadScrollPositionAudio = GUILayout.BeginScrollView(loadScrollPositionAudio, GUILayout.Height(100));
+            foreach (var f in AvailableAudioFiles) { if (GUILayout.Button(f)) SelectedAudioFile = f; }
+            GUILayout.EndScrollView();
+            GUILayout.EndVertical();
             GUILayout.EndHorizontal();
 
             GUILayout.EndVertical(); 
