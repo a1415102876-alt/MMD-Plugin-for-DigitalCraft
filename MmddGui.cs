@@ -1,6 +1,7 @@
 ﻿using BepInEx;
 using ILLGAMES.ADV.Anime;
 using UnityEngine;
+using BepInEx.Unity.IL2CPP;
 
 namespace CharaAnime
 {
@@ -87,6 +88,17 @@ namespace CharaAnime
             "センター", "上半身", "首", "頭",
             "左目", "右目"
         };
+
+        private bool _hasMasterPlugin = false;
+
+        void Start()
+        {
+            // 🟢 [修复] 使用 IL2CPPChainloader
+            if (IL2CPPChainloader.Instance.Plugins.ContainsKey("org.dc.pluginmanager"))
+            {
+                _hasMasterPlugin = true;
+            }
+        }
 
         private bool[] presetSelections;
 
@@ -200,8 +212,15 @@ namespace CharaAnime
 
         public void Update()
         {
+            if (!_hasMasterPlugin)
+            {
+                if (Input.GetKeyDown(KeyCode.F8))
+                {
+                    ToggleUI(); // 调用上面定义好的方法
+                }
+            }
             // 1. F8 切换窗口
-            if (Input.GetKeyDown(KeyCode.F8))
+            /*if (Input.GetKeyDown(KeyCode.F8))
             {
                 showMain = !showMain;
                 if (showMain)
@@ -212,7 +231,7 @@ namespace CharaAnime
                     RefreshFileLists();
                 }
             }
-
+            */
             // 2. 快捷键
             if (Cfg_EnableShortcuts && CharaAnimeMgr.Instance != null)
             {
@@ -282,7 +301,21 @@ namespace CharaAnime
                 }
             }
         }
+        public void ToggleUI()
+        {
+            showMain = !showMain;
+            if (showMain)
+            {
+                var anyCtrl = UnityEngine.Object.FindObjectOfType<MmddPoseController>();
+                SyncSelections(anyCtrl);
+                RefreshPresetList();
+                RefreshFileLists();
 
+                // 鼠标解锁
+                UnityEngine.Cursor.visible = true;
+                UnityEngine.Cursor.lockState = CursorLockMode.None;
+            }
+        }
         private void OnGUI()
         {
             if (!showMain) return;
@@ -927,6 +960,7 @@ namespace CharaAnime
             if (GUILayout.Button("R", GUILayout.Width(25))) val = 0;
             GUILayout.EndHorizontal();
         }
+
 
         private string FormatTitle(string text) => $"<b><color=#FFFF00>{text}</color></b>";
     }

@@ -245,13 +245,23 @@ namespace CharaAnime
             { "e",  new[] { "kuti_f00_vo_e", "tooth.f00_def_op", "f00_def_op" } },
             { "お", new[] { "kuti_f00_vo_o", "tooth.f00_def_op", "f00_def_op" } },
             { "o",  new[] { "kuti_f00_vo_o", "tooth.f00_def_op", "f00_def_op" } },
-            { "まばたき", new[] { "face.eye_f00_def_cl", "eyelash.eye_f00_def_cl", "eyelid.eye_f00_def_cl" } },
-            { "blink",    new[] { "face.eye_f00_def_cl", "eyelash.eye_f00_def_cl", "eyelid.eye_f00_def_cl" } },
-            { "笑い", new[] { "face.kuti_f00_egao_cl", "face.eye_f00_egao_cl", "eyelash.eye_f00_egao_cl", "eyelid.eye_f00_egao_cl", "tooth.f00_def_cl" } },
-            { "smile", new[] { "face.kuti_f00_egao_cl", "face.eye_f00_egao_cl", "eyelash.eye_f00_egao_cl", "eyelid.eye_f00_egao_cl", "tooth.f00_def_cl" } },
-            { "困る", new[] { "mayuge.f00_komari", "f00_komari" } },
-            { "怒り", new[] { "mayuge.f00_ikari", "f00_ikari" } },
-            { "真剣", new[] { "kuti_f00_sinken" } }
+            { "まばたき", new[] { "face.eye_f00_def_cl", "eyelid.eye_f00_def_cl" } },
+            { "blink",    new[] { "face.eye_f00_def_cl", "eyelid.eye_f00_def_cl" } },
+            { "ウィンク",  new[] { "eye_f00_winkL", "winkL" } },
+            { "wink",      new[] { "eye_f00_winkL", "winkL" } },
+            { "wink_l",    new[] { "eye_f00_winkL", "winkL" } },
+
+            { "ウィンク右", new[] { "eye_f00_winkR", "winkR" } },
+            { "wink_r",     new[] { "eye_f00_winkR", "winkR" } },
+            { "ウィンク2",  new[] { "eye_f00_winkR", "winkR" } },
+            { "笑い",  new[] { "face.kuti_f00_egao", "eye_f00_egao_cl", "egao_cl" } },
+            { "smile", new[] { "face.kuti_f00_egao", "eye_f00_egao_cl", "egao_cl" } },
+            { "怒り",      new[] { "eye_f00_ikari", "mayuge.f00_ikari" } },
+            { "困る",      new[] { "eye_f00_sabisi", "mayuge.f00_komari" } },
+            { "じと目",    new[] { "eye_f00_human", "f00_human" } },
+            { "jitome",    new[] { "eye_f00_human", "f00_human" } },
+            { "真剣",      new[] { "eye_f00_gimon", "kuti_f00_sinken" } },
+            { "はぅ",      new[] { "eye_f00_gag", "f00_gag" } },
         };
 
         private static readonly Dictionary<string, string> MmdToUnityMap = new Dictionary<string, string>
@@ -961,6 +971,22 @@ namespace CharaAnime
 
                         if (matched)
                         {
+                            // 如果当前的 MMD 对应键是元音 (aiueo)，或者是“笑”(smile)，强制禁止匹配眼睛相关的 Mesh
+                            // 防止像 "i" (包含 f00_def_cl) 错误地匹配到眼睛闭合 (face.eye_f00_def_cl)
+                            string key = mapEntry.Key;
+                            bool isVowelOrMouth = key == "あ" || key == "い" || key == "う" || key == "え" || key == "お" ||
+                                                  key == "a" || key == "i" || key == "u" || key == "e" || key == "o";
+
+                            if (isVowelOrMouth)
+                            {
+                                string sLower = shapeName.ToLower();
+                                // 如果名字里包含 eye (眼睛), eyelid (眼皮), blink (眨眼)，直接跳过
+                                if (sLower.Contains("eye") || sLower.Contains("eyelid") || sLower.Contains("blink"))
+                                {
+                                    continue;
+                                }
+                            }
+
                             if (isFaceMesh)
                             {
                                 bool isGenericOpen = shapeName.Contains("kuwae") || shapeName.Contains("def_op");
