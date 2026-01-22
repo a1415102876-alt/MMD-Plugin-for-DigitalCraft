@@ -34,18 +34,12 @@ namespace CharaAnime
         private Dictionary<string, float> ankleHeightOffsets = new Dictionary<string, float>();
         private float centerHeightOffset = 0f; // Center骨骼的高度补偿，用于补偿不同身高角色的高度差异
 
-        // 🐛 Debug: IK调试标志（按F11开启/关闭）
         public bool DebugIK = false;
 
-        // 🔧 Center高度调整参数（用于调试和微调）
-        // 如果center偏高，可以尝试调整这个值来修正initialH
         public float CenterHeightAdjustment = 0f;
 
-        // 🔧 Knee Bend调整参数（从UI同步，仅影响Center，用于调整膝盖弯曲度）
         public static float GlobalKneeBend = 0f;
 
-        // 🔧 是否加上初始位置（用于测试）
-        // 如果center归零，设置为true；如果center偏高，设置为false
         public bool AddInitialHeightToCenter = true;
         private Transform cachedRealHips = null;
         /// <summary>
@@ -245,22 +239,21 @@ namespace CharaAnime
             { "e",  new[] { "kuti_f00_vo_e", "tooth.f00_def_op", "f00_def_op" } },
             { "お", new[] { "kuti_f00_vo_o", "tooth.f00_def_op", "f00_def_op" } },
             { "o",  new[] { "kuti_f00_vo_o", "tooth.f00_def_op", "f00_def_op" } },
-            { "まばたき", new[] { "face.eye_f00_def_cl", "eyelid.eye_f00_def_cl" } },
-            { "blink",    new[] { "face.eye_f00_def_cl", "eyelid.eye_f00_def_cl" } },
+{ "まばたき", new[] { "eye_f00_def_cl" } },
+            { "blink",    new[] { "eye_f00_def_cl" } },
             { "ウィンク",  new[] { "eye_f00_winkL", "winkL" } },
             { "wink",      new[] { "eye_f00_winkL", "winkL" } },
             { "wink_l",    new[] { "eye_f00_winkL", "winkL" } },
-
             { "ウィンク右", new[] { "eye_f00_winkR", "winkR" } },
             { "wink_r",     new[] { "eye_f00_winkR", "winkR" } },
             { "ウィンク2",  new[] { "eye_f00_winkR", "winkR" } },
-            { "笑い",  new[] { "face.kuti_f00_egao", "eye_f00_egao_cl", "egao_cl" } },
-            { "smile", new[] { "face.kuti_f00_egao", "eye_f00_egao_cl", "egao_cl" } },
+            { "笑い",  new[] { "face.kuti_f00_egao_cl", "eye_f00_egao_cl", "egao_cl" } },
+            { "smile", new[] { "face.kuti_f00_egao_cl", "eye_f00_egao_cl", "egao_cl" } },
             { "怒り",      new[] { "eye_f00_ikari", "mayuge.f00_ikari" } },
             { "困る",      new[] { "eye_f00_sabisi", "mayuge.f00_komari" } },
             { "じと目",    new[] { "eye_f00_human", "f00_human" } },
             { "jitome",    new[] { "eye_f00_human", "f00_human" } },
-            { "真剣",      new[] { "eye_f00_gimon", "kuti_f00_sinken" } },
+            { "真剣",      new[] { "eye_f00_doya", "eye_f00_gimon", "kuti_f00_sinken" } },
             { "はぅ",      new[] { "eye_f00_gag", "f00_gag" } },
         };
 
@@ -443,6 +436,8 @@ namespace CharaAnime
         private List<IKChain> ikChains = new List<IKChain>();
         private Dictionary<string, List<VmdReader.VmdBoneFrame>> twistBoneFrames = new Dictionary<string, List<VmdReader.VmdBoneFrame>>();
         private Dictionary<string, float> centerInitialHeights = new Dictionary<string, float>();
+        // 用于限制旋转方向警告的日志频率（每个骨骼只警告一次）
+        private HashSet<string> warnedBonesForRotation = new HashSet<string>();
 
         /// <summary>
         /// Twist Disperse 配置：定义捩骨旋转如何分散到目标骨骼
@@ -499,14 +494,8 @@ namespace CharaAnime
         private bool loop = true;
         private bool useExternalTime = false;
 
-        /// <summary>
-        /// 调试用途 / 外部访问：当前驱动的目标角色对象。
-        /// </summary>
         public GameObject TargetObject => targetObject;
 
-        /// <summary>
-        /// 调试用途：公开 IK 链列表给可视化/调试组件使用。
-        /// </summary>
         public List<IKChain> DebugIkChains => ikChains;
 
         public Vector3 positionScale = new Vector3(0.085f, 0.085f, 0.085f);
@@ -629,18 +618,18 @@ namespace CharaAnime
                 {
                     if (chain.isIkEnabledInVmd)
                     {
-                        chain.solver.Solve();
-                        // IK 解算后同步脚踝旋转和位置到 IK 目标（仅在 IK 启用时）
-                        if (chain.name.Contains("足") || chain.name.Contains("Leg") || chain.name.Contains("Foot"))
+                        if (chain.solver.useLeg && chain.solver.chains.Length >= 2)
                         {
-                            if (chain.endEffector != null && chain.target != null)
-                            {
-                                // 将虚拟骨骼脚踝的旋转设置为IK目标的旋转
-                                chain.endEffector.transform.rotation = chain.target.transform.rotation;
-                                // 同步脚踝位置到 IK 目标，确保 Y 坐标正确对齐地面
-                                chain.endEffector.transform.position = chain.target.transform.position;
-                            }
+                            // 🔴 修改点：索引从 0 改为 1
+                            // chains[0] 通常是小腿，chains[1] 才是大腿
+                            var thighBone = chain.solver.chains[1];
+                            chain.solver.bendNormal = thighBone.right;
                         }
+                        // 🔴 执行解算
+                        // 这里会发生两件事：
+                        // 1. Leg Chain: 移动脚踝到 Foot IK 位置
+                        // 2. Toe Chain: 旋转脚踝，使脚尖指向 Toe IK 位置
+                        chain.solver.Solve();
                     }
                 }
             }
@@ -651,37 +640,40 @@ namespace CharaAnime
             // 11. 将虚拟骨骼映射回真实骨骼
             ApplyToRealBones();
 
-            // 确保真实骨骼脚踝旋转与虚拟骨骼一致（IK 解算后）
+            // 🔴 修正：确保真实脚踝旋转完全同步虚拟脚踝
+            // IK 解算后，虚拟脚踝的旋转已经是正确的了（指向了Toe IK），直接应用给真实骨骼即可
             foreach (var chain in ikChains)
             {
-                // 只针对腿部 IK，且IK已启用
-                if (chain.active && chain.isIkEnabledInVmd && (chain.name.Contains("足") || chain.name.Contains("Leg")))
+                // 针对 "脚尖 IK" 的链条 (EndEffector是脚尖，Link是脚踝)
+                if (chain.active && chain.isIkEnabledInVmd && (chain.name.Contains("つま先") || chain.name.Contains("Toe")))
                 {
-                    // 只有当 IK 目标和真实脚踝都存在时
-                    if (chain.target != null && chain.endEffector != null && chain.endEffector.realTransform != null)
-                    {
-                        // 使用虚拟骨骼脚踝的旋转（已经在IK解算后更新为IK目标的旋转）
-                        chain.endEffector.realTransform.rotation = chain.endEffector.transform.rotation;
-                    }
+                     // 这里的 chain.solver.chains[0] 就是脚踝 (Ankle)
+                     if (chain.solver != null && chain.solver.chains != null && chain.solver.chains.Length > 0)
+                     {
+                         var virtualAnkle = chain.solver.chains[0];
+                         // 找到对应的真实脚踝
+                         if (virtualAnkle != null && dummyDict.TryGetValue(virtualAnkle.name, out var vBone) && vBone.realTransform != null)
+                         {
+                             // 直接同步旋转
+                             vBone.realTransform.rotation = vBone.transform.rotation;
+                         }
+                     }
                 }
             }
             // 12. 表情更新 (Morphs)
             if (activeMorphs.Count > 0) ApplyMorphAnimation(currentTime);
 
-            // F11 切换IK调试模式
             if (Input.GetKeyDown(KeyCode.F11))
             {
                 DebugIK = !DebugIK;
                 Debug.Log($"[IK Debug] {(DebugIK ? "开启" : "关闭")} IK调试模式");
             }
 
-            // F12 一键导出当前帧骨骼与 VMD 数据快照
             if (Input.GetKeyDown(KeyCode.F12))
             {
                 DumpCurrentFrameSnapshot();
             }
             
-            // IK调试：输出IK求解器状态
             if (DebugIK)
             {
                 DebugIKStatus();
@@ -1325,22 +1317,6 @@ namespace CharaAnime
             // 4. VMD 数据分组
             var vmdGrouped = vmdData.BoneFrames.GroupBy(f => f.Name).ToDictionary(g => g.Key, g => g.ToList());
 
-            // 🔍 [调试] 检查VMD数据中是否包含"全ての親"相关的键
-            Debug.Log($"[Mmdd] VMD数据分组完成，共{vmdGrouped.Count}个骨骼");
-            var allParentKeys = vmdGrouped.Keys.Where(k => k.Contains("全て") || k.Contains("All") || k.Contains("親")).ToList();
-            if (allParentKeys.Count > 0)
-            {
-                Debug.Log($"[Mmdd] 找到可能的'全ての親'相关键: {string.Join(", ", allParentKeys)}");
-                foreach (var key in allParentKeys)
-                {
-                    Debug.Log($"[Mmdd]   - {key}: {vmdGrouped[key].Count}帧");
-                }
-            }
-            else
-            {
-                Debug.Log($"[Mmdd] ⚠️ 未找到'全ての親'相关的VMD数据");
-            }
-
             // 5. 确保核心 IK 骨骼存在
             string[] essentialIK = { "左足ＩＫ", "右足ＩＫ", "左つま先ＩＫ", "右つま先ＩＫ" };
             foreach (var ikName in essentialIK)
@@ -1444,24 +1420,6 @@ namespace CharaAnime
 
                 dummyDict[mmdName] = vBone;
                 activeBones.Add(vBone);
-
-                // 🔍 [调试] 记录"全ての親"的创建情况
-                if (mmdName == "全ての親" || mmdName == "AllParents")
-                {
-                    Debug.Log($"[Mmdd] ✅ 创建了'{mmdName}' VirtualBone, frames.Count={frames.Count}, realTransform={(vBone.realTransform != null ? vBone.realTransform.name : "null")}");
-                }
-            }
-
-            // 🔍 [调试] 检查dummyDict中是否包含"全ての親"
-            var allParentInDict = dummyDict.Keys.Where(k => k == "全ての親" || k == "AllParents").ToList();
-            if (allParentInDict.Count > 0)
-            {
-                Debug.Log($"[Mmdd] ✅ dummyDict中包含'全ての親': {string.Join(", ", allParentInDict)}");
-            }
-            else
-            {
-                Debug.Log($"[Mmdd] ⚠️ dummyDict中不包含'全ての親'");
-                Debug.Log($"[Mmdd] dummyDict中的所有键: {string.Join(", ", dummyDict.Keys.Take(20))}...");
             }
 
             // 7. 创建"腰キャンセル"
@@ -1494,20 +1452,9 @@ namespace CharaAnime
             VirtualBone allParentVb = null;
             bool foundAllParent = dummyDict.TryGetValue("全ての親", out allParentVb);
             
-            // 🔍 [调试] 记录查找"全ての親"的结果
-            if (foundAllParent && allParentVb != null)
+            if (!foundAllParent && dummyDict.TryGetValue("AllParents", out var allParentsVb))
             {
-                Debug.Log($"[Mmdd] ✅ 找到'全ての親' VirtualBone: {allParentVb.name}, frames.Count={allParentVb.frames.Count}");
-            }
-            else
-            {
-                Debug.Log($"[Mmdd] ⚠️ 未找到'全ての親' VirtualBone (foundAllParent={foundAllParent}, allParentVb={allParentVb})");
-                // 尝试查找其他可能的名称
-                if (dummyDict.TryGetValue("AllParents", out var allParentsVb))
-                {
-                    Debug.Log($"[Mmdd]   但找到了'AllParents': {allParentsVb.name}");
-                    allParentVb = allParentsVb;
-                }
+                allParentVb = allParentsVb;
             }
 
             foreach (var kvp in dummyDict)
@@ -1570,38 +1517,54 @@ namespace CharaAnime
                 // --- [B] 处理 IK 骨骼 ---
                 if (isFootIKRelated)
                 {
-                    if ((child.name.Contains("足IK親") || child.name.Contains("足ＩＫ親")) && allParentVb != null)
+                    // 🔴 新增/修改：强制将 "つま先ＩＫ" (Toe IK) 挂在 "足ＩＫ" (Foot IK) 下面
+                    // 这样 Foot IK 的旋转会带动 Toe IK 的位置变化
+                    if (child.name.Contains("つま先ＩＫ") || child.name.Contains("つま先IK"))
+                    {
+                        string footIkName = child.name.Contains("左") ? "左足ＩＫ" : "右足ＩＫ";
+                        // 尝试找半角或全角的 Foot IK
+                        if (!dummyDict.TryGetValue(footIkName, out parent))
+                        {
+                            footIkName = child.name.Contains("左") ? "左足IK" : "右足IK";
+                            dummyDict.TryGetValue(footIkName, out parent);
+                        }
+
+                        if (parent != null)
+                        {
+                            child.transform.SetParent(parent.transform, false);
+                        }
+                        else
+                        {
+                            child.transform.SetParent(dummyRoot.transform, false);
+                        }
+                    }
+                    else if ((child.name.Contains("足IK親") || child.name.Contains("足ＩＫ親")) && allParentVb != null)
                     {
                         parent = allParentVb;
                         child.transform.SetParent(allParentVb.transform, false);
-                        // 🔍 [调试] 记录足IK亲的父级设置
-                        Debug.Log($"[Mmdd] ✅ 设置'{child.name}'的父级为'全ての親' ({allParentVb.name})");
-                    }
-                    else if ((child.name.Contains("足IK親") || child.name.Contains("足ＩＫ親")) && allParentVb == null)
-                    {
-                        // 🔍 [调试] 记录足IK亲父级设置失败的原因
-                        Debug.Log($"[Mmdd] ⚠️ '{child.name}'无法设置父级为'全ての親'，因为allParentVb为null");
                     }
                     else if (MmdHierarchy.TryGetValue(child.name, out string ikParentName) &&
                              dummyDict.TryGetValue(ikParentName, out parent))
                     {
                         child.transform.SetParent(parent.transform, false);
-                        // 🔍 [调试] 记录通过MmdHierarchy设置的父级
-                        Debug.Log($"[Mmdd] ✅ 通过MmdHierarchy设置'{child.name}'的父级为'{ikParentName}' ({parent.name})");
                     }
                     else if (allParentVb != null)
                     {
                         parent = allParentVb;
                         child.transform.SetParent(allParentVb.transform, false);
-                        // 🔍 [调试] 记录兜底设置父级为"全ての親"
-                        Debug.Log($"[Mmdd] ✅ 兜底设置'{child.name}'的父级为'全ての親' ({allParentVb.name})");
                     }
                     else
                     {
                         child.transform.SetParent(dummyRoot.transform, false);
-                        // 🔍 [调试] 记录最终兜底设置为dummyRoot
-                        Debug.Log($"[Mmdd] ⚠️ 最终兜底设置'{child.name}'的父级为dummyRoot (allParentVb为null)");
                     }
+                }
+                else if (child.name == "左つま先" && dummyDict.TryGetValue("左足首", out parent))
+                {
+                    child.transform.SetParent(parent.transform, false);
+                }
+                else if (child.name == "右つま先" && dummyDict.TryGetValue("右足首", out parent))
+                {
+                    child.transform.SetParent(parent.transform, false);
                 }
                 // --- [C] 通用 FK 骨骼 ---
                 else if (MmdHierarchy.TryGetValue(child.name, out string parentName2) &&
@@ -1651,17 +1614,9 @@ namespace CharaAnime
                     {
                         if (ankleBone != null)
                         {
-                            // 🔍 [调试] 记录设置位置前的父级
-                            Transform parentBefore = child.transform.parent;
                             Vector3 worldPos = ankleBone.position;
                             worldPos.y = groundHeight;
                             child.transform.position = worldPos;
-                            // 🔍 [调试] 记录设置位置后的父级
-                            Transform parentAfter = child.transform.parent;
-                            if (parentBefore != parentAfter)
-                            {
-                                Debug.Log($"[Mmdd] ⚠️ '{child.name}'设置位置后父级改变: {parentBefore?.name ?? "null"} -> {parentAfter?.name ?? "null"}");
-                            }
                             positionSet = true;
                         }
                     }
@@ -1700,6 +1655,11 @@ namespace CharaAnime
 
             // 10. 插入腰キャンセル骨骼（必须在设置层级关系之后，但在插入其他辅助骨骼之前）
             InsertWaistCancelBones();
+
+            // 10.5. 创建虚拟脚尖骨骼（如果VMD数据中没有，但需要用于同步到脚尖IK）
+            // 在vmdlib中，即使VMD数据中没有"左つま先"的数据，也会创建一个虚拟的"左つま先"骨骼
+            // 这个虚拟骨骼用于同步到"左つま先ＩＫ"的位置，从而控制整个脚的朝向
+            CreateVirtualToeBones(realBoneMap);
 
             // 11. 创建虚拟捩骨（必须在设置层级关系之后）
             CreateTwistBones();
@@ -2053,6 +2013,82 @@ namespace CharaAnime
         }
 
         /// <summary>
+        /// 创建虚拟脚尖骨骼（如果VMD数据中没有，但需要用于同步到脚尖IK）
+        /// 在vmdlib中，即使VMD数据中没有"左つま先"的数据，也会创建一个虚拟的"左つま先"骨骼
+        /// 这个虚拟骨骼用于同步到"左つま先ＩＫ"的位置，从而控制整个脚的朝向
+        /// </summary>
+        private void CreateVirtualToeBones(Dictionary<string, Transform> realBoneMap)
+        {
+            string[] toeNames = { "左つま先", "右つま先" };
+            string[] toeIKNames = { "左つま先ＩＫ", "右つま先ＩＫ" };
+            string[] ankleNames = { "左足首", "右足首" };
+            string[] realToeNames = { "cf_j_toes_L", "cf_j_toes_R" };
+            
+            for (int i = 0; i < toeNames.Length; i++)
+            {
+                string toeName = toeNames[i];
+                string toeIKName = toeIKNames[i];
+                string ankleName = ankleNames[i];
+                string realToeName = realToeNames[i];
+                
+                // 如果"左つま先"不存在，但"左つま先ＩＫ"存在，则创建虚拟的"左つま先"骨骼
+                if (!dummyDict.ContainsKey(toeName) && dummyDict.ContainsKey(toeIKName))
+                {
+                    // 获取脚踝骨骼
+                    if (dummyDict.TryGetValue(ankleName, out var ankleBone))
+                    {
+                        // 创建虚拟脚尖骨骼
+                        GameObject goToe = new GameObject(toeName);
+                        VirtualBone vToe = new VirtualBone
+                        {
+                            gameObject = goToe,
+                            transform = goToe.transform,
+                            name = toeName,
+                            flags = BoneFlag.None,
+                            frames = new List<VmdReader.VmdBoneFrame>(),
+                            currentIndex = 0,
+                            solverLocalRotation = Quaternion.identity
+                        };
+                        
+                        // 尝试从真实骨骼获取位置
+                        if (realBoneMap.TryGetValue(realToeName, out Transform realToe))
+                        {
+                            vToe.realTransform = realToe;
+                            vToe.bindOffset = realToe.localRotation;
+                            vToe.bindPos = realToe.localPosition;
+                            
+                            // 设置初始位置：相对于脚踝的局部位置
+                            if (ankleBone.realTransform != null)
+                            {
+                                Vector3 localPos = ankleBone.realTransform.InverseTransformPoint(realToe.position);
+                                vToe.transform.localPosition = localPos;
+                            }
+                            else
+                            {
+                                Vector3 localPos = ankleBone.transform.InverseTransformPoint(realToe.position);
+                                vToe.transform.localPosition = localPos;
+                            }
+                        }
+                        else
+                        {
+                            // 如果没有真实骨骼，使用默认位置（脚踝前方）
+                            vToe.transform.localPosition = new Vector3(0f, 0f, 0.1f);
+                        }
+                        
+                        // 设置为脚踝的子骨骼
+                        vToe.transform.SetParent(ankleBone.transform, false);
+                        vToe.transform.localRotation = Quaternion.identity;
+                        vToe.solverLocalPosition = vToe.transform.localPosition;
+                        vToe.solverLocalRotation = vToe.transform.localRotation;
+                        
+                        dummyDict[toeName] = vToe;
+                        activeBones.Add(vToe);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// 为单脚创建脚底 End / 脚尖 End 虚拟骨。
         /// </summary>
         private void InsertSingleFootEndBones(string footName, string toeName, string soleEndName, string toeEndName)
@@ -2327,15 +2363,25 @@ namespace CharaAnime
         private void BuildIKChains()
         {
             ikChains.Clear();
-            // 腿 IK：使用脚首作为末端，但 Solver 内部会考虑脚底 End 作为几何末端（InsertFootEndBones 提供）
+            // 1. 腿部主 IK (Leg IK)
+            // 目标：足IK (Foot IK)
+            // 末端：脚踝 (Ankle)
+            // 关节：膝盖、大腿
+            // 作用：移动脚踝位置
             AddIKChain("左足ＩＫ", "左足首", new[] { "左ひざ", "左足" }, true);
             AddIKChain("右足ＩＫ", "右足首", new[] { "右ひざ", "右足" }, true);
 
-            // ⚠️ 脚尖 IK（IK_TOE）：目前旋转不稳定，暂时禁用，先保证主腿 IK 行为正确
-            // 如后续需要，可只针对脚尖单骨做一维旋转 IK，再重新启用
-            //AddIKChain("左つま先ＩＫ", "左つま先End", new[] { "左つま先", "左足首" }, false);
-            //AddIKChain("右つま先ＩＫ", "右つま先End", new[] { "右つま先", "右足首" }, false);
+            // 2. 🔴 脚尖 IK (Toe IK) - 重新启用并修正
+            // 目标：つま先IK (Toe IK) -- 它的位置已经由 Foot IK 的旋转决定了
+            // 末端：つま先 (Toe) -- 我们希望脚尖碰到目标
+            // 关节：足首 (Ankle) -- ⚠️ 关键！通过旋转脚踝，让脚尖对齐目标
+            // 作用：调整脚踝旋转 (Pitch/Bank)
+            
+            // 注意：这里的 linkNames 只填 "左足首"，意味着 IK 只会旋转脚踝来达成目标
+            AddIKChain("左つま先ＩＫ", "左つま先", new[] { "左足首" }, false); 
+            AddIKChain("右つま先ＩＫ", "右つま先", new[] { "右足首" }, false);
 
+            // 手臂 IK (保持不变)
             AddIKChain("左手ＩＫ", "左手首", new[] { "左ひじ", "左腕" }, false);
             AddIKChain("右手ＩＫ", "右手首", new[] { "右ひじ", "右腕" }, false);
         }
@@ -2344,12 +2390,15 @@ namespace CharaAnime
         {
             if (!dummyDict.ContainsKey(targetName) || !dummyDict.ContainsKey(effectorName)) return;
 
+            // 判断是否是脚尖 IK
+            bool isToeIK = targetName.Contains("つま先") || targetName.Contains("Toe");
+            
             IKChain chain = new IKChain
             {
                 name = targetName,
                 target = dummyDict[targetName],
                 endEffector = dummyDict[effectorName],
-                iteration = isLeg ? 20 : 10 // 手臂不需要太多迭代
+                iteration = isLeg ? 20 : (isToeIK ? 15 : 10) // 腿部20次，脚尖15次，手臂10次
             };
 
             List<Transform> solverChains = new List<Transform>();
@@ -2380,7 +2429,6 @@ namespace CharaAnime
             // IK Bone 指向 Target 本身
             chain.solver.ikBone = chain.target.transform;
 
-            // --- [改进] 计算腿 IK 的默认弯曲平面和几何参数（参考 vmdlib.py） ---
             if (isLeg && solverChains.Count >= 2)
             {
                 Transform knee = solverChains[0];
@@ -2404,17 +2452,12 @@ namespace CharaAnime
                 // 左右腿需要一致的弯曲方向：默认让膝盖朝前弯
                 chain.solver.bendNormal = bendNormal.normalized;
 
-                // 🟢 [改进] 初始化腿部几何参数（计算 baseInvQ 等）
-                // ⚠️ 注意：这里不调用InitializeLegGeometry，因为此时骨骼可能已经有旋转了
-                // InitializeLegGeometry会在Play()方法中统一调用，并且会重置到T-pose状态
             }
         }
 
 
         private void UpdateVirtualSkeleton(float time)
         {
-            // 调试标记
-            bool shouldDebug = (time < 5f && Time.frameCount % 30 == 0);
             if (dummyRoot != null)
             {
                 // 定义所有可能的 IK 亲骨骼名称
@@ -2491,6 +2534,18 @@ namespace CharaAnime
 
                 Quaternion rotA = new Quaternion(-ax, finalAY, isRightFinger ? az : -az, aw);
                 Quaternion rotB = new Quaternion(-bx, finalBY, isRightFinger ? bz : -bz, bw);
+                
+                float dot = Quaternion.Dot(rotA, rotB);
+                if (dot < 0f)
+                {
+                    if ((bone.name.Contains("足ＩＫ") || bone.name.Contains("足IK")) && !warnedBonesForRotation.Contains(bone.name))
+                    {
+                        Debug.LogWarning($"[Mmdd] 检测到脚部IK旋转方向问题并已修复: {bone.name}, Dot={dot:F4}, Prev=({ax:F4},{ay:F4},{az:F4},{aw:F4}), Next=({bx:F4},{by:F4},{bz:F4},{bw:F4})");
+                        warnedBonesForRotation.Add(bone.name);
+                    }
+                    rotB = new Quaternion(-rotB.x, -rotB.y, -rotB.z, -rotB.w);
+                }
+                
                 Quaternion mmdRot = Quaternion.Slerp(rotA, rotB, tr);
 
                 if (BoneSettings.TryGetValue(bone.name, out BoneAdjustment adj))
@@ -2502,6 +2557,13 @@ namespace CharaAnime
                 }
 
                 bone.transform.localRotation = mmdRot;
+                if (bone.name.Contains("つま先ＩＫ") || bone.name.Contains("つま先IK") || bone.name.Contains("Toe IK"))
+                {
+                    bone.transform.localPosition = bone.solverLocalPosition;
+                    // 直接跳过后续所有位置计算（包括 VMD 插值、高度修正、全局 Offset 等）
+                    // 因为这些对于作为子物体的 Toe IK 来说往往是干扰
+                    continue;
+                }
 
                 // 4. 处理位置 (Position)
                 bool isIKOrCenter = (bone.flags & (BoneFlag.IsIK | BoneFlag.IsCenter)) != 0;
@@ -2557,7 +2619,6 @@ namespace CharaAnime
                         finalPos.x += GlobalPositionOffset.x;
                         finalPos.z += GlobalPositionOffset.z;
 
-                        // 🔧 检查IK是否启用（在isCenter和isIK分支都需要使用）
                         bool isIKEnabled = !ForceDisableIK && !isDirtyIKData &&
                                          ikChains.Any(chain => chain.active && chain.isIkEnabledInVmd);
 
@@ -3012,13 +3073,10 @@ namespace CharaAnime
             return null;
         }
 
-        /// <summary>
-        /// IK调试：输出IK求解器的状态，定位IK未生效的原因
-        /// </summary>
         [HideFromIl2Cpp]
         private void DebugIKStatus()
         {
-            if (Time.frameCount % 30 != 0) return; // 每30帧输出一次，避免刷屏
+            if (Time.frameCount % 30 != 0) return;
 
                 var sb = new StringBuilder();
             sb.AppendLine("=== IK Debug Status ===");
@@ -3029,7 +3087,7 @@ namespace CharaAnime
                 if (chain == null) continue;
                 
                 bool isLeg = chain.name.Contains("足") || chain.name.Contains("Leg") || chain.name.Contains("Foot");
-                if (!isLeg) continue; // 只调试腿部IK
+                if (!isLeg) continue;
 
                 sb.AppendLine($"\n--- {chain.name} ---");
                 sb.AppendLine($"  Active: {chain.active}");
@@ -3159,7 +3217,6 @@ namespace CharaAnime
                 string dir = Path.Combine(Application.persistentDataPath, "MmddFrameDump");
                 Directory.CreateDirectory(dir);
 
-                // 🔧 [改进] 文件名包含角色名称，支持多角色同时生成快照
                 string charaName = targetObject != null ? targetObject.name : "Unknown";
                 // 清理文件名中的非法字符
                 charaName = string.Join("_", charaName.Split(Path.GetInvalidFileNameChars()));
@@ -3216,23 +3273,6 @@ namespace CharaAnime
                         if (bone.transform.parent != null)
                         {
                             sb.AppendLine($"  Virtual.Parent     : {bone.transform.parent.name}, World={bone.transform.parent.position.ToString("F4")}");
-                            
-                            // 🔍 [调试] 对于足IK亲，记录父级信息和"全ての親"的状态
-                            if (bone.name.Contains("足IK親") || bone.name.Contains("足ＩＫ親"))
-                            {
-                                var allParent = dummyDict.ContainsKey("全ての親") ? dummyDict["全ての親"] : null;
-                                Debug.Log($"[Mmdd] 📸 快照时'{bone.name}'的父级: {bone.transform.parent.name}, WorldPos={bone.transform.parent.position}");
-                                Debug.Log($"[Mmdd] 📸   - 期望父级'全ての親'是否存在: {allParent != null}, 位置: {(allParent != null ? allParent.transform.position.ToString("F4") : "N/A")}");
-                                Debug.Log($"[Mmdd] 📸   - 当前父级是否为期望: {bone.transform.parent.name == "全ての親"}");
-                            }
-                        }
-                        else
-                        {
-                            // 🔍 [调试] 对于足IK亲，如果父级为null，记录警告
-                            if (bone.name.Contains("足IK親") || bone.name.Contains("足ＩＫ親"))
-                            {
-                                Debug.Log($"[Mmdd] ⚠️ 快照时'{bone.name}'的父级为null!");
-                            }
                         }
                     }
                     else
@@ -3312,7 +3352,6 @@ namespace CharaAnime
                         sb.AppendLine($"  VMD.Next.RotQ  : ({nRot.x:F5}, {nRot.y:F5}, {nRot.z:F5}, {nRot.w:F5})");
                     }
                     
-                    // IK调试信息（对于腿部骨骼）
                     if (bone.name.Contains("ひざ") || bone.name.Contains("膝"))
                     {
                         foreach (var chain in ikChains)
@@ -3355,7 +3394,69 @@ namespace CharaAnime
 
                     sb.AppendLine();
                 }
+                sb.AppendLine();
+                sb.AppendLine("=== Morph (Expression) Snapshot ===");
 
+                if (activeMorphs != null && activeMorphs.Count > 0)
+                {
+                    // 按 MMD 原始名称分组，方便查看同一个表情触发了哪些 BlendShape
+                    var morphsGrouped = activeMorphs.GroupBy(m => m.mmdName);
+
+                    foreach (var group in morphsGrouped)
+                    {
+                        string mmdKey = group.Key;
+                        sb.AppendLine($"[MMD Key] {mmdKey}");
+
+                        foreach (var morph in group)
+                        {
+                            if (morph.renderer == null) continue;
+
+                            string bsName = "<unknown>";
+                            try
+                            {
+                                if (morph.renderer.sharedMesh != null)
+                                    bsName = morph.renderer.sharedMesh.GetBlendShapeName(morph.index);
+                            }
+                            catch { }
+
+                            // 获取当前 Unity 中实际生效的权重
+                            float actualWeight = morph.renderer.GetBlendShapeWeight(morph.index);
+
+                            sb.AppendLine($"  Target Mesh   : {morph.renderer.name}");
+                            sb.AppendLine($"  BlendShape    : {bsName} (Index: {morph.index})");
+                            sb.AppendLine($"  Calculated(VMD): {morph.calculatedWeight:F2}"); // 代码计算出的理论值
+                            sb.AppendLine($"  Actual(Unity)  : {actualWeight:F2}");           // 最终渲染的实际值
+
+                            // 检查是否有叠加异常（理论值和实际值差异巨大，说明有其他 Key 也在控制这个 BlendShape）
+                            if (Mathf.Abs(morph.calculatedWeight - actualWeight) > 0.1f)
+                            {
+                                sb.AppendLine($"  ⚠️ WARNING: 权重不一致！可能被其他 Key 叠加影响");
+                            }
+
+                            List<string> flags = new List<string>();
+                            if (morph.isSmileRelated) flags.Add("SmileRelated");
+                            if (morph.isBlinkRelated) flags.Add("BlinkRelated");
+                            if (flags.Count > 0) sb.AppendLine($"  Flags          : {string.Join(", ", flags)}");
+
+                            // VMD 数据源信息
+                            if (morph.frames != null && morph.frames.Count > 0)
+                            {
+                                int i = morph.currentIndex;
+                                if (i < morph.frames.Count)
+                                {
+                                    var prev = morph.frames[i];
+                                    var next = (i < morph.frames.Count - 1) ? morph.frames[i + 1] : prev;
+                                    sb.AppendLine($"  VMD Frame      : Prev={prev.FrameNo}({prev.Weight:F2}), Next={next.FrameNo}({next.Weight:F2})");
+                                }
+                            }
+                            sb.AppendLine();
+                        }
+                    }
+                }
+                else
+                {
+                    sb.AppendLine("No active morphs found.");
+                }
                 File.WriteAllText(path, sb.ToString());
             }
             catch (Exception ex)

@@ -233,6 +233,9 @@ namespace CharaAnime
 
                 string motionFileName = CharacterVmdAssignments.ContainsKey(go.name) ? CharacterVmdAssignments[go.name] : MmddGui.SelectedMotionFile;
 
+                // 如果Motion是None，跳过这个角色
+                if (motionFileName == "None") continue;
+
                 string morphFileName = "";
                 if (CharacterMorphAssignments.ContainsKey(go.name))
                     morphFileName = CharacterMorphAssignments[go.name];
@@ -273,16 +276,21 @@ namespace CharaAnime
             Console.WriteLine($"[CharaAnimeMgr] Playing! Applied unique motions to {count} characters.");
 
             VmdReader.VmdData cameraVmdData = null;
-            if (MmddGui.SelectedCameraFile != MmddGui.SelectedMotionFile)
+            // 如果Camera不是None，尝试加载Camera文件
+            if (MmddGui.SelectedCameraFile != "None")
             {
-                cameraVmdData = GetOrLoadVmd(MmddGui.SelectedCameraFile, VMD_DIR, vmdDataCache);
-                cachedCameraVmdData = cameraVmdData;
-            }
+                if (MmddGui.SelectedCameraFile != MmddGui.SelectedMotionFile)
+                {
+                    cameraVmdData = GetOrLoadVmd(MmddGui.SelectedCameraFile, VMD_DIR, vmdDataCache);
+                    cachedCameraVmdData = cameraVmdData;
+                }
 
-            if (cameraVmdData == null)
-            {
-                cameraVmdData = GetOrLoadVmd(MmddGui.SelectedMotionFile, VMD_DIR, vmdDataCache);
-                cachedCameraVmdData = cameraVmdData;
+                // 如果Camera文件加载失败，且Motion不是None，尝试使用Motion文件中的Camera数据
+                if (cameraVmdData == null && MmddGui.SelectedMotionFile != "None")
+                {
+                    cameraVmdData = GetOrLoadVmd(MmddGui.SelectedMotionFile, VMD_DIR, vmdDataCache);
+                    cachedCameraVmdData = cameraVmdData;
+                }
             }
 
             if (cameraVmdData != null && cameraVmdData.CameraFrames.Count > 0)
@@ -301,7 +309,7 @@ namespace CharaAnime
             }
 
             string globalWavPath = Path.Combine(VMD_DIR, MmddGui.SelectedAudioFile);
-            if (File.Exists(globalWavPath))
+            if (MmddGui.SelectedAudioFile != "None" && !string.IsNullOrEmpty(MmddGui.SelectedAudioFile) && File.Exists(globalWavPath))
             {
                 if (audioPlayer == null) audioPlayer = MmddAudioPlayer.Install(gameObject);
                 audioPlayer.Play(globalWavPath);
@@ -314,7 +322,7 @@ namespace CharaAnime
 
         private VmdReader.VmdData GetOrLoadVmd(string fileName, string vmdDir, Dictionary<string, VmdReader.VmdData> cache)
         {
-            if (string.IsNullOrEmpty(fileName) || fileName == "No VMDs Found") return null;
+            if (string.IsNullOrEmpty(fileName) || fileName == "No VMDs Found" || fileName == "None") return null;
             if (cache.TryGetValue(fileName, out var data)) return data;
 
             string path = Path.Combine(vmdDir, fileName);

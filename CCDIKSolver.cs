@@ -15,6 +15,7 @@ namespace CharaAnime
         public bool useLeg = false;
         public float minKneeRot = 5f; // 原始代码默认是 5f，不是 0.5f
 
+
         /// <summary>
         /// 全局 IK 位置权重（0~1），对应 FinalIK 的 IKPositionWeight。
         /// </summary>
@@ -136,111 +137,89 @@ namespace CharaAnime
             if (chains == null || chains.Length == 0) return;
             if (target == null || endEffector == null) return;
 
-            float globalW = Mathf.Clamp01(IKPositionWeight);
-            if (globalW <= 0f) return;
-
-            EnsureBoneWeights();
-
-            // 1. 平滑处理
-            if (lastFrameQ == null || lastFrameQ.Length != chains.Length)
-            {
-                lastFrameQ = new Quaternion[chains.Length];
-                for (int i = 0; i < chains.Length; i++) lastFrameQ[i] = chains[i].localRotation;
-            }
-            if (lastFrameWeight > 0)
-            {
-                for (int i = 0; i < chains.Length; i++)
-                    chains[i].localRotation = Quaternion.Slerp(chains[i].localRotation, lastFrameQ[i], lastFrameWeight);
-            }
-
-            // 🟢 [改进] 如果是腿部且几何参数未初始化，先初始化
-            if (useLeg && chains.Length >= 2 && legSum == 0f)
-            {
-                InitializeLegGeometry();
-            }
-
-            // 2. CCD 解算（3D 模式，参考 FinalIK 的 IKSolverCCD）
-            float sqrMinDelta = minDelta * minDelta;
-            Vector3 targetPos = target.position;
-
-            // 🟢 [腿部专用策略] 如果是腿，使用几何解算（参考 vmdlib.py 的 MMDIKSolverLeg）
+            // ----------------------------------------------------------------------
+            // 策略：vmdlib.py 风格混合解算 (Analytic Knee + Aiming Thigh)
+            // ----------------------------------------------------------------------
             if (useLeg && chains.Length == 2)
             {
-                Transform thigh = chains[1];
-                Transform knee = chains[0];
+                // 1. 初始化变量
+                // 注意：这里需要你原本类里的 legSqrSum 变量，如果没有初始化逻辑，
+                // 请确保 Start() 或 InitializeLegGeometry() 被调用过
+                if (legMul2 == 0f) InitializeLegGeometry();
 
-                // 1. 准备数据
-                // 确保几何参数已初始化
-                if (legSqrSum <= 0f) InitializeLegGeometry();
+                Transform thigh = chains[1]; // 大腿
+                Transform knee = chains[0];  // 小腿
 
-                // ⚠️ 修正：直接使用外部定义的 targetPos，不要重新声明
-                // Vector3 targetPos = target.position; <--- 删除这行
-
+                Vector3 targetPos = target.position;
                 Vector3 thighPos = thigh.position;
-                Vector3 distVec = targetPos - thighPos;
-                float dist = distVec.magnitude;
+                float dist = Vector3.Distance(targetPos, thighPos);
 
-                // 2. 第一步：计算并设置膝盖角度 (Knee Angle)
-                // 使用余弦定理: c^2 = a^2 + b^2 - 2ab * cos(C)
-                float cosAngle = (legSqrSum - dist * dist) / legMul2;
+                // 2. 处理膝盖 (Knee) - 解析法
+                // -----------------------------------------------------------
+                // 能够着就弯，够不着就直
+                float maxReach = Mathf.Sqrt(legSqrSum + legMul2);
+                if (dist < maxReach)
+                {
+                    // 在射程内：使用余弦定理计算精确角度
+                    float cosAngle = (legSqrSum - dist * dist) / legMul2;
+                    cosAngle = Mathf.Clamp(cosAngle, -1.0f, 1.0f);
 
-                // 限制 cos 范围并计算角度 (0度=伸直，180度=折叠)
-                float kneeAngle = 180.0f - Mathf.Acos(Mathf.Clamp(cosAngle, -1f, 1f)) * Mathf.Rad2Deg;
+                    // 计算角度 (180度 - 算出的内角)
+                    float kneeAngle = 180.0f - Mathf.Acos(cosAngle) * Mathf.Rad2Deg;
 
-                // 限制膝盖角度 (0.1f ~ 175f)
-                kneeAngle = Mathf.Clamp(kneeAngle, 0.1f, 175f);
+                    // 限制角度 (使用你原本定义的变量 minKneeRot)
+                    kneeAngle = Mathf.Clamp(kneeAngle, minKneeRot, 175f);
 
-                // 设置膝盖旋转 (局部 X 轴为旋转轴)
-                if (baseInvQ.HasValue)
-                    knee.localRotation = Quaternion.Euler(kneeAngle, 0, 0) * baseInvQ.Value;
+                    // 应用旋转
+                    if (baseInvQ.HasValue)
+                        knee.localRotation = Quaternion.Euler(kneeAngle, 0, 0) * baseInvQ.Value;
+                    else
+                        knee.localRotation = Quaternion.Euler(kneeAngle, 0, 0);
+                }
                 else
-                    knee.localRotation = Quaternion.Euler(kneeAngle, 0, 0);
-
-                // 3. 第二步：设置大腿朝向 (Thigh Swing)
-                // 膝盖弯曲后，计算新的"大腿->脚踝"向量
-                Vector3 currentEffectorPos = endEffector.position;
-                Vector3 currentDir = (currentEffectorPos - thighPos).normalized;
-                Vector3 targetDir = distVec.normalized; // 大腿->目标
-
-                // 将大腿直接旋转，使脚踝对准目标
-                if (currentDir.sqrMagnitude > 1e-6f && targetDir.sqrMagnitude > 1e-6f)
                 {
-                    Quaternion swing = Quaternion.FromToRotation(currentDir, targetDir);
-                    thigh.rotation = swing * thigh.rotation;
+                    // [关键] 射程外（过伸）：直接锁定为直腿
+                    float straightAngle = minKneeRot;
+
+                    if (baseInvQ.HasValue)
+                        knee.localRotation = Quaternion.Euler(straightAngle, 0, 0) * baseInvQ.Value;
+                    else
+                        knee.localRotation = Quaternion.Euler(straightAngle, 0, 0);
                 }
 
-                // 4. 第三步：处理膝盖朝向 (Pole Vector / Twist)
-
-                Vector3 kneePos = knee.position;
-                // 当前的腿部平面法线
-                Vector3 currentPlaneNormal = Vector3.Cross(targetDir, (kneePos - thighPos).normalized);
-
-                // 期望的平面法线 (使用父节点的前方作为参考，避免转身时膝盖扭曲)
-                Transform rootT = thigh.parent;
-                Vector3 hintForward = (rootT != null) ? rootT.forward : Vector3.forward;
-
-                // 计算目标法线
-                Vector3 targetPlaneNormal = Vector3.Cross(targetDir, hintForward);
-
-                // 如果腿踢到了正前方(平行)，导致法线为0，改用右方作为参考
-                if (targetPlaneNormal.sqrMagnitude < 0.001f)
+                // 3. 处理大腿 (Thigh) - 指向法 (Aiming)
+                // -----------------------------------------------------------
+                // 简单迭代 2 次，把脚对准目标
+                for (int i = 0; i < 2; i++)
                 {
-                    Vector3 hintRight = (rootT != null) ? rootT.right : Vector3.right;
-                    targetPlaneNormal = Vector3.Cross(targetDir, hintRight);
+                    Vector3 currentEffectorPos = endEffector.position;
+                    Vector3 toEffector = currentEffectorPos - thighPos;
+                    Vector3 toTarget = targetPos - thighPos;
+
+                    // 避免除零
+                    if (toEffector.sqrMagnitude < 1e-4f || toTarget.sqrMagnitude < 1e-4f) break;
+
+                    // 计算旋转差
+                    Quaternion rot = Quaternion.FromToRotation(toEffector, toTarget);
+
+                    // 应用旋转到大腿
+                    thigh.rotation = rot * thigh.rotation;
                 }
 
-                // 应用扭转 (Twist)
-                if (currentPlaneNormal.sqrMagnitude > 0.001f && targetPlaneNormal.sqrMagnitude > 0.001f)
+                StoreLastQ();
+            }
+            else
+            {
+                // 非腿部 IK (手臂等)，保留原有的 CCD 逻辑
+                // 🔴 修正点：使用 'iterations' 而不是 'max_iterations'
+                for (int i = 0; i < iterations; i++)
                 {
-                    Quaternion twist = Quaternion.FromToRotation(currentPlaneNormal, targetPlaneNormal);
-                    thigh.rotation = twist * thigh.rotation;
+                    Iterate(i); // 这里调用下面补充的 Iterate 方法
                 }
-
-                // 🔴 纯几何解算结束，不进行 CCD 迭代
                 StoreLastQ();
             }
         }
-        
+
         // 🟢 [原始代码] StoreLastQ 方法
         private void StoreLastQ()
         {
@@ -260,13 +239,7 @@ namespace CharaAnime
             string name = bone.name;
             Vector3 euler = bone.localEulerAngles;
 
-            if (name.Contains("足首") || name.Contains("foot"))
-            {
-                // 🟢 [原始代码] 脚踝：Z 轴设为 0
-                euler.z = 0f;
-                bone.localRotation = Quaternion.Euler(euler);
-            }
-            else if (name.Contains("ひざ") || name.Contains("knee") || name.Contains("lowleg"))
+            if (name.Contains("ひざ") || name.Contains("knee") || name.Contains("lowleg"))
             {
                 // 🟢 [原始代码] 膝盖：使用 adjust_rot 确保 Y/Z 一致性，X 限制在 minKneeRot 到 170f
                 bool flag3 = AdjustRot(euler.y) == AdjustRot(euler.z);
@@ -293,7 +266,31 @@ namespace CharaAnime
                 bone.localRotation = Quaternion.Euler(euler);
             }
         }
-        
+        public void Iterate(int iteration)
+        {
+            // 标准 CCD 算法实现
+            for (int i = 0; i < chains.Length; i++)
+            {
+                // 跳过末端效应器本身，因为它不需要旋转自己去够目标
+                if (chains[i] == endEffector) continue;
+
+                Transform bone = chains[i];
+                Vector3 toEnd = endEffector.position - bone.position;
+                Vector3 toTarget = target.position - bone.position;
+
+                // 仅当两者都有长度时才计算
+                if (toEnd.sqrMagnitude > minDelta && toTarget.sqrMagnitude > minDelta)
+                {
+                    // 计算旋转：从“指向末端”转到“指向目标”
+                    Quaternion r = Quaternion.FromToRotation(toEnd, toTarget);
+                    bone.rotation = r * bone.rotation;
+
+                    // 这里可以添加关节限制逻辑(Limits)如果原本有的话...
+                    // 但对于通用 CCD，这样是最基础的
+                }
+            }
+        }
+
         // 🟢 [原始代码] adjust_rot 方法：确保 Y/Z 轴的一致性
         private int AdjustRot(float n)
         {

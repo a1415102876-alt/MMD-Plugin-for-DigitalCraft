@@ -10,7 +10,7 @@ namespace CharaAnime_IL2CPP
     {
         public const string PluginGUID = "com.Sawadaz.Swdz_MMD_Plugin";
         public const string PluginName = "Swdz_MMD_Plugin";
-        public const string PluginVersion = "1.2.0";
+        public const string PluginVersion = "1.1.3";
 
         public static Plugin Instance;
 

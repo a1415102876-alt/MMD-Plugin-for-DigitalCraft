@@ -17,9 +17,9 @@ namespace CharaAnime
         public static List<string> AvailableVmdFiles = new List<string>();
         public static List<string> AvailableAudioFiles = new List<string>();
         public static bool Cfg_ForceDisableIK = false;
-        public static string SelectedMotionFile = "test.vmd";
-        public static string SelectedCameraFile = "camera.vmd";
-        public static string SelectedAudioFile = "audio.wav";
+        public static string SelectedMotionFile = "None";
+        public static string SelectedCameraFile = "None";
+        public static string SelectedAudioFile = "None";
 
         public static string SelectedMorphFile = "None";
 
@@ -489,6 +489,9 @@ namespace CharaAnime
             if (!string.IsNullOrEmpty(selectedCharInGui) && CharaAnimeMgr.Instance != null) if (GUILayout.Button("Reset Motion to Global")) CharaAnimeMgr.Instance.CharacterVmdAssignments.Remove(selectedCharInGui);
 
             loadScrollPositionMotion = GUILayout.BeginScrollView(loadScrollPositionMotion, GUILayout.Height(100));
+            GUI.backgroundColor = (currentMotion == "None" || (string.IsNullOrEmpty(selectedCharInGui) && SelectedMotionFile == "None")) ? Color.red : Color.white;
+            if (GUILayout.Button("None (No Motion)")) { if (string.IsNullOrEmpty(selectedCharInGui)) SelectedMotionFile = "None"; else if (CharaAnimeMgr.Instance != null) CharaAnimeMgr.Instance.CharacterVmdAssignments[selectedCharInGui] = "None"; }
+            GUI.backgroundColor = Color.white;
             for (int i = 0; i < AvailableVmdFiles.Count; i++)
             {
                 string f = AvailableVmdFiles[i];
@@ -556,7 +559,16 @@ namespace CharaAnime
                 }
             }
             loadScrollPositionCamera = GUILayout.BeginScrollView(loadScrollPositionCamera, GUILayout.Height(100));
-            foreach (var f in AvailableVmdFiles) { if (GUILayout.Button(f)) SelectedCameraFile = f; }
+            GUI.backgroundColor = (SelectedCameraFile == "None") ? Color.red : Color.white;
+            if (GUILayout.Button("None (No Camera)")) { SelectedCameraFile = "None"; }
+            GUI.backgroundColor = Color.white;
+            foreach (var f in AvailableVmdFiles) 
+            { 
+                bool h = (SelectedCameraFile == f);
+                GUI.backgroundColor = h ? Color.cyan : Color.white;
+                if (GUILayout.Button(f)) SelectedCameraFile = f;
+            }
+            GUI.backgroundColor = Color.white;
             GUILayout.EndScrollView();
             GUILayout.EndVertical();
 
@@ -576,7 +588,16 @@ namespace CharaAnime
                 }
             }
             loadScrollPositionAudio = GUILayout.BeginScrollView(loadScrollPositionAudio, GUILayout.Height(100));
-            foreach (var f in AvailableAudioFiles) { if (GUILayout.Button(f)) SelectedAudioFile = f; }
+            GUI.backgroundColor = (SelectedAudioFile == "None") ? Color.red : Color.white;
+            if (GUILayout.Button("None (No Audio)")) { SelectedAudioFile = "None"; }
+            GUI.backgroundColor = Color.white;
+            foreach (var f in AvailableAudioFiles) 
+            { 
+                bool h = (SelectedAudioFile == f);
+                GUI.backgroundColor = h ? Color.cyan : Color.white;
+                if (GUILayout.Button(f)) SelectedAudioFile = f;
+            }
+            GUI.backgroundColor = Color.white;
             GUILayout.EndScrollView();
             GUILayout.EndVertical();
             GUILayout.EndHorizontal();
@@ -624,7 +645,6 @@ namespace CharaAnime
             // 2. 重置按钮 (R)
             if (GUILayout.Button("R", GUILayout.Width(25)))
             {
-                // 一键恢复到最佳测试值
                 Cfg_PosScale = new Vector3(0.085f, 0.085f, 0.085f);
                 if (controller != null) controller.positionScale = Cfg_PosScale;
             }
